@@ -127,13 +127,13 @@ typedef enum {
     // start send request with type
     switch (pType) {
         case asynchronous:
-            // star asynchronous request
+            // start asynchronous request
             [_request startAsynchronous];
             break;
             
         case synchronous:
         default:
-            // star synchronous request
+            // start synchronous request
             [_request startSynchronous];
             break;
     }
