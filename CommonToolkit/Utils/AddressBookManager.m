@@ -12,6 +12,8 @@
 #import "NSBundle+Extension.h"
 #import "CommonUtils.h"
 
+#import "ContactBean_Extension.h"
+
 // static singleton AddressBookManager reference
 static AddressBookManager *singletonAddressBookManagerRef;
 
@@ -37,8 +39,6 @@ static AddressBookManager *singletonAddressBookManagerRef;
 
 @implementation AddressBookManager
 
-@synthesize allContactsInfoArray = _mAllContactsInfoArray;
-
 - (id)init{
     self = [super init];
     if (self) {
@@ -54,6 +54,15 @@ static AddressBookManager *singletonAddressBookManagerRef;
          */
     }
     return self;
+}
+
+- (NSMutableArray *)allContactsInfoArray{
+    // remove each contact extension dictionary
+    for (ContactBean *_contact in _mAllContactsInfoArray) {
+        [_contact.extensionDic removeAllObjects];
+    }
+    
+    return _mAllContactsInfoArray;
 }
 
 + (AddressBookManager *)shareAddressBookManager{
