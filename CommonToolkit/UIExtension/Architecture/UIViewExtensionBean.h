@@ -18,7 +18,7 @@ typedef enum {
     rightBarButtonItemExt,
     backgroundImgExt,
     viewControllerRefExt,
-    gestureRecognizerDelegateExt,
+    viewGestureRecognizerDelegateExt,
     extensionExt
 } UIViewExtensionType;
 
@@ -41,6 +41,6 @@ typedef enum {
 @property (nonatomic, retain) UIViewController *viewControllerRef;
 
 // view gesture recognizer delegate
-@property (nonatomic, retain) id<UIViewGestureRecognizerDelegate> gestureRecognizerDelegate;
+@property (nonatomic, retain) id<UIViewGestureRecognizerDelegate> viewGestureRecognizerDelegate;
 
 @end

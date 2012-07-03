@@ -20,7 +20,7 @@
 
 @synthesize viewControllerRef = _viewControllerRef;
 
-@synthesize gestureRecognizerDelegate = _gestureRecognizerDelegate;
+@synthesize viewGestureRecognizerDelegate = _viewGestureRecognizerDelegate;
 
 @synthesize extensionDic = _extensionDic;
 
@@ -34,7 +34,7 @@
 }
 
 - (NSString *)description{
-    return [NSString stringWithFormat:@"UIViewExtensionBean description: title = %@, title view = %@, left bar button item = %@, right bar button item = %@, background image = %@, view controller reference = %@ and gesture recognizer delegate = %@, extension dictionary = %@", _title, _titleView, _leftBarButtonItem, _rightBarButtonItem, _backgroundImg, _viewControllerRef, _gestureRecognizerDelegate, _extensionDic];
+    return [NSString stringWithFormat:@"UIViewExtensionBean description: title = %@, title view = %@, left bar button item = %@, right bar button item = %@, background image = %@, view controller reference = %@ and view gesture recognizer delegate = %@, extension dictionary = %@", _title, _titleView, _leftBarButtonItem, _rightBarButtonItem, _backgroundImg, _viewControllerRef, _viewGestureRecognizerDelegate, _extensionDic];
 }
 
 @end

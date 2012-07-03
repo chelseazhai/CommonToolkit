@@ -155,13 +155,13 @@
 
 @implementation UIView (GestureRecognizer)
 
-- (void)setGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)gestureRecognizerDelegate{
-    // save gesture recognizer delegate
-    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:gestureRecognizerDelegate withType:gestureRecognizerDelegateExt forKey:[NSNumber numberWithInteger:self.hash]];
+- (void)setViewGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)viewGestureRecognizerDelegate{
+    // save view gesture recognizer delegate
+    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:viewGestureRecognizerDelegate withType:viewGestureRecognizerDelegateExt forKey:[NSNumber numberWithInteger:self.hash]];
 }
 
-- (id<UIViewGestureRecognizerDelegate>)gestureRecognizerDelegate{
-    return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].gestureRecognizerDelegate;
+- (id<UIViewGestureRecognizerDelegate>)viewGestureRecognizerDelegate{
+    return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].viewGestureRecognizerDelegate;
 }
 
 @end
@@ -178,16 +178,16 @@
         // just process began state
         if(pGestureRecognizer.state == UIGestureRecognizerStateBegan){
             // validate view gesture recognizer delegate and call its method:(void)uiView: longPressAtPoint:
-            if ([self validateViewGestureRecognizerDelegate:self.gestureRecognizerDelegate andSelector:@selector(uiView:longPressAtPoint:)]) {
-                [self.gestureRecognizerDelegate uiView:self longPressAtPoint:[pGestureRecognizer locationInView:self]];
+            if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(uiView:longPressAtPoint:)]) {
+                [self.viewGestureRecognizerDelegate view:self longPressAtPoint:[pGestureRecognizer locationInView:self]];
             }
         }
     }
     // swipe
     else if([pGestureRecognizer isMemberOfClass:[UISwipeGestureRecognizer class]]){
         // validate view gesture recognizer delegate and call its method:(void)uiView: swipeAtPoint:
-        if ([self validateViewGestureRecognizerDelegate:self.gestureRecognizerDelegate andSelector:@selector(uiView:swipeAtPoint:)]) {
-            [self.gestureRecognizerDelegate uiView:self swipeAtPoint:[pGestureRecognizer locationInView:self]];
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(uiView:swipeAtPoint:)]) {
+            [self.viewGestureRecognizerDelegate view:self swipeAtPoint:[pGestureRecognizer locationInView:self]];
         }
     }
 }

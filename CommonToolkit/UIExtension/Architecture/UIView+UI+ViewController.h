@@ -50,7 +50,7 @@
 // UIView gesture recognizer category
 @interface UIView (GestureRecognizer)
 
-// gesture recognizer delegate
-@property (nonatomic, retain) id<UIViewGestureRecognizerDelegate> gestureRecognizerDelegate;
+// view gesture recognizer delegate
+@property (nonatomic, retain) id<UIViewGestureRecognizerDelegate> viewGestureRecognizerDelegate;
 
 @end

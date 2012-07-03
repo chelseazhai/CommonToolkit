@@ -13,9 +13,9 @@
 @optional
 
 // long press at view point
-- (void)uiView:(UIView *)pView longPressAtPoint:(CGPoint) pPoint;
+- (void)view:(UIView *)pView longPressAtPoint:(CGPoint) pPoint;
 
 // swipe at view point
-- (void)uiView:(UIView *)pView swipeAtPoint:(CGPoint) pPoint;
+- (void)view:(UIView *)pView swipeAtPoint:(CGPoint) pPoint;
 
 @end
