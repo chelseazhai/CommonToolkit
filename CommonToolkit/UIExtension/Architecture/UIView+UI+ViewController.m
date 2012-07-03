@@ -28,31 +28,6 @@
 
 @implementation UIView (UI)
 
-- (id)init{
-    self = [super init];
-    if (self) {
-        // create and init gesture recognizer
-        // long press gesture recognizer
-        UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set duration time: 0.5 seconds
-        _lpgr.minimumPressDuration = 0.5;
-        // set delegate
-        _lpgr.delegate = self;
-        // add long press gesture recognizer
-        [self addGestureRecognizer:_lpgr];
-        
-        // swipe gesture recognizer
-        UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set direction: left and right
-        _swipegr.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
-        // set delegate
-        _swipegr.delegate = self;
-        // add swipe gesture recognizer
-        [self addGestureRecognizer:_swipegr];
-    }
-    return self;
-}
-
 - (void)setTitle:(NSString *)title{
     // set view title
     self.viewControllerRef.title = title;
@@ -156,6 +131,28 @@
 @implementation UIView (GestureRecognizer)
 
 - (void)setViewGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)viewGestureRecognizerDelegate{
+    // check view view gesture recognizer delegate implement methods
+    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:)]) {
+        // create and init long press gesture recognizer
+        UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set duration time: 0.5 seconds
+        _lpgr.minimumPressDuration = 0.5;
+        // set delegate
+        _lpgr.delegate = self;
+        // add long press gesture recognizer
+        [self addGestureRecognizer:_lpgr];
+    }
+    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:)]) {
+        // create and int swipe gesture recognizer
+        UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set direction: left and right
+        _swipegr.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+        // set delegate
+        _swipegr.delegate = self;
+        // add swipe gesture recognizer
+        [self addGestureRecognizer:_swipegr];
+    }
+    
     // save view gesture recognizer delegate
     [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:viewGestureRecognizerDelegate withType:viewGestureRecognizerDelegateExt forKey:[NSNumber numberWithInteger:self.hash]];
 }
@@ -178,7 +175,7 @@
         // just process began state
         if(pGestureRecognizer.state == UIGestureRecognizerStateBegan){
             // validate view gesture recognizer delegate and call its method:(void)uiView: longPressAtPoint:
-            if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(uiView:longPressAtPoint:)]) {
+            if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:)]) {
                 [self.viewGestureRecognizerDelegate view:self longPressAtPoint:[pGestureRecognizer locationInView:self]];
             }
         }
@@ -186,7 +183,7 @@
     // swipe
     else if([pGestureRecognizer isMemberOfClass:[UISwipeGestureRecognizer class]]){
         // validate view gesture recognizer delegate and call its method:(void)uiView: swipeAtPoint:
-        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(uiView:swipeAtPoint:)]) {
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:)]) {
             [self.viewGestureRecognizerDelegate view:self swipeAtPoint:[pGestureRecognizer locationInView:self]];
         }
     }
@@ -200,7 +197,7 @@
         _ret = YES;
     }
     else {
-        NSLog(@"%@ : %@", pGestureRecognizerDelegate ? @"Error" : @"Info", pGestureRecognizerDelegate ? [NSString stringWithFormat:@"%@ view gesture recognizer delegate %@ can't implement method %@", NSStringFromClass(self.class), NSStringFromClass(pGestureRecognizerDelegate.class), NSStringFromSelector(pSelector)] : [NSString stringWithFormat:@"%@ view gesture recognizer delegate controller is nil", NSStringFromClass(self.class)]);
+        NSLog(@"%@ : %@", pGestureRecognizerDelegate ? @"Warning" : @"Error", pGestureRecognizerDelegate ? [NSString stringWithFormat:@"%@ view gesture recognizer delegate %@ can't implement method %@", NSStringFromClass(self.class), NSStringFromClass(pGestureRecognizerDelegate.class), NSStringFromSelector(pSelector)] : [NSString stringWithFormat:@"%@ view gesture recognizer delegate controller is nil", NSStringFromClass(self.class)]);
     }
     
     return _ret;
