@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UIViewGestureRecognizerDelegate.h"
+
 // UIView extension type
 typedef enum {
     titleExt,
