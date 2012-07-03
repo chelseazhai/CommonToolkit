@@ -57,7 +57,7 @@
 #import "AppRootViewController.h"
 #import "UIViewController+CompatibleView.h"
 #import "UIView+UI+ViewController.h"
-#import "UIViewGestureRecognizerDelegate"
+#import "UIViewGestureRecognizerDelegate.h"
 
 #import "UIColor+Extension.h"
 #import "UIActionSheet+Extension.h"
