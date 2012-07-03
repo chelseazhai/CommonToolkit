@@ -69,6 +69,10 @@ static UIViewExtensionManager *singletonUIViewExtensionManagerRef;
             _uiViewExtensionBean.viewControllerRef = pExtension;
             break;
             
+        case gestureRecognizerDelegateExt:
+            _uiViewExtensionBean.gestureRecognizerDelegate = pExtension;
+            break;
+            
         case extensionExt:
             _uiViewExtensionBean.extensionDic = pExtension;
             break;

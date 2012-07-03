@@ -12,7 +12,46 @@
 
 #import "CommonUtils.h"
 
+// UIView extension
+@interface UIView (Private)
+
+// handel gesture recognizer
+- (void) handleGestureRecognizer:(UIGestureRecognizer*) pGestureRecognizer;
+
+// validate view gesture recognizer delegate reference and check selector
+- (BOOL)validateViewGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)pGestureRecognizerDelegate andSelector:(SEL) pSelector;
+
+@end
+
+
+
+
 @implementation UIView (UI)
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        // create and init gesture recognizer
+        // long press gesture recognizer
+        UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set duration time: 0.5 seconds
+        _lpgr.minimumPressDuration = 0.5;
+        // set delegate
+        _lpgr.delegate = self;
+        // add long press gesture recognizer
+        [self addGestureRecognizer:_lpgr];
+        
+        // swipe gesture recognizer
+        UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set direction: left and right
+        _swipegr.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+        // set delegate
+        _swipegr.delegate = self;
+        // add swipe gesture recognizer
+        [self addGestureRecognizer:_swipegr];
+    }
+    return self;
+}
 
 - (void)setTitle:(NSString *)title{
     // set view title
@@ -104,6 +143,64 @@
     }
     else {
         NSLog(@"Error : %@", pViewControllerRef ? [NSString stringWithFormat:@"%@ view controller %@ can't implement method %@", NSStringFromClass(self.class), NSStringFromClass(pViewControllerRef.class), NSStringFromSelector(pSelector)] : [NSString stringWithFormat:@"%@ view controller is nil", NSStringFromClass(self.class)]);
+    }
+    
+    return _ret;
+}
+
+@end
+
+
+
+
+@implementation UIView (GestureRecognizer)
+
+- (void)setGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)gestureRecognizerDelegate{
+    // save gesture recognizer delegate
+    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:gestureRecognizerDelegate withType:gestureRecognizerDelegateExt forKey:[NSNumber numberWithInteger:self.hash]];
+}
+
+- (id<UIViewGestureRecognizerDelegate>)gestureRecognizerDelegate{
+    return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].gestureRecognizerDelegate;
+}
+
+@end
+
+
+
+
+@implementation UIView (Private)
+
+- (void)handleGestureRecognizer:(UIGestureRecognizer *)pGestureRecognizer{
+    // judge gesture recognizer type
+    // long press
+    if ([pGestureRecognizer isMemberOfClass:[UILongPressGestureRecognizer class]]) {
+        // just process began state
+        if(pGestureRecognizer.state == UIGestureRecognizerStateBegan){
+            // validate view gesture recognizer delegate and call its method:(void)uiView: longPressAtPoint:
+            if ([self validateViewGestureRecognizerDelegate:self.gestureRecognizerDelegate andSelector:@selector(uiView:longPressAtPoint:)]) {
+                [self.gestureRecognizerDelegate uiView:self longPressAtPoint:[pGestureRecognizer locationInView:self]];
+            }
+        }
+    }
+    // swipe
+    else if([pGestureRecognizer isMemberOfClass:[UISwipeGestureRecognizer class]]){
+        // validate view gesture recognizer delegate and call its method:(void)uiView: swipeAtPoint:
+        if ([self validateViewGestureRecognizerDelegate:self.gestureRecognizerDelegate andSelector:@selector(uiView:swipeAtPoint:)]) {
+            [self.gestureRecognizerDelegate uiView:self swipeAtPoint:[pGestureRecognizer locationInView:self]];
+        }
+    }
+}
+
+- (BOOL)validateViewGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)pGestureRecognizerDelegate andSelector:(SEL)pSelector{
+    BOOL _ret = NO;
+    
+    // validate view gesture recognizer delegate reference and check selector implemetation
+    if ([CommonUtils validateProcessor:pGestureRecognizerDelegate andSelector:pSelector]) {
+        _ret = YES;
+    }
+    else {
+        NSLog(@"Error : %@", pGestureRecognizerDelegate ? [NSString stringWithFormat:@"%@ view gesture recognizer delegate %@ can't implement method %@", NSStringFromClass(self.class), NSStringFromClass(pGestureRecognizerDelegate.class), NSStringFromSelector(pSelector)] : [NSString stringWithFormat:@"%@ view gesture recognizer delegate controller is nil", NSStringFromClass(self.class)]);
     }
     
     return _ret;

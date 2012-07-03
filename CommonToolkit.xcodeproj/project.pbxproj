@@ -83,6 +83,13 @@
 		DCD6AEA0158ED86C00CBBBDB /* NSBundle+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD6AE9E158ED86C00CBBBDB /* NSBundle+Extension.m */; };
 		DCD6AF10158EFB6A00CBBBDB /* NSDate+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCD6AF0E158EFB6A00CBBBDB /* NSDate+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCD6AF11158EFB6A00CBBBDB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */; };
+		DCE9BEB915A2D7710077AAD7 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB415A2D7710077AAD7 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BEB515A2D7710077AAD7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCE9BEBC15A2D7710077AAD7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BEB815A2D7710077AAD7 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DCE9BEDA15A2FCD20077AAD7 /* UIImage+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCE9BEDB15A2FCD20077AAD7 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */; };
+		DCE9BEDE15A30F000077AAD7 /* UIViewGestureRecognizerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +181,13 @@
 		DCD6AE9E158ED86C00CBBBDB /* NSBundle+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Extension.m"; sourceTree = "<group>"; };
 		DCD6AF0E158EFB6A00CBBBDB /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		DCE9BEB415A2D7710077AAD7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		DCE9BEB515A2D7710077AAD7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DCE9BEB815A2D7710077AAD7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewGestureRecognizerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +234,8 @@
 			children = (
 				DC3C159B158B936600B31A79 /* ASIHTTPRequest */,
 				DC3C161A158B95F500B31A79 /* iToast */,
+				DCE9BEB315A2D7710077AAD7 /* JSONKit */,
+				DCE9BEB615A2D7710077AAD7 /* MBProgressHUD */,
 				DC3C15B0158B936600B31A79 /* Reachability */,
 				DC0F2E111592F26200F9D4FA /* RegexKitLite */,
 			);
@@ -307,6 +323,7 @@
 				DC3C15C7158B936600B31A79 /* UIViewExtensionBean_Extension.h */,
 				DC3C15C8158B936600B31A79 /* UIViewExtensionManager.h */,
 				DC3C15C9158B936600B31A79 /* UIViewExtensionManager.m */,
+				DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */,
 			);
 			path = Architecture;
 			sourceTree = "<group>";
@@ -329,6 +346,8 @@
 				DC3C15CD158B936600B31A79 /* UIActionSheet+Extension.m */,
 				DC3C1616158B941000B31A79 /* UIColor+Extension.h */,
 				DC3C1617158B941000B31A79 /* UIColor+Extension.m */,
+				DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */,
+				DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */,
 				DC3C15CE158B936600B31A79 /* UITableView+Extension.h */,
 				DC3C15CF158B936600B31A79 /* UITableView+Extension.m */,
 			);
@@ -407,6 +426,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DCE9BEB315A2D7710077AAD7 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				DCE9BEB415A2D7710077AAD7 /* JSONKit.h */,
+				DCE9BEB515A2D7710077AAD7 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		DCE9BEB615A2D7710077AAD7 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */,
+				DCE9BEB815A2D7710077AAD7 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -452,6 +489,10 @@
 				DC0F2E141592F26200F9D4FA /* RegexKitLite.h in Headers */,
 				DCBC76811597FF6000EBEC1D /* UISoftKeyboard.h in Headers */,
 				DCBC7692159836EF00EBEC1D /* UISoftKeyboardCell.h in Headers */,
+				DCE9BEB915A2D7710077AAD7 /* JSONKit.h in Headers */,
+				DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */,
+				DCE9BEDA15A2FCD20077AAD7 /* UIImage+Extension.h in Headers */,
+				DCE9BEDE15A30F000077AAD7 /* UIViewGestureRecognizerDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +598,9 @@
 				DCBC768715980ACB00EBEC1D /* FoundationExtensionBean.m in Sources */,
 				DCBC768B15980BBF00EBEC1D /* FoundationExtensionManager.m in Sources */,
 				DCBC7693159836EF00EBEC1D /* UISoftKeyboardCell.m in Sources */,
+				DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */,
+				DCE9BEBC15A2D7710077AAD7 /* MBProgressHUD.m in Sources */,
+				DCE9BEDB15A2FCD20077AAD7 /* UIImage+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
