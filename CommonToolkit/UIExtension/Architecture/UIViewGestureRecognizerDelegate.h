@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // long press finger mode
-typedef enum{
+typedef enum {
     single = 1 << 0,
     doubleFingers = 1 << 1,
     threeFingers = 1 << 2,
@@ -23,7 +23,7 @@ typedef LongPressFingerMode TapFingerMode;
 
 
 // tap count mode
-typedef enum{
+typedef enum {
     once = 1 << 0,
     twice = 1 << 1,
     triple = 1 << 2
