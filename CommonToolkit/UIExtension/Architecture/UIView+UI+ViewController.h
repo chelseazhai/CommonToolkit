@@ -11,7 +11,7 @@
 #import "UIViewGestureRecognizerDelegate.h"
 
 // UIView UI category
-@interface UIView (UI) <UIGestureRecognizerDelegate>
+@interface UIView (UI)
 
 // title, use title view (UIView) if you want something different
 @property (nonatomic, retain) NSString *title;
@@ -48,7 +48,7 @@
 
 
 // UIView gesture recognizer category
-@interface UIView (GestureRecognizer)
+@interface UIView (GestureRecognizer) <UIGestureRecognizerDelegate>
 
 // view gesture recognizer delegate
 @property (nonatomic, retain) id<UIViewGestureRecognizerDelegate> viewGestureRecognizerDelegate;

@@ -169,7 +169,7 @@
 @implementation UIView (Private)
 
 - (void)handleGestureRecognizer:(UIGestureRecognizer *)pGestureRecognizer{
-    // judge gesture recognizer type
+    // check gesture recognizer type
     // long press
     if ([pGestureRecognizer isMemberOfClass:[UILongPressGestureRecognizer class]]) {
         // just process began state
