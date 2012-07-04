@@ -144,7 +144,7 @@
         // create and init long press finger mode
         LongPressFingerMode _longPressFingerMode = /*default finger mode*/single;
         // check long press finger mode
-        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(longPressFingerModeInView:)] && [viewGestureRecognizerDelegate longPressFingerModeInView:self] <= 0) {
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(longPressFingerModeInView:)] && [viewGestureRecognizerDelegate longPressFingerModeInView:self] > 0) {
             _longPressFingerMode = [viewGestureRecognizerDelegate longPressFingerModeInView:self];
         }
         
@@ -171,7 +171,7 @@
         // create and init swipe direction
         UISwipeGestureRecognizerDirection _swipeDirection = /*default direction*/UISwipeGestureRecognizerDirectionRight;
         // check swipe direction
-        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(swipeDirectionInView:)] && [viewGestureRecognizerDelegate swipeDirectionInView:self] <= 0) {
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(swipeDirectionInView:)] && [viewGestureRecognizerDelegate swipeDirectionInView:self] > 0) {
             _swipeDirection = [viewGestureRecognizerDelegate swipeDirectionInView:self];
         }
         
@@ -198,12 +198,12 @@
         // create and init tap finger mode and count mode
         TapFingerMode _tapFingerMode = /*default finger mode*/single;
         // check tap finger mode
-        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapFingerModeInView:)] && [viewGestureRecognizerDelegate tapFingerModeInView:self] <= 0) {
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapFingerModeInView:)] && [viewGestureRecognizerDelegate tapFingerModeInView:self] > 0) {
             _tapFingerMode = [viewGestureRecognizerDelegate tapCountModeInView:self];
         }
         TapCountMode _tapCountMode = /*default count mode*/once;
         // check tap count mode
-        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapCountModeInView:)] && [viewGestureRecognizerDelegate tapCountModeInView:self] <= 0) {
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapCountModeInView:)] && [viewGestureRecognizerDelegate tapCountModeInView:self] > 0) {
             _tapCountMode = [viewGestureRecognizerDelegate tapCountModeInView:self];
         }
         
