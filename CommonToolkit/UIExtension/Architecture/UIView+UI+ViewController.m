@@ -142,15 +142,43 @@
         // add long press gesture recognizer
         [self addGestureRecognizer:_lpgr];
     }
-    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:)]) {
+    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:andDirection:)]) {
         // create and int swipe gesture recognizer
-        UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set direction: left and right
-        _swipegr.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+        // left swipe gesture recognizer
+        UISwipeGestureRecognizer *_leftSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set supply direction: left
+        _leftSwipegr.direction = UISwipeGestureRecognizerDirectionLeft;
         // set delegate
-        _swipegr.delegate = self;
+        _leftSwipegr.delegate = self;
         // add swipe gesture recognizer
-        [self addGestureRecognizer:_swipegr];
+        [self addGestureRecognizer:_leftSwipegr];
+        
+        // right swipe gesture recognizer
+        UISwipeGestureRecognizer *_rightSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set supply direction: right
+        _rightSwipegr.direction = UISwipeGestureRecognizerDirectionRight;
+        // set delegate
+        _rightSwipegr.delegate = self;
+        // add swipe gesture recognizer
+        [self addGestureRecognizer:_rightSwipegr];
+        
+        // up swipe gesture recognizer
+        UISwipeGestureRecognizer *_upSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set supply direction: up
+        _upSwipegr.direction = UISwipeGestureRecognizerDirectionUp;
+        // set delegate
+        _upSwipegr.delegate = self;
+        // add swipe gesture recognizer
+        [self addGestureRecognizer:_upSwipegr];
+        
+        // down swipe gesture recognizer
+        UISwipeGestureRecognizer *_downSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set supply direction: down
+        _downSwipegr.direction = UISwipeGestureRecognizerDirectionDown;
+        // set delegate
+        _downSwipegr.delegate = self;
+        // add swipe gesture recognizer
+        [self addGestureRecognizer:_downSwipegr];
     }
     
     // save view gesture recognizer delegate
@@ -183,8 +211,8 @@
     // swipe
     else if([pGestureRecognizer isMemberOfClass:[UISwipeGestureRecognizer class]]){
         // validate view gesture recognizer delegate and call its method:(void)uiView: swipeAtPoint:
-        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:)]) {
-            [self.viewGestureRecognizerDelegate view:self swipeAtPoint:[pGestureRecognizer locationInView:self]];
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:andDirection:)]) {
+            [self.viewGestureRecognizerDelegate view:self swipeAtPoint:[pGestureRecognizer locationInView:self] andDirection:((UISwipeGestureRecognizer *)pGestureRecognizer).direction];
         }
     }
 }

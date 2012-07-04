@@ -15,7 +15,7 @@
 // long press at view point
 - (void)view:(UIView *)pView longPressAtPoint:(CGPoint) pPoint;
 
-// swipe at view point
-- (void)view:(UIView *)pView swipeAtPoint:(CGPoint) pPoint;
+// swipe at view point and direction
+- (void)view:(UIView *)pView swipeAtPoint:(CGPoint) pPoint andDirection:(UISwipeGestureRecognizerDirection) pDirection;
 
 @end
