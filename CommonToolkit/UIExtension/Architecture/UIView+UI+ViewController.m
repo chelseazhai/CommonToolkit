@@ -199,7 +199,7 @@
         TapFingerMode _tapFingerMode = /*default finger mode*/single;
         // check tap finger mode
         if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapFingerModeInView:)] && [viewGestureRecognizerDelegate tapFingerModeInView:self] > 0) {
-            _tapFingerMode = [viewGestureRecognizerDelegate tapCountModeInView:self];
+            _tapFingerMode = [viewGestureRecognizerDelegate tapFingerModeInView:self];
         }
         TapCountMode _tapCountMode = /*default count mode*/once;
         // check tap count mode
