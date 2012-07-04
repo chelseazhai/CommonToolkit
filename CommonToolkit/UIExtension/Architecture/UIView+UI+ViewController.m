@@ -12,6 +12,13 @@
 
 #import "CommonUtils.h"
 
+// one hand five fingers
+#define MAXFINGERS_COUNT    5
+// at most triple taps
+#define MAXTAPS_COUNT   3
+// four swipe direction
+#define SWIPEDIRECTION_COUNT    4
+
 // UIView extension
 @interface UIView (Private)
 
@@ -132,53 +139,99 @@
 
 - (void)setViewGestureRecognizerDelegate:(id<UIViewGestureRecognizerDelegate>)viewGestureRecognizerDelegate{
     // check view view gesture recognizer delegate implement methods
-    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:)]) {
-        // create and init long press gesture recognizer
-        UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set duration time: 0.5 seconds
-        _lpgr.minimumPressDuration = 0.5;
-        // set delegate
-        _lpgr.delegate = self;
-        // add long press gesture recognizer
-        [self addGestureRecognizer:_lpgr];
+    // long press
+    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:andFingerMode:)]) {
+        // create and init long press finger mode
+        LongPressFingerMode _longPressFingerMode = /*default finger mode*/single;
+        // check long press finger mode
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(longPressFingerModeInView:)] && [viewGestureRecognizerDelegate longPressFingerModeInView:self] <= 0) {
+            _longPressFingerMode = [viewGestureRecognizerDelegate longPressFingerModeInView:self];
+        }
+        
+        // get long press finger mode integer binary array
+        NSArray *_longPressFingerModeIBA = [[CommonUtils convertIntegerToBinaryArray:_longPressFingerMode] subarrayWithRange:NSMakeRange(sizeof(int) * CHAR_BIT - MAXFINGERS_COUNT, MAXFINGERS_COUNT)];
+        
+        // process long press finger mode integer binary array
+        for (NSInteger _index = 0; _index < [_longPressFingerModeIBA count]; _index++) {
+            // check finger count
+            if (1 == ((NSNumber *)[_longPressFingerModeIBA objectAtIndex:_index]).intValue) {
+                // create and init long press gesture recognizer
+                UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+                // set number of fingers
+                _lpgr.numberOfTouchesRequired = MAXFINGERS_COUNT - _index;
+                // set delegate
+                _lpgr.delegate = self;
+                // add long press gesture recognizer
+                [self addGestureRecognizer:_lpgr];
+            }
+        }
     }
+    // swipe
     if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:andDirection:)]) {
-        // create and int swipe gesture recognizer
-        // left swipe gesture recognizer
-        UISwipeGestureRecognizer *_leftSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set supply direction: left
-        _leftSwipegr.direction = UISwipeGestureRecognizerDirectionLeft;
-        // set delegate
-        _leftSwipegr.delegate = self;
-        // add swipe gesture recognizer
-        [self addGestureRecognizer:_leftSwipegr];
+        // create and init swipe direction
+        UISwipeGestureRecognizerDirection _swipeDirection = /*default direction*/UISwipeGestureRecognizerDirectionRight;
+        // check swipe direction
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(swipeDirectionInView:)] && [viewGestureRecognizerDelegate swipeDirectionInView:self] <= 0) {
+            _swipeDirection = [viewGestureRecognizerDelegate swipeDirectionInView:self];
+        }
         
-        // right swipe gesture recognizer
-        UISwipeGestureRecognizer *_rightSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set supply direction: right
-        _rightSwipegr.direction = UISwipeGestureRecognizerDirectionRight;
-        // set delegate
-        _rightSwipegr.delegate = self;
-        // add swipe gesture recognizer
-        [self addGestureRecognizer:_rightSwipegr];
+        // get swipe direction integer binary array
+        NSArray *_swipeDirectionIBA = [[CommonUtils convertIntegerToBinaryArray:_swipeDirection] subarrayWithRange:NSMakeRange(sizeof(int) * CHAR_BIT - SWIPEDIRECTION_COUNT, SWIPEDIRECTION_COUNT)];
         
-        // up swipe gesture recognizer
-        UISwipeGestureRecognizer *_upSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set supply direction: up
-        _upSwipegr.direction = UISwipeGestureRecognizerDirectionUp;
-        // set delegate
-        _upSwipegr.delegate = self;
-        // add swipe gesture recognizer
-        [self addGestureRecognizer:_upSwipegr];
+        // process swipe direction integer binary array
+        for (NSInteger _index = 0; _index < [_swipeDirectionIBA count]; _index++) {
+            // check swipe direction
+            if (1 == ((NSNumber *)[_swipeDirectionIBA objectAtIndex:_index]).intValue) {
+                // create and init swipe gesture recognizer
+                UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+                // set supply derection
+                _swipegr.direction = SWIPEDIRECTION_COUNT - _index;
+                // set delegate
+                _swipegr.delegate = self;
+                // add long press gesture recognizer
+                [self addGestureRecognizer:_swipegr];
+            }
+        }
+    }
+    // tap
+    if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(view:tapAtPoint:andFingerMode:andCountMode:)]) {
+        // create and init tap finger mode and count mode
+        TapFingerMode _tapFingerMode = /*default finger mode*/single;
+        // check tap finger mode
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapFingerModeInView:)] && [viewGestureRecognizerDelegate tapFingerModeInView:self] <= 0) {
+            _tapFingerMode = [viewGestureRecognizerDelegate tapCountModeInView:self];
+        }
+        TapCountMode _tapCountMode = /*default count mode*/once;
+        // check tap count mode
+        if ([self validateViewGestureRecognizerDelegate:viewGestureRecognizerDelegate andSelector:@selector(tapCountModeInView:)] && [viewGestureRecognizerDelegate tapCountModeInView:self] <= 0) {
+            _tapCountMode = [viewGestureRecognizerDelegate tapCountModeInView:self];
+        }
         
-        // down swipe gesture recognizer
-        UISwipeGestureRecognizer *_downSwipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
-        // set supply direction: down
-        _downSwipegr.direction = UISwipeGestureRecognizerDirectionDown;
-        // set delegate
-        _downSwipegr.delegate = self;
-        // add swipe gesture recognizer
-        [self addGestureRecognizer:_downSwipegr];
+        // get tap finger mode integer binary array and count mode integer binary array
+        NSArray *_tapFingerModeIBA = [[CommonUtils convertIntegerToBinaryArray:_tapFingerMode] subarrayWithRange:NSMakeRange(sizeof(int) * CHAR_BIT - MAXFINGERS_COUNT, MAXFINGERS_COUNT)];
+        NSArray *_tapCountModeIBA = [[CommonUtils convertIntegerToBinaryArray:_tapCountMode] subarrayWithRange:NSMakeRange(sizeof(int) * CHAR_BIT - MAXTAPS_COUNT, MAXTAPS_COUNT)];
+        
+        // process tap finger mode integer binary array and count mode integer binary array
+        for (NSInteger _index = 0; _index < [_tapCountModeIBA count]; _index++) {
+            // check tap count
+            if (1 == ((NSNumber *)[_tapCountModeIBA objectAtIndex:_index]).intValue) {
+                for (NSInteger __index = 0; __index < [_tapFingerModeIBA count]; __index++) {
+                    // check finger count
+                    if (1 == ((NSNumber *)[_tapFingerModeIBA objectAtIndex:__index]).intValue) {
+                        // create and init tap gesture recognizer
+                        UITapGestureRecognizer *_tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+                        // set number of fingers
+                        _tapgr.numberOfTouchesRequired = MAXFINGERS_COUNT - __index;
+                        // set number of tap count
+                        _tapgr.numberOfTapsRequired = MAXTAPS_COUNT - _index;
+                        // set delegate
+                        _tapgr.delegate = self;
+                        // add tap gesture recognizer
+                        [self addGestureRecognizer:_tapgr];
+                    }
+                }
+            }
+        }
     }
     
     // save view gesture recognizer delegate
@@ -202,17 +255,24 @@
     if ([pGestureRecognizer isMemberOfClass:[UILongPressGestureRecognizer class]]) {
         // just process began state
         if(pGestureRecognizer.state == UIGestureRecognizerStateBegan){
-            // validate view gesture recognizer delegate and call its method:(void)uiView: longPressAtPoint:
-            if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:)]) {
-                [self.viewGestureRecognizerDelegate view:self longPressAtPoint:[pGestureRecognizer locationInView:self]];
+            // validate view gesture recognizer delegate and call its method:(void)view:longPressAtPoint:andFingerMode:
+            if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:longPressAtPoint:andFingerMode:)]) {
+                [self.viewGestureRecognizerDelegate view:self longPressAtPoint:[pGestureRecognizer locationInView:self] andFingerMode:((UILongPressGestureRecognizer *)pGestureRecognizer).numberOfTouchesRequired];
             }
         }
     }
     // swipe
     else if([pGestureRecognizer isMemberOfClass:[UISwipeGestureRecognizer class]]){
-        // validate view gesture recognizer delegate and call its method:(void)uiView: swipeAtPoint:
+        // validate view gesture recognizer delegate and call its method:(void)view:swipeAtPoint:andDirection:
         if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:swipeAtPoint:andDirection:)]) {
             [self.viewGestureRecognizerDelegate view:self swipeAtPoint:[pGestureRecognizer locationInView:self] andDirection:((UISwipeGestureRecognizer *)pGestureRecognizer).direction];
+        }
+    }
+    // tap
+    else if ([pGestureRecognizer isMemberOfClass:[UITapGestureRecognizer class]]) {
+        // validate view gesture recognizer delegate and call its method:(void)view:tapAtPoint:andFingerMode:andCountMode:
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:tapAtPoint:andFingerMode:andCountMode:)]) {
+            [self.viewGestureRecognizerDelegate view:self tapAtPoint:[pGestureRecognizer locationInView:self] andFingerMode:((UITapGestureRecognizer *)pGestureRecognizer).numberOfTouchesRequired andCountMode:((UITapGestureRecognizer *)pGestureRecognizer).numberOfTapsRequired];
         }
     }
 }
