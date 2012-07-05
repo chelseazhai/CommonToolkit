@@ -125,6 +125,9 @@ static AddressBookManager *singletonAddressBookManagerRef;
 - (NSArray *)getContactByName:(NSString *)pName{
     NSMutableArray *_ret = [[NSMutableArray alloc] init];
     
+    // convert search contact name to lowercase string
+    pName = [pName lowercaseString];
+    
     // check contact search result dictionary and all contacts info array
     _mContactSearchResultDic = _mContactSearchResultDic ? _mContactSearchResultDic : [[NSMutableDictionary alloc] init];
     _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
