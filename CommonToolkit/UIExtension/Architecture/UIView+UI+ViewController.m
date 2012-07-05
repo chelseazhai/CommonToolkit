@@ -158,7 +158,7 @@
                 // create and init long press gesture recognizer
                 UILongPressGestureRecognizer *_lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
                 // set number of fingers
-                _lpgr.numberOfTouchesRequired = MAXFINGERS_COUNT - _index;
+                _lpgr.numberOfTouchesRequired = 1 << MAXFINGERS_COUNT - (_index + 1);
                 // set delegate
                 _lpgr.delegate = self;
                 // add long press gesture recognizer
@@ -185,7 +185,7 @@
                 // create and init swipe gesture recognizer
                 UISwipeGestureRecognizer *_swipegr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
                 // set supply derection
-                _swipegr.direction = SWIPEDIRECTION_COUNT - _index;
+                _swipegr.direction = 1 << SWIPEDIRECTION_COUNT - (_index + 1);
                 // set delegate
                 _swipegr.delegate = self;
                 // add long press gesture recognizer
@@ -221,9 +221,9 @@
                         // create and init tap gesture recognizer
                         UITapGestureRecognizer *_tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
                         // set number of fingers
-                        _tapgr.numberOfTouchesRequired = MAXFINGERS_COUNT - __index;
+                        _tapgr.numberOfTouchesRequired = 1 << MAXFINGERS_COUNT - (__index + 1);
                         // set number of tap count
-                        _tapgr.numberOfTapsRequired = MAXTAPS_COUNT - _index;
+                        _tapgr.numberOfTapsRequired = 1 << MAXTAPS_COUNT - (_index + 1);
                         // set delegate
                         _tapgr.delegate = self;
                         // add tap gesture recognizer
