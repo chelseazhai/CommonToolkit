@@ -52,7 +52,7 @@
     self.viewControllerRef.navigationItem.titleView = titleView;
     
     // save title view
-    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:titleView withType:titleExt forKey:[NSNumber numberWithInteger:self.hash]];
+    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:titleView withType:titleViewExt forKey:[NSNumber numberWithInteger:self.hash]];
 }
 
 - (UIView *)titleView{
