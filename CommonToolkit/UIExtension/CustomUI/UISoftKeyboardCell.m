@@ -12,6 +12,8 @@
 
 #import "UISoftKeyboard.h"
 
+#import "NSIndexPath+Extension.h"
+
 // UISoftKeyboardCell extension
 @interface UISoftKeyboardCell ()
 
@@ -84,8 +86,18 @@
     // set long pressed flag
     _mLongPressed = NO;
     
-    // init long press timer
-    _mLongPressTimer = [NSTimer scheduledTimerWithTimeInterval:/*long press duration*/0.5 target:self selector:@selector(handleLongPressTimer:) userInfo:nil repeats:NO];
+    // check cell indexPath in softkeyboard long press cell indexPath
+    if ([((UISoftKeyboard *)self.superview).delegate respondsToSelector:@selector(longPressCellIndexPathsInSoftKeyboard:)]) {
+        for (NSIndexPath *_indexPath in [((UISoftKeyboard *)self.superview).delegate longPressCellIndexPathsInSoftKeyboard:(UISoftKeyboard *)self.superview]) {
+            if ([_indexPath compareWithUISoftKeyboardIndexPath:[((UISoftKeyboard *)self.superview) indexPathForCell:self]]) {
+                // init long press timer
+                _mLongPressTimer = [NSTimer scheduledTimerWithTimeInterval:/*long press duration*/0.5 target:self selector:@selector(handleLongPressTimer:) userInfo:nil repeats:NO];
+                
+                // break immediately
+                break;
+            }
+        }
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{

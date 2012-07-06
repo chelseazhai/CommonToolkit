@@ -47,6 +47,9 @@
 // softKeyboard taped response selector
 - (void)softKeyboard:(UISoftKeyboard *)pSoftKeyboard didSelectCellAtIndexPath:(NSIndexPath *)indexPath;
 
+// need long press cell indexPaths
+- (NSArray *)longPressCellIndexPathsInSoftKeyboard:(UISoftKeyboard *)pSoftKeyboard;
+
 // softKeyboard long press response selector
 - (void)softKeyboard:(UISoftKeyboard *)pSoftKeyboard longPressCellAtIndexPath:(NSIndexPath *)indexPath;
 
