@@ -72,6 +72,8 @@
 		DC3C161E158B95F500B31A79 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C161C158B95F500B31A79 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC3C1622158B972D00B31A79 /* HttpRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1620158B972D00B31A79 /* HttpRequestBean.m */; };
 		DC3C1626158B975200B31A79 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1624158B975200B31A79 /* HttpRequestManager.m */; };
+		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAC33B115AAC223006904DD /* NSNumber+Extension.m */; };
 		DCBBB288158A277C007C2301 /* CommonToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBBB287158A26B1007C2301 /* CommonToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBC76811597FF6000EBEC1D /* UISoftKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBC767F1597FF6000EBEC1D /* UISoftKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBC76821597FF6000EBEC1D /* UISoftKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBC76801597FF6000EBEC1D /* UISoftKeyboard.m */; };
@@ -165,6 +167,8 @@
 		DC3C1620158B972D00B31A79 /* HttpRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestBean.m; sourceTree = "<group>"; };
 		DC3C1623158B975200B31A79 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
 		DC3C1624158B975200B31A79 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
+		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
+		DCAC33B115AAC223006904DD /* NSNumber+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extension.m"; sourceTree = "<group>"; };
 		DCBBB21E158A2485007C2301 /* CommonToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCBBB223158A2485007C2301 /* CommonToolkit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommonToolkit-Info.plist"; sourceTree = "<group>"; };
 		DCBBB227158A2485007C2301 /* CommonToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CommonToolkit-Prefix.pch"; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */,
 				DC3C15B6158B936600B31A79 /* NSIndexPath+Extension.h */,
 				DC3C15B7158B936600B31A79 /* NSIndexPath+Extension.m */,
+				DCAC33B015AAC223006904DD /* NSNumber+Extension.h */,
+				DCAC33B115AAC223006904DD /* NSNumber+Extension.m */,
 				DC3C15B8158B936600B31A79 /* NSString+Extension.h */,
 				DC3C15B9158B936600B31A79 /* NSString+Extension.m */,
 			);
@@ -493,6 +499,7 @@
 				DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */,
 				DCE9BEDA15A2FCD20077AAD7 /* UIImage+Extension.h in Headers */,
 				DCE9BEDE15A30F000077AAD7 /* UIViewGestureRecognizerDelegate.h in Headers */,
+				DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +608,7 @@
 				DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */,
 				DCE9BEBC15A2D7710077AAD7 /* MBProgressHUD.m in Sources */,
 				DCE9BEDB15A2FCD20077AAD7 /* UIImage+Extension.m in Sources */,
+				DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,8 @@
 
 @synthesize frontView = _mFrontView;
 
+@synthesize coreData = _mCoreData;
+
 @synthesize pressedBackgroundColor = _mPressedBackgroundColor;
 @synthesize pressedBackgroundImg = _mPressedBackgroundImg;
 

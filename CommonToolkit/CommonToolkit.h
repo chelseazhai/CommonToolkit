@@ -19,12 +19,15 @@
 #import "HttpUtil.h"
 #import "HttpUtil+Signature.h"
 
+// FoundationExtension
 #import "NSArray+Extension.h"
 #import "NSString+Extension.h"
 #import "NSIndexPath+Extension.h"
 #import "NSBundle+Extension.h"
 #import "NSDate+Extension.h"
+#import "NSNumber+Extension.h"
 
+// DataStruct
 #import "UserBean.h"
 #import "UserBean_Extension.h"
 #import "UserManager.h"
