@@ -14,26 +14,37 @@
 
 #import "ContactBean_Extension.h"
 
+#import <objc/message.h>
+
 // static singleton AddressBookManager reference
 static AddressBookManager *singletonAddressBookManagerRef;
 
 // AddressBookManager extension
 @interface AddressBookManager ()
 
-// get contact's name, phone numbers info by record
-- (ContactBean *)getContactNamePhoneNumsInfoByRecord:(ABRecordRef)pRecord;
+// generate contact with contact's name, phone numbers info by record
+- (ContactBean *)generateContactNamePhoneNumsInfoByRecord:(ABRecordRef)pRecord;
 
 // get contact information array by particular phone number
 - (NSArray *)getContactInfoByPhoneNumber:(NSString *)pPhoneNumber;
 
+// get contact info by particular id
+- (ContactBean *)getContactInfoById:(NSInteger)pId;
+
 // init all contacts contact id - groups dictionary
 - (void)initContactIdGroupsDictionary;
 
-// get all contacts info array from address book
+// get all contacts info array from addressBook
 - (NSMutableArray *)getAllContactsInfoFromAB;
 
 // print contact search result dictionary
 - (void)printContactSearchResultDictionary;
+
+// refresh addressBook and return contact id dirty dictionary
+- (NSDictionary *)refreshAddressBook;
+
+// private method: addressBook changed callback function
+void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
 
 @end
 
@@ -45,16 +56,7 @@ static AddressBookManager *singletonAddressBookManagerRef;
 - (id)init{
     self = [super init];
     if (self) {
-        /*
-        // fetch the address book, addressBook manager object 
-        ABAddressBookRef addressBook = ABAddressBookCreate();
-        
-        // register external change callback function
-        ABAddressBookRegisterExternalChangeCallback(addressBook, pSelector, nil);
-        
-        // release
-        CFRelease(addressBook);
-         */
+        //
     }
     return self;
 }
@@ -259,7 +261,23 @@ static AddressBookManager *singletonAddressBookManagerRef;
     return _ret;
 }
 
-- (ContactBean *)getContactNamePhoneNumsInfoByRecord:(ABRecordRef)pRecord{
+- (void)addABChangedObserver:(NSObject *)pObserver{
+    // validate addressBookChanged implemetation
+    if ([CommonUtils validateProcessor:pObserver andSelector:@selector(addressBookChanged:info:context:)]) {
+        // register external change callback function
+        ABAddressBookRegisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)pObserver);
+    }
+    else {
+        NSLog(@"Error: %@ can't implement addressBook changed callback function %@", NSStringFromClass(pObserver.class), NSStringFromSelector(@selector(addressBookChanged:info:context:)));
+    }
+}
+
+- (void)removeABChangedObserver:(NSObject *)pObserver{
+    // unregister external change callback function
+    ABAddressBookUnregisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)pObserver);
+}
+
+- (ContactBean *)generateContactNamePhoneNumsInfoByRecord:(ABRecordRef)pRecord{
     ContactBean *_contact = [[ContactBean alloc] init];
     
     // set contact id
@@ -373,6 +391,24 @@ static AddressBookManager *singletonAddressBookManagerRef;
     return _ret;
 }
 
+- (ContactBean *)getContactInfoById:(NSInteger)pId{
+    ContactBean *_ret = nil;
+    
+    // check all contacts info array
+    _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
+    
+    for (ContactBean *_contact in _mAllContactsInfoArray) {
+        // check contact id
+        if (_contact.id == pId) {
+            _ret = _contact;
+            
+            break;
+        }
+    }
+    
+    return _ret;
+}
+
 - (void)initContactIdGroupsDictionary{
     // check contact id - groups dictionary
     if (!_mContactIdGroupsDic) {
@@ -383,7 +419,7 @@ static AddressBookManager *singletonAddressBookManagerRef;
         return;
     }
     
-    // fetch the address book, addressBook manager object 
+    // fetch the addressBook 
     ABAddressBookRef addressBook = ABAddressBookCreate();
     
     // get all group array
@@ -429,7 +465,7 @@ static AddressBookManager *singletonAddressBookManagerRef;
 - (NSMutableArray *)getAllContactsInfoFromAB{
     NSMutableArray *_ret = [[NSMutableArray alloc] init];
     
-    // fetch the address book, addressBook manager object 
+    // fetch the addressBook 
     ABAddressBookRef addressBook = ABAddressBookCreate();
     
     // get all contacts
@@ -449,8 +485,8 @@ static AddressBookManager *singletonAddressBookManagerRef;
         }
         NSArray* _groupArray = [_mContactIdGroupsDic objectForKey:[NSNumber numberWithInt:_recordID]];
         
-        // get contact name and phone number info
-        ContactBean *_contactBean = [self getContactNamePhoneNumsInfoByRecord:_person];
+        // generate contact name and phone number info
+        ContactBean *_contactBean = [self generateContactNamePhoneNumsInfoByRecord:_person];
         
         // photo
         NSData* _photo = (__bridge NSData*)ABPersonCopyImageData(_person);
@@ -471,6 +507,88 @@ static AddressBookManager *singletonAddressBookManagerRef;
 
 - (void)printContactSearchResultDictionary{
     NSLog(@"Important Info: %@, contact search result dictionary = %@", NSStringFromClass(self.class), _mContactSearchResultDic);
+}
+
+- (NSDictionary *)refreshAddressBook{
+    NSMutableDictionary *_ret = [[NSMutableDictionary alloc] init];
+    
+    // re-init contactsId group dictionary
+    _mContactIdGroupsDic = nil;
+    [self initContactIdGroupsDictionary];
+    
+    @autoreleasepool {
+        // get new contacts info array from addressBook
+        NSArray *_newContactsInfoArray = [self getAllContactsInfoFromAB];
+        
+        // remove contact from all contacts info array if not existed in new contacts info array
+        // define existed flag
+        BOOL _existed;
+        for (ContactBean *_contact in _mAllContactsInfoArray) {
+            // set/re-set existed flag
+            _existed = NO;
+            
+            for (ContactBean *__contact in _newContactsInfoArray) {
+                // check new contacts info array existed the contact which in all contacts info array
+                if (_contact.id == __contact.id) {
+                    _existed = YES;
+                    
+                    break;
+                }
+            }
+            
+            // if existed, check next else remove the contact in all contacts info array
+            if (_existed) {
+                // get next
+                continue;
+            }
+            else {
+                // delete
+                [_mAllContactsInfoArray removeObject:_contact];
+                
+                // add to dirty contact id dictionary
+                [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_DELETE_KEY];
+            }
+        }
+        
+        // compare and merge contact
+        for (ContactBean *_contact in _newContactsInfoArray) {
+            // get contact in all contacts info array
+            ContactBean *_oldContact = [self getContactInfoById:_contact.id];
+            
+            if (nil == _oldContact || NSOrderedSame != [_contact compare:_oldContact]) {
+                // reset all contacts info array, if existed, replace else add new contact
+                if (_oldContact) {
+                    // replace
+                    _oldContact = [_oldContact copyBaseProp:_contact];
+                    
+                    // add to dirty contact id dictionary
+                    [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_MODIFY_KEY];
+                }
+                else {
+                    // add new
+                    [_mAllContactsInfoArray addObject:_contact];
+                    
+                    // add to dirty contact id dictionary
+                    [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_ADD_KEY];
+                }
+            }
+        }
+    }
+    
+    return _ret;
+}
+
+void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void *context){
+    // refresh addressBook and get dirty contact id dictionary
+    NSDictionary *_dirtyContactIdDic = [[AddressBookManager shareAddressBookManager] refreshAddressBook];
+    
+    // set info
+    if (nil == info) {
+        info = (__bridge CFDictionaryRef)_dirtyContactIdDic;
+    }
+    
+    // send message to addressBook changed observer
+    objc_msgSend((__bridge id)context, @selector(addressBookChanged:info:context:), addressBook, info, context);
 }
 
 @end
