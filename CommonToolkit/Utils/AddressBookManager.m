@@ -56,7 +56,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 - (id)init{
     self = [super init];
     if (self) {
-        //
+        // Initialization code
     }
     return self;
 }
