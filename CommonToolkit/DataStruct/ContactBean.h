@@ -25,4 +25,7 @@
 // contact photo
 @property (nonatomic, retain) NSData *photo;
 
+// compare with another contact
+- (NSComparisonResult)compare:(ContactBean *)pContactBean;
+
 @end
