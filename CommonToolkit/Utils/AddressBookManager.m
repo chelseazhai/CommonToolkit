@@ -28,9 +28,6 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // get contact information array by particular phone number
 - (NSArray *)getContactInfoByPhoneNumber:(NSString *)pPhoneNumber;
 
-// get contact info by particular id
-- (ContactBean *)getContactInfoById:(NSInteger)pId;
-
 // init all contacts contact id - groups dictionary
 - (void)initContactIdGroupsDictionary;
 
@@ -41,6 +38,7 @@ static AddressBookManager *singletonAddressBookManagerRef;
 - (void)printContactSearchResultDictionary;
 
 // refresh addressBook and return contact id dirty dictionary
+// key: contact id, value: ContactDirtyType
 - (NSDictionary *)refreshAddressBook;
 
 // private method: addressBook changed callback function
@@ -239,6 +237,24 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
 }
 
+- (ContactBean *)getContactInfoById:(NSInteger)pId{
+    ContactBean *_ret = nil;
+    
+    // check all contacts info array
+    _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
+    
+    for (ContactBean *_contact in _mAllContactsInfoArray) {
+        // check contact id
+        if (_contact.id == pId) {
+            _ret = _contact;
+            
+            break;
+        }
+    }
+    
+    return _ret;
+}
+
 - (NSArray *)contactsDisplayNameArrayWithPhoneNumber:(NSString *)pPhoneNumber{
     // get contact information array by particular phone number
     NSArray *_contactInfoArray = [self getContactInfoByPhoneNumber:pPhoneNumber];
@@ -391,24 +407,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     return _ret;
 }
 
-- (ContactBean *)getContactInfoById:(NSInteger)pId{
-    ContactBean *_ret = nil;
-    
-    // check all contacts info array
-    _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
-    
-    for (ContactBean *_contact in _mAllContactsInfoArray) {
-        // check contact id
-        if (_contact.id == pId) {
-            _ret = _contact;
-            
-            break;
-        }
-    }
-    
-    return _ret;
-}
-
 - (void)initContactIdGroupsDictionary{
     // check contact id - groups dictionary
     if (!_mContactIdGroupsDic) {
@@ -546,7 +544,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                 [_mAllContactsInfoArray removeObject:_contact];
                 
                 // add to dirty contact id dictionary
-                [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_DELETE_KEY];
+                [_ret setObject:[NSNumber numberWithInteger:contactDelete] forKey:[NSNumber numberWithInteger:_contact.id]];
             }
         }
         
@@ -562,14 +560,14 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                     _oldContact = [_oldContact copyBaseProp:_contact];
                     
                     // add to dirty contact id dictionary
-                    [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_MODIFY_KEY];
+                    [_ret setObject:[NSNumber numberWithInteger:contactModify] forKey:[NSNumber numberWithInteger:_contact.id]];
                 }
                 else {
                     // add new
                     [_mAllContactsInfoArray addObject:_contact];
                     
                     // add to dirty contact id dictionary
-                    [_ret setObject:[NSNumber numberWithInteger:_contact.id] forKey:DIRTYCONTACT_ADD_KEY];
+                    [_ret setObject:[NSNumber numberWithInteger:contactAdd] forKey:[NSNumber numberWithInteger:_contact.id]];
                 }
             }
         }

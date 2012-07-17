@@ -12,10 +12,13 @@
 
 #import "ContactBean.h"
 
-// dirty contact id dictionary key
-#define DIRTYCONTACT_ADD_KEY    @"dirtyContactAdd"
-#define DIRTYCONTACT_MODIFY_KEY   @"dirtyContactModify"
-#define DIRTYCONTACT_DELETE_KEY @"dirtyContactDelete"
+// contact dirty type
+typedef enum {
+    contactAdd,
+    contactModify,
+    contactDelete
+} ContactDirtyType;
+
 
 // addressBook changed delegate
 @protocol AddressBookChangedDelegate <NSObject>
@@ -61,6 +64,9 @@
 
 // get contact end
 - (void)getContactEnd;
+
+// get contact info by particular contact id
+- (ContactBean *)getContactInfoById:(NSInteger)pId;
 
 // contacts display name array with user input phone number
 - (NSArray *)contactsDisplayNameArrayWithPhoneNumber:(NSString *)pPhoneNumber;
