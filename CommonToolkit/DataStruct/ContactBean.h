@@ -28,4 +28,7 @@
 // compare with another contact
 - (NSComparisonResult)compare:(ContactBean *)pContactBean;
 
+// copy contact bean base property
+- (ContactBean *)copyBaseProp:(ContactBean *)pContactBean;
+
 @end

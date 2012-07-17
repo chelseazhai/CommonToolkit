@@ -32,11 +32,23 @@
 }
 
 - (NSComparisonResult)compare:(ContactBean *)pContactBean{
-    NSComparisonResult _ret = NSOrderedAscending;
+    NSComparisonResult _ret = NSOrderedSame;
     
-    // check contact id, display name and photo
-    if (_id == pContactBean.id && [_displayName isEqualToString:pContactBean.displayName] && [_photo isEqualToData:pContactBean.photo]) {
+    // check contact id and display name
+    if (_id != pContactBean.id || ![_displayName isEqualToString:pContactBean.displayName]) {
+        _ret = NSOrderedAscending;
+        
+        return _ret;
+    }
+    
+    // check photo
+    if ((nil != _photo && nil != pContactBean.photo && [_photo isEqualToData:pContactBean.photo]) || (nil == _photo && nil == pContactBean.photo)) {
         _ret = NSOrderedSame;
+    }
+    else if ((nil == _photo && nil != pContactBean.photo) || (nil != _photo && nil == pContactBean.photo)) {
+        _ret = NSOrderedAscending;
+        
+        return _ret;
     }
     
     // check groups
@@ -58,6 +70,20 @@
     }
     
     return _ret;
+}
+
+- (ContactBean *)copyBaseProp:(ContactBean *)pContactBean{
+    if (nil != self) {
+        _id = pContactBean.id;
+        _groups = pContactBean.groups;
+        _displayName = pContactBean.displayName;
+        _fullNames = pContactBean.fullNames;
+        _namePhonetics = pContactBean.namePhonetics;
+        _phoneNumbers = pContactBean.phoneNumbers;
+        _photo = pContactBean.photo;
+    }
+    
+    return self;
 }
 
 - (NSString *)description{
