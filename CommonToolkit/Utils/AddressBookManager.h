@@ -12,6 +12,9 @@
 
 #import "ContactBean.h"
 
+// contact action key
+#define CONTACT_ACTION  @"action"
+
 // contact dirty type
 typedef enum {
     contactAdd,
@@ -64,9 +67,6 @@ typedef enum {
 
 // get contact end
 - (void)getContactEnd;
-
-// get contact info by particular contact id
-- (ContactBean *)getContactInfoById:(NSInteger)pId;
 
 // contacts display name array with user input phone number
 - (NSArray *)contactsDisplayNameArrayWithPhoneNumber:(NSString *)pPhoneNumber;
