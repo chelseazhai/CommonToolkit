@@ -34,8 +34,18 @@
 - (NSComparisonResult)compare:(ContactBean *)pContactBean{
     NSComparisonResult _ret = NSOrderedSame;
     
-    // check contact id and display name
-    if (_id != pContactBean.id || ![_displayName isEqualToString:pContactBean.displayName]) {
+    // check contact id
+    if (_id != pContactBean.id) {
+        _ret = NSOrderedAscending;
+        
+        return _ret;
+    }
+    
+    // check display name
+    if ((nil != _displayName && nil != pContactBean.displayName && [_displayName isEqualToString:pContactBean.displayName]) || (nil == _displayName && nil == pContactBean.displayName)) {
+        _ret = NSOrderedSame;
+    }
+    else if ((nil == _displayName && nil != pContactBean.displayName) || (nil != _displayName && nil == pContactBean.displayName)) {
         _ret = NSOrderedAscending;
         
         return _ret;
@@ -52,20 +62,58 @@
     }
     
     // check groups
-    for (NSInteger _index = 0; _index < [_groups count]; _index++) {
-        if (![[_groups objectAtIndex:_index] isEqualToString:[pContactBean.groups objectAtIndex:_index]]) {
+    if ((nil == _groups && nil == pContactBean.groups)) {
+        _ret = NSOrderedSame;
+    }
+    else if ((nil == _groups && nil != pContactBean.groups) || (nil != _groups && nil == pContactBean.groups)) {
+        _ret = NSOrderedAscending;
+        
+        return _ret;
+    }
+    else {
+        if ([_groups count] != [pContactBean.groups count]) {
             _ret = NSOrderedAscending;
             
             return _ret;
         }
+        
+        // get groups max count
+        NSInteger _groupsMaxCount = [_groups count] > [pContactBean.groups count] ? [pContactBean.groups count] : [_groups count];
+        
+        for (NSInteger _index = 0; _index < _groupsMaxCount; _index++) {
+            if (![[_groups objectAtIndex:_index] isEqualToString:[pContactBean.groups objectAtIndex:_index]]) {
+                _ret = NSOrderedAscending;
+                
+                return _ret;
+            }
+        }
     }
     
     // check phone number array
-    for (NSInteger __index = 0; __index < [_phoneNumbers count]; __index++) {
-        if (![[_phoneNumbers objectAtIndex:__index] isEqualToString:[pContactBean.phoneNumbers objectAtIndex:__index]]) {
+    if ((nil == _phoneNumbers && nil == pContactBean.phoneNumbers)) {
+        _ret = NSOrderedSame;
+    }
+    else if ((nil == _phoneNumbers && nil != pContactBean.phoneNumbers) || (nil != _phoneNumbers && nil == pContactBean.phoneNumbers)) {
+        _ret = NSOrderedAscending;
+        
+        return _ret;
+    }
+    else {
+        if ([_phoneNumbers count] != [pContactBean.phoneNumbers count]) {
             _ret = NSOrderedAscending;
             
-            return  _ret;
+            return _ret;
+        }
+        
+        // get phone numbers max count
+        NSInteger _phoneNumbersMaxCount = [_phoneNumbers count] > [pContactBean.phoneNumbers count] ? [pContactBean.phoneNumbers count] : [_phoneNumbers count];
+        
+        for (NSInteger __index = 0; __index < _phoneNumbersMaxCount; __index++) {
+            if (![[_phoneNumbers objectAtIndex:__index] isEqualToString:[pContactBean.phoneNumbers objectAtIndex:__index]]) {
+                _ret = NSOrderedAscending;
+                
+                return  _ret;
+            }
         }
     }
     
