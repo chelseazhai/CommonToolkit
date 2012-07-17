@@ -41,14 +41,32 @@
         return _ret;
     }
     
-    // check display name
-    if ((nil != _displayName && nil != pContactBean.displayName && [_displayName isEqualToString:pContactBean.displayName]) || (nil == _displayName && nil == pContactBean.displayName)) {
+    // check full names
+    if ((nil == _fullNames && nil == pContactBean.fullNames)) {
         _ret = NSOrderedSame;
     }
-    else if ((nil == _displayName && nil != pContactBean.displayName) || (nil != _displayName && nil == pContactBean.displayName)) {
+    else if ((nil == _fullNames && nil != pContactBean.fullNames) || (nil != _fullNames && nil == pContactBean.fullNames)) {
         _ret = NSOrderedAscending;
         
         return _ret;
+    }
+    else {
+        if ([_fullNames count] != [pContactBean.fullNames count]) {
+            _ret = NSOrderedAscending;
+            
+            return _ret;
+        }
+        
+        // get fullNames max count
+        NSInteger _fullNamesMaxCount = [_fullNames count] > [pContactBean.fullNames count] ? [pContactBean.fullNames count] : [_fullNames count];
+        
+        for (NSInteger _index = 0; _index < _fullNamesMaxCount; _index++) {
+            if (![[_fullNames objectAtIndex:_index] isEqualToString:[pContactBean.fullNames objectAtIndex:_index]]) {
+                _ret = NSOrderedAscending;
+                
+                return _ret;
+            }
+        }
     }
     
     // check photo
