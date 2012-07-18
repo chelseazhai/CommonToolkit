@@ -34,13 +34,6 @@
 - (NSComparisonResult)compare:(ContactBean *)pContactBean{
     NSComparisonResult _ret = NSOrderedSame;
     
-    // check contact id
-    if (_id != pContactBean.id) {
-        _ret = NSOrderedAscending;
-        
-        return _ret;
-    }
-    
     // check full names
     if ((nil == _fullNames && nil == pContactBean.fullNames)) {
         _ret = NSOrderedSame;
@@ -140,6 +133,7 @@
 
 - (ContactBean *)copyBaseProp:(ContactBean *)pContactBean{
     if (nil != self) {
+        // base property copy
         _id = pContactBean.id;
         _groups = pContactBean.groups;
         _displayName = pContactBean.displayName;
