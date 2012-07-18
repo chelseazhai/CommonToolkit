@@ -29,7 +29,7 @@ typedef enum {
 @required
 
 // addressBook changed callback function
-- (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(CFDictionaryRef)pInfo context:(void *)pContext;
+- (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo context:(void *)pContext;
 
 @end
 
@@ -58,6 +58,9 @@ typedef enum {
 
 // traversal addressBook, important, do it first
 - (void)traversalAddressBook;
+
+// get contact info by particular contact id
+- (ContactBean *)getContactInfoById:(NSInteger)pId;
 
 // get contacts by phone number: sub matching
 - (NSArray *)getContactByPhoneNumber:(NSString *)pPhoneNumber;
