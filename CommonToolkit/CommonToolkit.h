@@ -26,6 +26,7 @@
 #import "NSBundle+Extension.h"
 #import "NSDate+Extension.h"
 #import "NSNumber+Extension.h"
+#import "NSAttributedString+Extension.h"
 
 // DataStruct
 #import "UserBean.h"
@@ -69,5 +70,7 @@
 
 #import "UISoftKeyboard.h"
 #import "UISoftKeyboardCell.h"
+
+#import "UIAttributedLabel.h"
 
 #endif
