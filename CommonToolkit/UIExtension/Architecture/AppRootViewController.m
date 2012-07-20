@@ -14,6 +14,9 @@
 // supported interface orientation
 @property (nonatomic, readwrite) UIInterfaceOrientation supportedInterfaceOrientation;
 
+// init with view controller
+- (id)initWithViewController:(UIViewController *)pViewController;
+
 @end
 
 
@@ -54,7 +57,7 @@
             
         case normalController:
         default:
-            _ret = [[NormalViewController alloc] init];
+            _ret = [[NormalViewController alloc] initWithViewController:pViewController];
             break;
     }
     
@@ -87,6 +90,10 @@
 @implementation NormalViewController
 
 @synthesize supportedInterfaceOrientation = _supportedInterfaceOrientation;
+
+- (id)initWithViewController:(UIViewController *)pViewController{
+    return (NormalViewController *)pViewController;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
