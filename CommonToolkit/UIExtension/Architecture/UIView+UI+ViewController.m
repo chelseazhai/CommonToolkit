@@ -258,6 +258,24 @@
         // add pan gesture recognizer
         [self addGestureRecognizer:_pangr];
     }
+    // pinch
+    if ([self validateSupportedGesture:pinch]) {
+        // create and init pinch gesture recognizer
+        UIPinchGestureRecognizer *_pinchgr = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set delegate
+        _pinchgr.delegate = self;
+        // add pinch gesture recognizer
+        [self addGestureRecognizer:_pinchgr];
+    }
+    // rotation
+    if ([self validateSupportedGesture:rotation]) {
+        // create and init rotation gesture recognizer
+        UIRotationGestureRecognizer *_rotationgr = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        // set delegate
+        _rotationgr.delegate = self;
+        // add rotation gesture recognizer
+        [self addGestureRecognizer:_rotationgr];
+    }
 }
 
 - (id<UIViewGestureRecognizerDelegate>)viewGestureRecognizerDelegate{
@@ -332,6 +350,35 @@
             [UIView animateWithDuration:MIN(1 / (5 * _duration), 0.3) delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 pGestureRecognizer.view.frame = _updatingFrame;
             } completion:nil];
+        }
+        
+        // validate view gesture recognizer delegate and call its method:(void)view: frameChanged:
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:frameChanged:)]) {
+            [self.viewGestureRecognizerDelegate view:self frameChanged:_updatingFrame];
+        }
+    }
+    // pinch
+    else if ([pGestureRecognizer isMemberOfClass:[UIPinchGestureRecognizer class]]) {
+        pGestureRecognizer.view.transform = CGAffineTransformScale(pGestureRecognizer.view.transform, ((UIPinchGestureRecognizer *)pGestureRecognizer).scale, ((UIPinchGestureRecognizer *)pGestureRecognizer).scale);
+        
+        // revert scale
+        ((UIPinchGestureRecognizer *)pGestureRecognizer).scale = 1;
+        
+        // validate view gesture recognizer delegate and call its method:(void)view: frameChanged:
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:frameChanged:)]) {
+            [self.viewGestureRecognizerDelegate view:self frameChanged:pGestureRecognizer.view.frame];
+        }
+    }
+    // rotation
+    else if ([pGestureRecognizer isMemberOfClass:[UIRotationGestureRecognizer class]]) {
+        pGestureRecognizer.view.transform = CGAffineTransformRotate(pGestureRecognizer.view.transform, ((UIRotationGestureRecognizer *)pGestureRecognizer).rotation);
+        
+        // revert rotation
+        ((UIRotationGestureRecognizer *)pGestureRecognizer).rotation = 0;
+        
+        // validate view gesture recognizer delegate and call its method:(void)view: frameChanged:
+        if ([self validateViewGestureRecognizerDelegate:self.viewGestureRecognizerDelegate andSelector:@selector(view:frameChanged:)]) {
+            [self.viewGestureRecognizerDelegate view:self frameChanged:pGestureRecognizer.view.frame];
         }
     }
 }
