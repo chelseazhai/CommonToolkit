@@ -317,7 +317,7 @@
             [(UIPanGestureRecognizer *)pGestureRecognizer setTranslation:CGPointZero inView:pGestureRecognizer.view];
         }
         else if (pGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-            // get translation
+            // get velocity
             CGPoint _velocity = [(UIPanGestureRecognizer *)pGestureRecognizer velocityInView:pGestureRecognizer.view];
             
             CGFloat _acceleration = 2000.0;
@@ -328,6 +328,7 @@
             _updatingFrame.origin.x = MIN(MAX(_updatingFrame.origin.x + _combineVelocity * _velocity.x / (2 * _acceleration), 0.0), pGestureRecognizer.view.superview.frame.size.width - pGestureRecognizer.view.frame.size.width);
             _updatingFrame.origin.y = MIN(MAX(_updatingFrame.origin.y + _combineVelocity * _velocity.y / (2 * _acceleration), 0.0), pGestureRecognizer.view.superview.frame.size.height - pGestureRecognizer.view.frame.size.height);
             
+            // add curve ease out animation
             [UIView animateWithDuration:MIN(1 / (5 * _duration), 0.3) delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 pGestureRecognizer.view.frame = _updatingFrame;
             } completion:nil];
