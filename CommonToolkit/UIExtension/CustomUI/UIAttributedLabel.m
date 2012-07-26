@@ -20,9 +20,11 @@ CTTextAlignment CTTextAlignmentFromUITextAlignment(UITextAlignment alignment) {
             return kCTCenterTextAlignment;
 		case UITextAlignmentRight: 
             return kCTRightTextAlignment;
-            // special OOB value if we decide to use it even if it's not really standard... 
-		case UITextAlignmentJustify: 
+            // special OOB value if we decide to use it even if it's not really standard...
+        /*
+		case UITextAlignmentJustify:
             return kCTJustifiedTextAlignment; 
+         */
 		default: 
             return kCTNaturalTextAlignment;
 	}

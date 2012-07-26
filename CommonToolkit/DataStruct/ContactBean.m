@@ -51,9 +51,7 @@
         }
         
         // get fullNames max count
-        NSInteger _fullNamesMaxCount = [_fullNames count] > [pContactBean.fullNames count] ? [pContactBean.fullNames count] : [_fullNames count];
-        
-        for (NSInteger _index = 0; _index < _fullNamesMaxCount; _index++) {
+        for (NSInteger _index = 0; _index < MIN([_fullNames count], [pContactBean.fullNames count]); _index++) {
             if (![[_fullNames objectAtIndex:_index] isEqualToString:[pContactBean.fullNames objectAtIndex:_index]]) {
                 _ret = NSOrderedAscending;
                 
@@ -89,9 +87,7 @@
         }
         
         // get groups max count
-        NSInteger _groupsMaxCount = [_groups count] > [pContactBean.groups count] ? [pContactBean.groups count] : [_groups count];
-        
-        for (NSInteger _index = 0; _index < _groupsMaxCount; _index++) {
+        for (NSInteger _index = 0; _index < MIN([_groups count], [pContactBean.groups count]); _index++) {
             if (![[_groups objectAtIndex:_index] isEqualToString:[pContactBean.groups objectAtIndex:_index]]) {
                 _ret = NSOrderedAscending;
                 
@@ -117,9 +113,7 @@
         }
         
         // get phone numbers max count
-        NSInteger _phoneNumbersMaxCount = [_phoneNumbers count] > [pContactBean.phoneNumbers count] ? [pContactBean.phoneNumbers count] : [_phoneNumbers count];
-        
-        for (NSInteger __index = 0; __index < _phoneNumbersMaxCount; __index++) {
+        for (NSInteger __index = 0; __index < MIN([_phoneNumbers count], [pContactBean.phoneNumbers count]); __index++) {
             if (![[_phoneNumbers objectAtIndex:__index] isEqualToString:[pContactBean.phoneNumbers objectAtIndex:__index]]) {
                 _ret = NSOrderedAscending;
                 
