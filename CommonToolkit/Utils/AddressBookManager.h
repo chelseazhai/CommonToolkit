@@ -15,8 +15,10 @@
 // contact action key
 #define CONTACT_ACTION  @"action"
 
-// contact matching index array key
-#define CONTACT_MATCHING_INDEXS @"matchingIndexs"
+// contact phone number matching index array key
+#define PHONENUMBER_MATCHING_INDEXS @"phoneNumberMatchingIndexs"
+// contact name matching index array key
+#define NAME_MATCHING_INDEXS    @"nameMatchingIndexs"
 
 // contact dirty type
 typedef enum {

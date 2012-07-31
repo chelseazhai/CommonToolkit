@@ -17,9 +17,9 @@
 
 #import <objc/message.h>
 
-// matching contact bean and matching index array key
-#define MATCHING_CONTACT_KEY    @"matchingContact"
-#define MATCHING_INDEXS_KEY @"matchingIndexs"
+// matching result contact bean and index array key
+#define MATCHING_RESULT_CONTACT @"matchingResultContact"
+#define MATCHING_RESULT_INDEXS  @"matchingResultIndexs"
 
 // static singleton AddressBookManager reference
 static AddressBookManager *singletonAddressBookManagerRef;
@@ -118,10 +118,10 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     if ([[_mContactSearchResultDic allKeys] containsObject:pPhoneNumber]) {
         // existed in search result dictionary
         for (NSDictionary *_matchingContactDic in [_mContactSearchResultDic objectForKey:pPhoneNumber]) {
-            [_ret addObject:[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]];
+            [_ret addObject:[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]];
             
             // append contact matching index array
-            [((ContactBean *)[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]).extensionDic setObject:[_matchingContactDic objectForKey:MATCHING_INDEXS_KEY] forKey:CONTACT_MATCHING_INDEXS];
+            [((ContactBean *)[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]).extensionDic setObject:[_matchingContactDic objectForKey:MATCHING_RESULT_INDEXS] forKey:PHONENUMBER_MATCHING_INDEXS];
         }
     }
     else {
@@ -135,7 +135,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
             
             // reset contact search scope
             for (NSDictionary *_matchingContactDic in [_mContactSearchResultDic objectForKey:[pPhoneNumber substringToIndex:pPhoneNumber.length - 2]]) {
-                [_subMatchedContactArr addObject:[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]];
+                [_subMatchedContactArr addObject:[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]];
             }
             
             _contactSearchScope = _subMatchedContactArr;
@@ -173,10 +173,10 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                 [_ret addObject:_contact];
                 
                 // append contact matching index array
-                [_contact.extensionDic setObject:_phoneNumberMatchingIndexsArr forKey:CONTACT_MATCHING_INDEXS];
+                [_contact.extensionDic setObject:_phoneNumberMatchingIndexsArr forKey:PHONENUMBER_MATCHING_INDEXS];
                 
                 // add matching contact to searched contact array
-                [_searchedContactArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:_contact, MATCHING_CONTACT_KEY, [_contact.extensionDic objectForKey:CONTACT_MATCHING_INDEXS], MATCHING_INDEXS_KEY, nil]];
+                [_searchedContactArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:_contact, MATCHING_RESULT_CONTACT, [_contact.extensionDic objectForKey:PHONENUMBER_MATCHING_INDEXS], MATCHING_RESULT_INDEXS, nil]];
             }
         }
         
@@ -205,10 +205,10 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     if ([[_mContactSearchResultDic allKeys] containsObject:pName]) {
         // existed in search result dictionary
         for (NSDictionary *_matchingContactDic in [_mContactSearchResultDic objectForKey:pName]) {
-            [_ret addObject:[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]];
+            [_ret addObject:[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]];
             
             // append contact matching index array
-            [((ContactBean *)[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]).extensionDic setObject:[_matchingContactDic objectForKey:MATCHING_INDEXS_KEY] forKey:CONTACT_MATCHING_INDEXS];
+            [((ContactBean *)[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]).extensionDic setObject:[_matchingContactDic objectForKey:MATCHING_RESULT_INDEXS] forKey:NAME_MATCHING_INDEXS];
         }
     }
     else {
@@ -222,7 +222,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
             
             // reset contact search scope
             for (NSDictionary *_matchingContactDic in [_mContactSearchResultDic objectForKey:[pName substringToIndex:pName.length - 2]]) {
-                [_subMatchedContactArr addObject:[_matchingContactDic objectForKey:MATCHING_CONTACT_KEY]];
+                [_subMatchedContactArr addObject:[_matchingContactDic objectForKey:MATCHING_RESULT_CONTACT]];
             }
             
             _contactSearchScope = _subMatchedContactArr;
@@ -350,10 +350,10 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                     [_ret addObject:_contact];
                     
                     // append contact matching index array
-                    [_contact.extensionDic setObject:_nameMatchingIndexArr forKey:CONTACT_MATCHING_INDEXS];
+                    [_contact.extensionDic setObject:_nameMatchingIndexArr forKey:NAME_MATCHING_INDEXS];
                     
                     // add matching contact to searched contact array
-                    [_searchedContactArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:_contact, MATCHING_CONTACT_KEY, [_contact.extensionDic objectForKey:CONTACT_MATCHING_INDEXS], MATCHING_INDEXS_KEY, nil]];
+                    [_searchedContactArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:_contact, MATCHING_RESULT_CONTACT, [_contact.extensionDic objectForKey:NAME_MATCHING_INDEXS], MATCHING_RESULT_INDEXS, nil]];
                     
                     break;
                 }
