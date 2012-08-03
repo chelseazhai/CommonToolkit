@@ -215,6 +215,7 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 	[super setNeedsDisplay];
 }
 
+/*
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *_touch = [touches anyObject];
 	CGPoint _point = [_touch locationInView:self];
@@ -253,6 +254,7 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
     
 	[self setNeedsDisplay];
 }
+ */
 
 - (void)drawTextInRect:(CGRect)rect{
     if (_mAttributedText) {
@@ -526,6 +528,10 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
     NSMutableAttributedString* _attributedString = [self.attributedText mutableCopy];
 	if (!_attributedString) {
         return nil;
+    }
+    // test by ares @ 2012-8-3 10:44
+    else {
+        return _attributedString;
     }
 	
 	NSString *_plainText = _attributedString.string;
