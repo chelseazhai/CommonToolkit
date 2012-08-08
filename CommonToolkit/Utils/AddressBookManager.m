@@ -27,6 +27,8 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // AddressBookManager extension
 @interface AddressBookManager ()
 
+@property (nonatomic, readonly) NSObject *addressBookChangedObserver;
+
 // generate contact with contact's name, phone numbers info by record
 - (ContactBean *)generateContactNamePhoneNumsInfoByRecord:(ABRecordRef)pRecord;
 
@@ -55,6 +57,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 
 
 @implementation AddressBookManager
+
+@synthesize addressBookChangedObserver = _mAddressBookChangedObserver;
 
 - (id)init{
     self = [super init];
@@ -399,8 +403,17 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 - (void)addABChangedObserver:(NSObject *)pObserver{
     // validate addressBookChanged implemetation
     if ([CommonUtils validateProcessor:pObserver andSelector:@selector(addressBookChanged:info:context:)]) {
+        // check addressBook changed observer
+        if (_mAddressBookChangedObserver && ![pObserver isEqual:_mAddressBookChangedObserver]) {
+            // remove addressBook changed observer
+            [self removeABChangedObserver:_mAddressBookChangedObserver];
+        }
+        
+        // save addressBook changed observer
+        _mAddressBookChangedObserver = pObserver;
+        
         // register external change callback function
-        ABAddressBookRegisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)pObserver);
+        ABAddressBookRegisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)(_mAddressBookChangedObserver));
     }
     else if (nil != pObserver) {
         NSLog(@"Warning: %@ can't implement addressBook changed callback function %@", NSStringFromClass(pObserver.class), NSStringFromSelector(@selector(addressBookChanged:info:context:)));
@@ -702,6 +715,11 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 }
 
 void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void *context){
+    // ???, unregister external change callback function failed
+    if (![[AddressBookManager shareAddressBookManager].addressBookChangedObserver isEqual:(__bridge id)(context)]) {
+        return;
+    }
+    
     // refresh addressBook and get dirty contact id dictionary
     info = (__bridge CFDictionaryRef)[[AddressBookManager shareAddressBookManager] refreshAddressBook];
     

@@ -61,6 +61,9 @@ typedef enum {
     // key is search keyword (NSString)
     // value is array of contact bean (ContactBean) and contact matching index array dictionary
     NSMutableDictionary *_mContactSearchResultDic;
+    
+    // addressBook changed observer
+    NSObject *_mAddressBookChangedObserver;
 }
 
 @property (nonatomic, readonly) NSMutableArray *allContactsInfoArray;
