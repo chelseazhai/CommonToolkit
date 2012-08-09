@@ -12,6 +12,8 @@
 
 #import "UIViewExtensionBean_Extension.h"
 
+#import "UIDevice+Extension.h"
+
 #import "CommonUtils.h"
 
 // one hand five fingers
@@ -102,8 +104,10 @@
     // set view background image
     self.backgroundColor = [UIColor colorWithPatternImage:backgroundImg];
     
-    // set transparent
-    self.opaque = NO;
+    // set transparent, if ios system version under 5.0
+    if ([UIDevice currentDevice].systemVersionNum < 5.0) {
+        self.opaque = NO;
+    }
     
     // save background image
     [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:backgroundImg withType:backgroundImgExt forKey:[NSNumber numberWithInteger:self.hash]];

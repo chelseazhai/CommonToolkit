@@ -11,6 +11,9 @@
 #import "NSString+Extension.h"
 #import "NSArray+Extension.h"
 #import "NSBundle+Extension.h"
+
+#import "UIDevice+Extension.h"
+
 #import "CommonUtils.h"
 
 #import "ContactBean_Extension.h"
@@ -447,12 +450,12 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     
     // donn't need to use MiddleName usually
     // check system current setting language
-    switch ([CommonUtils systemCurrentSettingLanguage]) {
+    switch ([UIDevice currentDevice].systemCurrentSettingLanguage) {
         case zh_Hans:
         case zh_Hant:
             {
                 // set display name
-                _contact.displayName = [[NSString stringWithFormat:@"%@ %@", _lastName, _firstName] isNil] ? (zh_Hans == [CommonUtils systemCurrentSettingLanguage]) ? @"无名字" : @"無名字" : [NSString stringWithFormat:@"%@ %@", _lastName, _firstName];
+                _contact.displayName = [[NSString stringWithFormat:@"%@ %@", _lastName, _firstName] isNil] ? (zh_Hans == [UIDevice currentDevice].systemCurrentSettingLanguage) ? @"无名字" : @"無名字" : [NSString stringWithFormat:@"%@ %@", _lastName, _firstName];
                 
                 // set full name array
                 NSMutableArray *_tmpNameArray = [[NSMutableArray alloc] init];

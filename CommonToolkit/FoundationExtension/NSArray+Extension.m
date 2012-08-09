@@ -7,9 +7,9 @@
 //
 
 #import "NSArray+Extension.h"
-
 #import "NSString+Extension.h"
-#import "CommonUtils.h"
+
+#import "UIDevice+Extension.h"
 
 @implementation NSArray (AddressBook)
 
@@ -31,7 +31,7 @@
     // judge phoneNumsLabel text
     if ([_ret isNil]) {
         // check system current setting language 
-        switch ([CommonUtils systemCurrentSettingLanguage]) {
+        switch ([UIDevice currentDevice].systemCurrentSettingLanguage) {
             case zh_Hans:
                 [_ret appendString:@"无号码"];
                 break;

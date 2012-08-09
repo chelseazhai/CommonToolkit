@@ -11,6 +11,8 @@
 		DC0F2E151592F26200F9D4FA /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0F2E131592F26200F9D4FA /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC1FDF9315B1774100189331 /* UIAttributedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1FDF9115B1774100189331 /* UIAttributedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC1FDF9415B1774100189331 /* UIAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1FDF9215B1774100189331 /* UIAttributedLabel.m */; };
+		DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */; };
 		DC3C1584158B921800B31A79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3C1582158B921800B31A79 /* InfoPlist.strings */; };
 		DC3C15D9158B936600B31A79 /* ContactBean.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C1592158B936600B31A79 /* ContactBean.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3C15DA158B936600B31A79 /* ContactBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1593158B936600B31A79 /* ContactBean.m */; };
@@ -103,6 +105,8 @@
 		DC0F2E131592F26200F9D4FA /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		DC1FDF9115B1774100189331 /* UIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAttributedLabel.h; sourceTree = "<group>"; };
 		DC1FDF9215B1774100189331 /* UIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAttributedLabel.m; sourceTree = "<group>"; };
+		DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
+		DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
 		DC3C1583158B921800B31A79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC3C1585158B922700B31A79 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC3C1587158B922E00B31A79 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -364,6 +368,8 @@
 				DC3C15CD158B936600B31A79 /* UIActionSheet+Extension.m */,
 				DC3C1616158B941000B31A79 /* UIColor+Extension.h */,
 				DC3C1617158B941000B31A79 /* UIColor+Extension.m */,
+				DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */,
+				DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */,
 				DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */,
 				DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */,
 				DC3C15CE158B936600B31A79 /* UITableView+Extension.h */,
@@ -514,6 +520,7 @@
 				DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */,
 				DCC26CD415B02BA7003AF896 /* NSAttributedString+Extension.h in Headers */,
 				DC1FDF9315B1774100189331 /* UIAttributedLabel.h in Headers */,
+				DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +632,7 @@
 				DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */,
 				DCC26CD515B02BA7003AF896 /* NSAttributedString+Extension.m in Sources */,
 				DC1FDF9415B1774100189331 /* UIAttributedLabel.m in Sources */,
+				DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

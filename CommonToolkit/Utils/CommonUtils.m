@@ -15,32 +15,6 @@
 
 @implementation CommonUtils
 
-+ (SystemLanguage)systemCurrentSettingLanguage{
-    SystemLanguage _ret;
-    
-    // get system preferred language
-    NSString *_preferredLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
-    // english
-    if ([_preferredLanguage isEqualToString:@"en"]) {
-        _ret = en;
-    }
-    // simplified chinese
-    else if ([_preferredLanguage isEqualToString:@"zh-Hans"]) {
-        _ret = zh_Hans;
-    }
-    // traditional chinese
-    else if ([_preferredLanguage isEqualToString:@"zh-Hant"]) {
-        _ret = zh_Hant;
-    }
-    // others
-    else {
-        _ret = en;
-    }
-    
-    return _ret;
-}
-
 + (BOOL)validateProcessor:(id)pProcessor andSelector:(SEL)pSelector{
     BOOL _ret = NO;
     
@@ -52,14 +26,6 @@
     }
 
     return _ret;
-}
-
-+ (CGFloat)appStatusBarHeight{
-    return [[UIApplication sharedApplication] statusBarFrame].size.height;
-}
-
-+ (CGFloat)appNavigationBarHeight{
-    return 44.0;
 }
 
 + (NSArray *)convertIntegerToBinaryArray:(NSInteger)pInteger{
