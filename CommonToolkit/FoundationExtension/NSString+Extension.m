@@ -10,18 +10,6 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
-#import "RegexKitLite.h"
-
-@interface NSString (Private)
-
-// multiplied by array
-- (NSArray *)multipliedByArray:(NSArray *)pArray;
-
-@end
-
-
-
-
 @implementation NSString (Common)
 
 - (BOOL)containsSubString:(NSString *)pString{
@@ -120,83 +108,6 @@
         _ret = self;
     }
     
-    return _ret;
-}
-
-@end
-
-
-
-
-@implementation NSString (Contact)
-
-- (NSArray *)splitToFirstAndOthers{
-    NSMutableArray *_ret = [[NSMutableArray alloc] init];
-    
-    // check self
-    if ([self isNil]) {
-        NSLog(@"Error: nil or empty string mustn't split");
-    }
-    else if (self.length >= 2) {
-        // get first letter and others
-        NSString *_firstLetter = [self substringToIndex:1];
-        NSString *_others = [self substringFromIndex:1];
-        
-        [_ret addObjectsFromArray:[_firstLetter multipliedByArray:[_others splitToFirstAndOthers]]];
-    }
-    else {
-        [_ret addObject:self];
-    }
-    
-    return _ret;
-}
-
-- (NSArray *)getAllPrefixes{
-    NSMutableArray *_ret = [[NSMutableArray alloc] init];
-    
-    for (NSInteger _index = 0; _index < self.length; _index++) {
-        [_ret addObject:[self substringToIndex:_index + 1]];
-    }
-    
-    return _ret;
-}
-
-- (NSArray *)toArraySeparatedByCharacter{
-    NSMutableArray *_ret = [NSMutableArray arrayWithArray:[self componentsSeparatedByRegex:@"([A-Za-z0-9]*)"]];
-    
-    // all characters
-    if (_ret && 0 == [_ret count] && ![self isNil]) {
-        [_ret addObject:self];
-    }
-    else if (_ret && [_ret count] > 0) {
-        // trim "" object
-        for (NSInteger _index = 0; _index < [_ret count]; _index++) {
-            if ([[_ret objectAtIndex:_index] isNil]) {
-                [_ret removeObjectAtIndex:_index];
-            }
-        }
-    }
-    
-    return _ret;
-}
-
-@end
-
-
-
-
-@implementation NSString (Private)
-
-- (NSArray *)multipliedByArray:(NSArray *)pArray{
-    NSMutableArray *_ret = [[NSMutableArray alloc] init];
-
-    for (NSString *_string in pArray) {
-        // x1 x2
-        [_ret addObject:[NSString stringWithFormat:@"%@%@%@", self, SPLIT_SEPARATOR, _string]];
-        // x1x2
-        [_ret addObject:[NSString stringWithFormat:@"%@%@", self, _string]];
-    }
-
     return _ret;
 }
 
