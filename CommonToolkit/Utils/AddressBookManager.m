@@ -38,22 +38,8 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // contact name phonetics string
 - (NSString *)namePhoneticsString;
 
-// sorted contacts info array
-- (NSMutableArray *)sortedContactsInfoArray;
-
 // multiplied by array
 - (NSArray *)multipliedByArray:(NSArray *)pArray;
-
-@end
-
-
-
-
-// NSMutableArray contact private category
-@interface NSMutableArray (ContactPrivate)
-
-// append contact to sorted contacts info array
-- (NSMutableArray *)appendContact2SortedContactsInfoArray:(ContactBean *)pContact;
 
 @end
 
@@ -133,15 +119,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     return _mAllContactsInfoArray;
 }
 
-- (NSMutableArray *)allSortedContactsInfoArray{
-    // remove each contact extension dictionary
-    for (ContactBean *_contact in _mAllSortedContactsInfoArray) {
-        [_contact.extensionDic removeAllObjects];
-    }
-    
-    return _mAllSortedContactsInfoArray;
-}
-
 + (AddressBookManager *)shareAddressBookManager{
     @synchronized(self){
         if (nil == singletonAddressBookManagerRef) {
@@ -156,7 +133,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     // traversal addressBook
     [self initContactIdGroupsDictionary];
     _mAllContactsInfoArray = [self getAllContactsInfoFromAB];
-    _mAllSortedContactsInfoArray = [_mAllContactsInfoArray sortedContactsInfoArray];
 }
 
 - (ContactBean *)getContactInfoById:(NSInteger)pId{
@@ -164,7 +140,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     
     // check all contacts info array
     _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
-    _mAllSortedContactsInfoArray = _mAllSortedContactsInfoArray ? _mAllSortedContactsInfoArray : [_mAllContactsInfoArray sortedContactsInfoArray];
     
     for (ContactBean *_contact in _mAllContactsInfoArray) {
         // check contact id
@@ -188,7 +163,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     // check contact search result dictionary and all contacts info array
     _mContactSearchResultDic = _mContactSearchResultDic ? _mContactSearchResultDic : [[NSMutableDictionary alloc] init];
     _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
-    _mAllSortedContactsInfoArray = _mAllSortedContactsInfoArray ? _mAllSortedContactsInfoArray : [_mAllContactsInfoArray sortedContactsInfoArray];
     
     // check search contact phone number
     if ([[_mContactSearchResultDic allKeys] containsObject:pPhoneNumber]) {
@@ -260,7 +234,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         [_mContactSearchResultDic setObject:_searchedContactArray forKey:pPhoneNumber];
     }
     
-    return pSortedType == phonetics ? [_ret sortedContactsInfoArray] : _ret;
+    return pSortedType == phonetics ? [_ret phoneticsSortedContactsInfoArray] : _ret;
 }
 
 - (NSArray *)getContactByName:(NSString *)pName{
@@ -276,7 +250,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     // check contact search result dictionary and all contacts info array
     _mContactSearchResultDic = _mContactSearchResultDic ? _mContactSearchResultDic : [[NSMutableDictionary alloc] init];
     _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
-    _mAllSortedContactsInfoArray = _mAllSortedContactsInfoArray ? _mAllSortedContactsInfoArray : [_mAllContactsInfoArray sortedContactsInfoArray];
     
     // check search contact name
     if ([[_mContactSearchResultDic allKeys] containsObject:pName]) {
@@ -441,7 +414,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         [_mContactSearchResultDic setObject:_searchedContactArray forKey:pName];
     }
     
-    return pSortedType == phonetics ? [_ret sortedContactsInfoArray] : _ret;
+    return pSortedType == phonetics ? [_ret phoneticsSortedContactsInfoArray] : _ret;
 }
 
 - (void)getContactEnd{
@@ -598,7 +571,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     
     // check all contacts info array
     _mAllContactsInfoArray = _mAllContactsInfoArray ? _mAllContactsInfoArray : [self getAllContactsInfoFromAB];
-    _mAllSortedContactsInfoArray = _mAllSortedContactsInfoArray ? _mAllSortedContactsInfoArray : [_mAllContactsInfoArray sortedContactsInfoArray];
     
     // search each contact in all contacts info array
     for (ContactBean *_contact in _mAllContactsInfoArray) {
@@ -748,12 +720,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
             
             // if existed, check next else remove the contact in all contacts info array
             if (!_existedInNew) {
-                // get the deleting contact index in sorted contacts info array
-                NSInteger _indexOfSortedContactsInfoArray = [_mAllSortedContactsInfoArray indexOfObject:[_mAllContactsInfoArray objectAtIndex:_index]];
-                
                 // delete
                 [_mAllContactsInfoArray removeObjectAtIndex:_index];
-                [_mAllSortedContactsInfoArray removeObjectAtIndex:_indexOfSortedContactsInfoArray];
                 
                 // add to dirty contact id dictionary
                 [_ret setObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:contactDelete] forKey:CONTACT_ACTION] forKey:[NSNumber numberWithInteger:_contact.id]];
@@ -769,9 +737,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                 // reset all contacts info array, if existed, replace else add new contact
                 if (_oldContact) {
                     // replace
-                    [_mAllSortedContactsInfoArray removeObjectAtIndex:[_mAllSortedContactsInfoArray indexOfObject:_oldContact]];
                     _oldContact = [_oldContact copyBaseProp:_contact];
-                    [_mAllSortedContactsInfoArray appendContact2SortedContactsInfoArray:_oldContact];
                     
                     // create and init contact action dictionary
                     NSMutableDictionary *_contactActionDic = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInteger:contactModify] forKey:CONTACT_ACTION];
@@ -783,7 +749,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                 else {
                     // add new
                     [_mAllContactsInfoArray addObject:_contact];
-                    [_mAllSortedContactsInfoArray appendContact2SortedContactsInfoArray:_contact];
                     
                     // add to dirty contact id dictionary
                     [_ret setObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:contactAdd] forKey:CONTACT_ACTION] forKey:[NSNumber numberWithInteger:_contact.id]];
@@ -814,6 +779,75 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     if (NULL != context && 0 != [(__bridge NSDictionary *)info count]) {
         objc_msgSend(_addressBookChangedObserver, @selector(addressBookChanged:info:observer:), addressBook, info, _addressBookChangedObserver);
     }
+}
+
+@end
+
+
+
+
+@implementation NSArray (AddressBook)
+
+- (NSMutableArray *)phoneticsSortedContactsInfoArray{
+    NSMutableArray *_ret = [[NSMutableArray alloc] init];
+    
+    // process need to sorted contacts info array
+    for (ContactBean *_contact in self) {
+        // append contact to sorted contacts info array
+        // if self is empty, add the first without compare
+        if (0 == [_ret count]) {
+            [_ret addObject:_contact];
+        }
+        else {
+            // comare with each sorted contact in sorted contacts info array
+            for (NSInteger _index = 0; _index < [_ret count]; _index++) {
+                // the contact has no name
+                if ([[_contact.namePhonetics namePhoneticsString] isEqualToString:@""]) {
+                    if (![[((ContactBean *)[_ret objectAtIndex:_index]).namePhonetics namePhoneticsString] isEqualToString:@""]) {
+                        // at last
+                        if (_index == [_ret count] - 1) {
+                            [_ret addObject:_contact];
+                            
+                            break;
+                        }
+                        else {
+                            // except the sorted contact with name
+                            continue;
+                        }
+                    }
+                    // if the sorted contact without name, compare their first phone number
+                    else if ([[_contact.phoneNumbers objectAtIndex:0] compare:[((ContactBean *)[_ret objectAtIndex:_index]).phoneNumbers objectAtIndex:0]] < NSOrderedSame) {
+                        [_ret insertObject:_contact atIndex:_index];
+                        
+                        break;
+                    }
+                    
+                    // at last
+                    if (_index == [_ret count] - 1) {
+                        [_ret addObject:_contact];
+                        
+                        break;
+                    }
+                }
+                
+                // compare the contact name phonetics, if the had been sorted contact without name, insert immediately
+                if ([[((ContactBean *)[_ret objectAtIndex:_index]).namePhonetics namePhoneticsString] isEqualToString:@""] || [[_contact.namePhonetics namePhoneticsString] compare:[((ContactBean *)[_ret objectAtIndex:_index]).namePhonetics namePhoneticsString]] < NSOrderedSame) {
+                    [_ret insertObject:_contact atIndex:_index];
+                    
+                    break;
+                }
+                
+                // at last
+                if (_index == [_ret count] - 1) {
+                    [_ret addObject:_contact];
+                    
+                    break;
+                }
+            }
+        }
+    }
+    
+    return _ret;
 }
 
 @end
@@ -898,18 +932,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     return _ret;
 }
 
-- (NSMutableArray *)sortedContactsInfoArray{
-    NSMutableArray *_ret = [[NSMutableArray alloc] init];
-    
-    // process need to sorted contacts info array
-    for (ContactBean *_contact in self) {
-        // append contact to sorted contacts info array
-        [_ret appendContact2SortedContactsInfoArray:_contact];
-    }
-    
-    return _ret;
-}
-
 - (NSArray *)multipliedByArray:(NSArray *)pArray{
     NSMutableSet *_ret = [[NSMutableSet alloc] init];
     
@@ -935,71 +957,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
     
     return [_ret allObjects];
-}
-
-@end
-
-
-
-
-@implementation NSMutableArray (ContactPrivate)
-
-- (NSMutableArray *)appendContact2SortedContactsInfoArray:(ContactBean *)pContact{
-    if (nil != self) {
-        // if self is empty, add the first without compare
-        if (0 == [self count]) {
-            [self addObject:pContact];
-        }
-        else {
-            // comare with each sorted contact in sorted contacts info array
-            for (NSInteger _index = 0; _index < [self count]; _index++) {
-                // the contact has no name
-                if ([[pContact.namePhonetics namePhoneticsString] isEqualToString:@""]) {
-                    if (![[((ContactBean *)[self objectAtIndex:_index]).namePhonetics namePhoneticsString] isEqualToString:@""]) {
-                        // at last
-                        if (_index == [self count] - 1) {
-                            [self addObject:pContact];
-                            
-                            break;
-                        }
-                        else {
-                            // except the sorted contact with name
-                            continue;
-                        }
-                    }
-                    // if the sorted contact without name, compare their first phone number
-                    else if ([[pContact.phoneNumbers objectAtIndex:0] compare:[((ContactBean *)[self objectAtIndex:_index]).phoneNumbers objectAtIndex:0]] < NSOrderedSame) {
-                        [self insertObject:pContact atIndex:_index];
-                        
-                        break;
-                    }
-                    
-                    // at last
-                    if (_index == [self count] - 1) {
-                        [self addObject:pContact];
-                        
-                        break;
-                    }
-                }
-                
-                // compare the contact name phonetics, if the had been sorted contact without name, insert immediately
-                if ([[((ContactBean *)[self objectAtIndex:_index]).namePhonetics namePhoneticsString] isEqualToString:@""] || [[pContact.namePhonetics namePhoneticsString] compare:[((ContactBean *)[self objectAtIndex:_index]).namePhonetics namePhoneticsString]] < NSOrderedSame) {
-                    [self insertObject:pContact atIndex:_index];
-                    
-                    break;
-                }
-                
-                // at last
-                if (_index == [self count] - 1) {
-                    [self addObject:pContact];
-                    
-                    break;
-                }
-            }
-        }
-    }
-    
-    return self;
 }
 
 @end
