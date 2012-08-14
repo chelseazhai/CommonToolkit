@@ -61,7 +61,6 @@
 - (NSArray *)stringParagraphs{
     // string paragraphs array
     NSArray *_paragraphsArray = [self componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\n"]];
-    //NSLog(@"string = %@, paragraphs array = %@ and count = %d", self, _paragraphsArray, [_paragraphsArray count]);
     
     return _paragraphsArray;
 }
@@ -81,8 +80,6 @@
     CC_MD5(cCharUTF8String, strlen(cCharUTF8String), _result);
     
     NSString *_ret = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x", _result[0], _result[1], _result[2], _result[3], _result[4], _result[5], _result[6], _result[7], _result[8], _result[9], _result[10], _result[11], _result[12], _result[13], _result[14], _result[15]];
-    
-    //NSLog(@"string md5: orig string: %@ and after md5 = %@", _ret, [_ret uppercaseString]);
     
     return [_ret uppercaseString];
 }

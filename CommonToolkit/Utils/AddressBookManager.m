@@ -52,9 +52,6 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // split to first letter and others
 - (NSArray *)splitToFirstAndOthers;
 
-// to array separated by character regular expression ([A-Za-z0-9]*)
-- (NSArray *)toArraySeparatedByCharacter;
-
 // multiplied by array
 - (NSArray *)multipliedByArray:(NSArray *)pArray;
 
@@ -100,6 +97,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 
 @implementation AddressBookManager
 
+@synthesize allContactsInfoArray = _mAllContactsInfoArray;
+
 @synthesize addressBookChangedObserver = _mAddressBookChangedObserver;
 
 - (id)init{
@@ -108,15 +107,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         // Initialization code
     }
     return self;
-}
-
-- (NSMutableArray *)allContactsInfoArray{
-    // remove each contact extension dictionary
-    for (ContactBean *_contact in _mAllContactsInfoArray) {
-        [_contact.extensionDic removeAllObjects];
-    }
-    
-    return _mAllContactsInfoArray;
 }
 
 + (AddressBookManager *)shareAddressBookManager{
@@ -502,8 +492,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                 
                 // set full name array
                 NSMutableArray *_tmpNameArray = [[NSMutableArray alloc] init];
-                [_tmpNameArray addObjectsFromArray:[_lastName toArraySeparatedByCharacter]];
-                [_tmpNameArray addObjectsFromArray:[_firstName toArraySeparatedByCharacter]];
+                [_tmpNameArray addObjectsFromArray:[_lastName nameArraySeparatedByCharacter]];
+                [_tmpNameArray addObjectsFromArray:[_firstName nameArraySeparatedByCharacter]];
                 _contact.fullNames = _tmpNameArray;
                 
                 // set name phonetics
@@ -519,7 +509,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                     }
                     else {
                         // others, character
-                        [_tmpNamePhoneticArray addObject:[NSArray arrayWithObject:_name]];
+                        [_tmpNamePhoneticArray addObject:[NSArray arrayWithObject:[_name lowercaseString]]];
                     }
                 }
                 _contact.namePhonetics = _tmpNamePhoneticArray;
@@ -855,6 +845,34 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 
 
 
+@implementation NSString (AddressBook)
+
+- (NSArray *)nameArraySeparatedByCharacter{
+    NSMutableArray *_ret = [NSMutableArray arrayWithArray:[self componentsSeparatedByRegex:@"([A-Za-z0-9]*)"]];
+    
+    // all characters
+    if (_ret && 0 == [_ret count] && ![self isNil]) {
+        [_ret addObject:self];
+    }
+    else if (_ret && [_ret count] > 0) {
+        // trim " " object
+        for (NSInteger _index = 0; _index < [_ret count]; _index++) {
+            if ([[_ret objectAtIndex:_index] isNil]) {
+                [_ret removeObjectAtIndex:_index];
+                
+                _index--;
+            }
+        }
+    }
+    
+    return _ret;
+}
+
+@end
+
+
+
+
 @implementation NSArray (ContactPrivate)
 
 - (BOOL)isMatchedNamePhonetics:(NSArray *)pMatchesNamePhonetics{
@@ -964,7 +982,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 
 
 
-@implementation NSString (Contact)
+@implementation NSString (ContactPrivate)
 
 - (NSArray *)splitToFirstAndOthers{
     NSMutableArray *_ret = [[NSMutableArray alloc] init];
@@ -982,25 +1000,6 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
     else {
         [_ret addObject:self];
-    }
-    
-    return _ret;
-}
-
-- (NSArray *)toArraySeparatedByCharacter{
-    NSMutableArray *_ret = [NSMutableArray arrayWithArray:[self componentsSeparatedByRegex:@"([A-Za-z0-9]*)"]];
-    
-    // all characters
-    if (_ret && 0 == [_ret count] && ![self isNil]) {
-        [_ret addObject:self];
-    }
-    else if (_ret && [_ret count] > 0) {
-        // trim "" object
-        for (NSInteger _index = 0; _index < [_ret count]; _index++) {
-            if ([[_ret objectAtIndex:_index] isNil]) {
-                [_ret removeObjectAtIndex:_index];
-            }
-        }
     }
     
     return _ret;
