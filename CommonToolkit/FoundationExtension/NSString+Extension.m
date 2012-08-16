@@ -25,6 +25,39 @@
     return _ret;
 }
 
+- (NSArray *)rangesOfString:(NSString *)pString{
+    NSMutableArray *_ret = [[NSMutableArray alloc] init];
+    
+    // define parent string
+    NSString *_parentString = self;
+    
+    // define parent string location in self string
+    NSInteger _parentStringLocation = 0;
+    
+    // define range of paramter string in parent string
+    NSRange _range = NSMakeRange(0, 0);
+    
+    // get ranges
+    do {
+        // reset range
+        _range = [_parentString rangeOfString:pString];
+        
+        // parameter string found in parent string
+        if (NSNotFound != _range.location) {
+            // reset parent string
+            _parentString = [_parentString substringFromIndex:_range.location + _range.length];
+            
+            // add ranges to return result
+            [_ret addObject:NSStringFromRange(NSMakeRange(_parentStringLocation + _range.location, _range.length))];
+            
+            // save parent string location in self string
+            _parentStringLocation += _range.location + _range.length;
+        }
+    } while (0 != _range.length && _range.length <= _parentString.length);
+    
+    return _ret;
+}
+
 - (NSArray *)toArrayWithSeparator:(NSString *)pSeparator{
     NSMutableArray *_ret = [[NSMutableArray alloc] init];
     

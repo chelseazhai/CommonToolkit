@@ -320,7 +320,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                                         _lastElementMatchingIndex = __index + 1;
                                         
                                         // set name matching index array
-                                        [_nameMatchingIndexArr addObject:[NSNumber numberWithInteger:__index]];
+                                        //[_nameMatchingIndexArr addObject:[NSNumber numberWithInteger:__index]];
+                                        [_nameMatchingIndexArr addObject:[NSDictionary dictionaryWithObject:[[[_contact.namePhonetics objectAtIndex:__index] objectAtIndex:___index] isEqualToString:[[_contact.fullNames objectAtIndex:__index] lowercaseString]] ? [NSNumber numberWithInteger:[[[_contact.namePhonetics objectAtIndex:__index] objectAtIndex:___index] rangeOfString:[_splitNameArray objectAtIndex:_index]].length] : NAME_CHARACTER_FULLMATCHING forKey:[NSNumber numberWithInteger:__index]]];
                                         
                                         break;
                                     }
@@ -371,7 +372,16 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
                         // one particular split name array metched, break
                         if (_matched) {
                             // set name matching index array
-                            _nameMatchingIndexArr = [NSArray arrayWithRange:NSMakeRange(_index, [_splitNameArray count])];
+                            //_nameMatchingIndexArr = [NSArray arrayWithRange:NSMakeRange(_index, [_splitNameArray count])];
+                            for (NSInteger _splitIndex = 0; _splitIndex < [_splitNameArray count]; _splitIndex++) {
+                                // process each name phonetics
+                                for (NSString *_namePhonetics in [_contact.namePhonetics objectAtIndex:_index + _splitIndex]) {
+                                    // get the matched name phonetics
+                                    if ([_namePhonetics hasPrefix:[_splitNameArray objectAtIndex:_splitIndex]]) {
+                                        [_nameMatchingIndexArr addObject:[NSDictionary dictionaryWithObject:[_namePhonetics isEqualToString:[[_contact.fullNames objectAtIndex:_index + _splitIndex] lowercaseString]] ? [NSNumber numberWithInteger:[_namePhonetics rangeOfString:[_splitNameArray objectAtIndex:_splitIndex]].length] : NAME_CHARACTER_FULLMATCHING forKey:[NSNumber numberWithInteger:_index + _splitIndex]]];
+                                    }
+                                }
+                            }
                             
                             break;
                         }
@@ -482,54 +492,38 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     _lastName = (!_lastName) ? @"" : _lastName;
     
     // donn't need to use MiddleName usually
-    // check system current setting language
-    switch ([UIDevice currentDevice].systemCurrentSettingLanguage) {
-        case zh_Hans:
-        case zh_Hant:
-            {
-                // set display name
-                _contact.displayName = [[NSString stringWithFormat:@"%@ %@", _lastName, _firstName] isNil] ? (zh_Hans == [UIDevice currentDevice].systemCurrentSettingLanguage) ? @"无名字" : @"無名字" : [NSString stringWithFormat:@"%@ %@", _lastName, _firstName];
-                
-                // set full name array
-                NSMutableArray *_tmpNameArray = [[NSMutableArray alloc] init];
-                [_tmpNameArray addObjectsFromArray:[_lastName nameArraySeparatedByCharacter]];
-                [_tmpNameArray addObjectsFromArray:[_firstName nameArraySeparatedByCharacter]];
-                _contact.fullNames = _tmpNameArray;
-                
-                // set name phonetics
-                NSMutableArray *_tmpNamePhoneticArray = [[NSMutableArray alloc] init];
-                for (NSString *_name in _contact.fullNames) {
-                    // get each name unicode
-                    unichar _unicode = [_name characterAtIndex:0];
-                    // check name unicode
-                    if (_unicode >= 19968 && _unicode <= 40869) {
-                        // chinese character
-                        NSString *_nameUnicodeString = [NSString stringWithFormat:@"%0X", _unicode];
-                        [_tmpNamePhoneticArray addObject:[NSLocalizedStringFromPinyin4jBundle(_nameUnicodeString, nil) toArrayWithSeparator:@","]];
-                    }
-                    else {
-                        // others, character
-                        [_tmpNamePhoneticArray addObject:[NSArray arrayWithObject:[_name lowercaseString]]];
-                    }
-                }
-                _contact.namePhonetics = _tmpNamePhoneticArray;
-            }
-            break;
-            
-        case en:
-        default:
-            {
-                // set display name
-                _contact.displayName = [[NSString stringWithFormat:@"%@ %@", _firstName, _lastName] isNil] ? @"No Name" : [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
-                
-                // set full name array
-                _contact.fullNames = [NSArray arrayWithObjects:_firstName, _lastName, nil];
-                
-                // set name phonetics
-                _contact.namePhonetics = [NSArray arrayWithObjects:[_firstName lowercaseString], [_lastName lowercaseString], nil];
-            }
-            break;
+    // set display name
+    _contact.displayName = [[NSString stringWithFormat:@"%@ %@", _lastName, _firstName] isNil] ? zh_Hans == [UIDevice currentDevice].systemCurrentSettingLanguage ? @"无名字" : (zh_Hant == [UIDevice currentDevice].systemCurrentSettingLanguage ? @"無名字" : @"No Name") : zh_Hans == [UIDevice currentDevice].systemCurrentSettingLanguage || zh_Hant == [UIDevice currentDevice].systemCurrentSettingLanguage ? [NSString stringWithFormat:@"%@ %@", _lastName, _firstName] : [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
+    
+    // set full name array
+    NSMutableArray *_tmpNameArray = [[NSMutableArray alloc] init];
+    if (zh_Hans != [UIDevice currentDevice].systemCurrentSettingLanguage && zh_Hant != [UIDevice currentDevice].systemCurrentSettingLanguage) {
+        [_tmpNameArray addObjectsFromArray:[_firstName nameArraySeparatedByCharacter]];
+        [_tmpNameArray addObjectsFromArray:[_lastName nameArraySeparatedByCharacter]];
     }
+    else {
+        [_tmpNameArray addObjectsFromArray:[_lastName nameArraySeparatedByCharacter]];
+        [_tmpNameArray addObjectsFromArray:[_firstName nameArraySeparatedByCharacter]];
+    }
+    _contact.fullNames = _tmpNameArray;
+    
+    // set name phonetics
+    NSMutableArray *_tmpNamePhoneticArray = [[NSMutableArray alloc] init];
+    for (NSString *_name in _contact.fullNames) {
+        // get each name unicode
+        unichar _unicode = [_name characterAtIndex:0];
+        // check name unicode
+        if (_unicode >= 19968 && _unicode <= 40869) {
+            // chinese character
+            NSString *_nameUnicodeString = [NSString stringWithFormat:@"%0X", _unicode];
+            [_tmpNamePhoneticArray addObject:[NSLocalizedStringFromPinyin4jBundle(_nameUnicodeString, nil) toArrayWithSeparator:@","]];
+        }
+        else {
+            // others, character
+            [_tmpNamePhoneticArray addObject:[NSArray arrayWithObject:[_name lowercaseString]]];
+        }
+    }
+    _contact.namePhonetics = _tmpNamePhoneticArray;
     
     // phone numbers info
     // get contact's phone numbers array in addressBook
