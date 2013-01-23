@@ -76,6 +76,8 @@
 		DC3C161E158B95F500B31A79 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C161C158B95F500B31A79 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC3C1622158B972D00B31A79 /* HttpRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1620158B972D00B31A79 /* HttpRequestBean.m */; };
 		DC3C1626158B975200B31A79 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1624158B975200B31A79 /* HttpRequestManager.m */; };
+		DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7D201315E476DF000E2407 /* PinyinUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7D201415E476DF000E2407 /* PinyinUtils.m */; };
 		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAC33B115AAC223006904DD /* NSNumber+Extension.m */; };
 		DCBBB288158A277C007C2301 /* CommonToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBBB287158A26B1007C2301 /* CommonToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -177,6 +179,8 @@
 		DC3C1620158B972D00B31A79 /* HttpRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestBean.m; sourceTree = "<group>"; };
 		DC3C1623158B975200B31A79 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
 		DC3C1624158B975200B31A79 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
+		DC7D201315E476DF000E2407 /* PinyinUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinUtils.h; sourceTree = "<group>"; };
+		DC7D201415E476DF000E2407 /* PinyinUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinUtils.m; sourceTree = "<group>"; };
 		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
 		DCAC33B115AAC223006904DD /* NSNumber+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extension.m"; sourceTree = "<group>"; };
 		DCBBB21E158A2485007C2301 /* CommonToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,6 +393,8 @@
 				DC3C15D6158B936600B31A79 /* HttpUtil+Signature.m */,
 				DC3C15D7158B936600B31A79 /* HttpUtil.h */,
 				DC3C15D8158B936600B31A79 /* HttpUtil.m */,
+				DC7D201315E476DF000E2407 /* PinyinUtils.h */,
+				DC7D201415E476DF000E2407 /* PinyinUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				DCC26CD415B02BA7003AF896 /* NSAttributedString+Extension.h in Headers */,
 				DC1FDF9315B1774100189331 /* UIAttributedLabel.h in Headers */,
 				DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */,
+				DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +640,7 @@
 				DCC26CD515B02BA7003AF896 /* NSAttributedString+Extension.m in Sources */,
 				DC1FDF9415B1774100189331 /* UIAttributedLabel.m in Sources */,
 				DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */,
+				DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +679,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -688,7 +696,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

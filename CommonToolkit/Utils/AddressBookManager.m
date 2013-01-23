@@ -2,7 +2,7 @@
 //  AddressBookManager.m
 //  CommonToolkit
 //
-//  Created by  on 12-6-8.
+//  Created by Ares on 12-6-8.
 //  Copyright (c) 2012年 richitec. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 #import "UIDevice+Extension.h"
 
 #import "CommonUtils.h"
+#import "PinyinUtils.h"
 
 #import "ContactBean_Extension.h"
 
@@ -221,7 +222,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         [_mContactSearchResultDic setObject:_searchedContactArray forKey:pPhoneNumber];
     }
     
-    return pSortedType == phonetics ? [_ret phoneticsSortedContactsInfoArray] : _ret;
+    return pSortedType == phonetics ? [_ret optPhoneticsSortedContactsInfoArray] : _ret;
 }
 
 - (NSArray *)getContactByName:(NSString *)pName{
@@ -411,7 +412,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         [_mContactSearchResultDic setObject:_searchedContactArray forKey:pName];
     }
     
-    return pSortedType == phonetics ? [_ret phoneticsSortedContactsInfoArray] : _ret;
+    return pSortedType == phonetics ? [_ret optPhoneticsSortedContactsInfoArray] : _ret;
 }
 
 - (void)getContactEnd{
@@ -601,6 +602,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         _contactBean.fullNames = _tmpNameArray;
         
         // set name phonetics
+        /*
         NSMutableArray *_tmpNamePhoneticArray = [[NSMutableArray alloc] init];
         for (NSString *_name in _contactBean.fullNames) {
             // get each name unicode
@@ -617,6 +619,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
             }
         }
         _contactBean.namePhonetics = _tmpNamePhoneticArray;
+         */
+        _contactBean.namePhonetics = [PinyinUtils pinyins4String:[_contactBean.fullNames toStringWithSeparator:nil]];
         
         // phone numbers info
         // get contact's phone numbers array in addressBook
@@ -842,6 +846,29 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
     
     return _ret;
+}
+
+- (NSMutableArray *)optPhoneticsSortedContactsInfoArray{
+    @autoreleasepool {
+        NSArray *_tmpSortedArray = [NSArray arrayWithArray:self];
+        
+        return [NSMutableArray arrayWithArray:[_tmpSortedArray sortedArrayUsingComparator:^(ContactBean *_contact1, ContactBean *_contact2){
+            NSComparisonResult _stringComparisonResult = NSOrderedSame;
+            
+            // compare
+            if ([_contact1.fullNames count] > 0 && 0 == [_contact2.fullNames count]) {
+                _stringComparisonResult = NSOrderedAscending;
+            }
+            else if ([_contact2.fullNames count] > 0 && 0 == [_contact1.fullNames count]) {
+                _stringComparisonResult = NSOrderedDescending;
+            }
+            else if ([_contact1.fullNames count] > 0 && [_contact2.fullNames count] > 0) {
+                _stringComparisonResult = [[_contact1.namePhonetics namePhoneticsString] compare:[_contact2.namePhonetics namePhoneticsString]];
+            }
+            
+            return _stringComparisonResult;
+        }]];
+    }
 }
 
 @end
