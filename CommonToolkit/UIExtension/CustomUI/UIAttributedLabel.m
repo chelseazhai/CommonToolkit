@@ -439,7 +439,7 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 	_mLinkColor = [UIColor blueColor];
 	_mHighlightedLinkColor = [UIColor colorWithWhite:0.4 alpha:0.3];
 	_mUnderlineLinks = YES;
-	_mAutomaticallyAddLinksForType = NSTextCheckingTypeLink;
+	_mAutomaticallyAddLinksForType = (NSTextCheckingTypes)NSTextCheckingTypeLink;
 	if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel:0"]]) {
 		_mAutomaticallyAddLinksForType |= NSTextCheckingTypePhoneNumber;
 	}
