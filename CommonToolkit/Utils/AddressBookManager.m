@@ -85,6 +85,12 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // key: contact id(NSInteger), value: action dictionary(NSDictionary *)
 - (NSDictionary *)refreshAddressBook;
 
+// is addressBook could be created with options, ios 6 new add method: ABAddressBookCreateWithOptions
+- (BOOL)isAddressBookCreateWithOptionsAvailable;
+
+// fetch the addressBook reference
+- (ABAddressBookRef) fetchAddressBook;
+
 // private method: addressBook changed callback function
 void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
 
@@ -445,6 +451,9 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 }
 
 - (void)addABChangedObserver:(id)pObserver{
+    // fetch the addressBook
+    ABAddressBookRef addressBook = [self fetchAddressBook];
+    
     // validate addressBookChanged implemetation
     if ([CommonUtils validateProcessor:pObserver andSelector:@selector(addressBookChanged:info:observer:)]) {
         // check addressBook changed observer
@@ -457,19 +466,19 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         _mAddressBookChangedObserver = pObserver;
         
         // register external change callback function
-        ABAddressBookRegisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)(_mAddressBookChangedObserver));
+        ABAddressBookRegisterExternalChangeCallback(addressBook, addressBookChanged, (__bridge void *)(_mAddressBookChangedObserver));
     }
     else if (nil != pObserver) {
         NSLog(@"Warning: %@ can't implement addressBook changed callback function %@", NSStringFromClass(((NSObject *)pObserver).class), NSStringFromSelector(@selector(addressBookChanged:info:observer:)));
         
         // register external change callback function
-        ABAddressBookRegisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, NULL);
+        ABAddressBookRegisterExternalChangeCallback(addressBook, addressBookChanged, NULL);
     }
 }
 
 - (void)removeABChangedObserver:(id)pObserver{
     // unregister external change callback function
-    ABAddressBookUnregisterExternalChangeCallback(ABAddressBookCreate(), addressBookChanged, (__bridge void *)(pObserver));
+    ABAddressBookUnregisterExternalChangeCallback([self fetchAddressBook], addressBookChanged, (__bridge void *)(pObserver));
 }
 
 - (NSArray *)getContactInfoByPhoneNumber:(NSString *)pPhoneNumber{
@@ -505,7 +514,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
     
     // fetch the addressBook 
-    ABAddressBookRef addressBook = ABAddressBookCreate();
+    ABAddressBookRef addressBook = [self fetchAddressBook];
     
     // get all group array
     CFArrayRef _groups = ABAddressBookCopyArrayOfAllGroups(addressBook);
@@ -550,8 +559,8 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
 - (NSMutableArray *)getAllContactsInfoFromAB{
     NSMutableArray *_ret = [[NSMutableArray alloc] init];
     
-    // fetch the addressBook 
-    ABAddressBookRef addressBook = ABAddressBookCreate();
+    // fetch the addressBook
+    ABAddressBookRef addressBook = [self fetchAddressBook];
     
     // get all contacts
     CFArrayRef _contacts = ABAddressBookCopyArrayOfAllPeople(addressBook);
@@ -751,6 +760,44 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     }
     
     return _ret;
+}
+
+- (BOOL)isAddressBookCreateWithOptionsAvailable{
+    // check the method ABAddressBookCreateWithOptions is available
+    return NULL != &ABAddressBookCreateWithOptions;
+}
+
+- (ABAddressBookRef)fetchAddressBook{
+    // define the fetched addressBook object
+    ABAddressBookRef _addressBook = nil;
+    
+    // check ios version and fetch the addressBook
+    if ([self isAddressBookCreateWithOptionsAvailable]) {
+        // ios 6
+        CFErrorRef error = nil;
+        
+        _addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+        
+        // check the addressBook access permission
+        ABAddressBookRequestAccessWithCompletion(_addressBook, ^(bool granted, CFErrorRef error){
+            // callback can occur in background, address book must be accessed on thread it was created on
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error) {
+                    NSLog(@"Error: fetch the addressBook error");
+                }
+                else if (!granted) {
+                    NSLog(@"Error: fetch the addressBook, access not granted");
+                }
+            });
+        });
+    } else {
+        // ios 4/5
+        // modify by ares
+        // addressBook = ABAddressBookCreate();
+        _addressBook = (__bridge ABAddressBookRef)([self performSelector:@selector(ABAddressBookCreate)]);
+    }
+    
+    return _addressBook;
 }
 
 void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void *context){
