@@ -85,9 +85,6 @@ static AddressBookManager *singletonAddressBookManagerRef;
 // key: contact id(NSInteger), value: action dictionary(NSDictionary *)
 - (NSDictionary *)refreshAddressBook;
 
-// is addressBook could be created with options, ios 6 new add method: ABAddressBookCreateWithOptions
-- (BOOL)isAddressBookCreateWithOptionsAvailable;
-
 // fetch the addressBook reference
 - (ABAddressBookRef) fetchAddressBook;
 
@@ -520,7 +517,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     CFArrayRef _groups = ABAddressBookCopyArrayOfAllGroups(addressBook);
     
     // process all group array
-    for(int _index = 0; _index < CFArrayGetCount(_groups); _index++){
+    for(int _index = 0; _index < ABAddressBookGetGroupCount(addressBook); _index++){
         // get group object
         ABRecordRef _group = CFArrayGetValueAtIndex(_groups, _index);
         
@@ -530,7 +527,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         // get all group members
         CFArrayRef _groupMembers = ABGroupCopyArrayOfAllMembers(_group);
         
-        // process the group members array 
+        // process the group members array
         for (int __index = 0; __index < CFArrayGetCount(_groupMembers); __index++) {
             // get group member id
             ABRecordID _memberID = ABRecordGetRecordID(CFArrayGetValueAtIndex(_groupMembers, __index));
@@ -566,7 +563,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     CFArrayRef _contacts = ABAddressBookCopyArrayOfAllPeople(addressBook);
     
     // process contacts array
-    for(int _index = 0; _index < CFArrayGetCount(_contacts); _index++){
+    for(int _index = 0; _index < ABAddressBookGetPersonCount(addressBook); _index++){
         // get contact record reference
         ABRecordRef _person = CFArrayGetValueAtIndex(_contacts, _index);
         
@@ -762,17 +759,12 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     return _ret;
 }
 
-- (BOOL)isAddressBookCreateWithOptionsAvailable{
-    // check the method ABAddressBookCreateWithOptions is available
-    return NULL != &ABAddressBookCreateWithOptions;
-}
-
 - (ABAddressBookRef)fetchAddressBook{
     // define the fetched addressBook object
     ABAddressBookRef _addressBook = nil;
     
     // check ios version and fetch the addressBook
-    if ([self isAddressBookCreateWithOptionsAvailable]) {
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0) {
         // ios 6
         CFErrorRef error = nil;
         
@@ -792,9 +784,7 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
         });
     } else {
         // ios 4/5
-        // modify by ares
-        // addressBook = ABAddressBookCreate();
-        _addressBook = (__bridge ABAddressBookRef)([self performSelector:@selector(ABAddressBookCreate)]);
+        _addressBook = ABAddressBookCreate();
     }
     
     return _addressBook;
