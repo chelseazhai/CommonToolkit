@@ -78,6 +78,8 @@
 		DC630155174CABA500C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630153174CABA400C132C2 /* InfoPlist.strings */; };
 		DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7D201315E476DF000E2407 /* PinyinUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7D201415E476DF000E2407 /* PinyinUtils.m */; };
+		DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */; };
 		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAC33B115AAC223006904DD /* NSNumber+Extension.m */; };
 		DCBBB288158A277C007C2301 /* CommonToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBBB287158A26B1007C2301 /* CommonToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -181,6 +183,8 @@
 		DC630157174CABBF00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC7D201315E476DF000E2407 /* PinyinUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinUtils.h; sourceTree = "<group>"; };
 		DC7D201415E476DF000E2407 /* PinyinUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinUtils.m; sourceTree = "<group>"; };
+		DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extension.h"; sourceTree = "<group>"; };
+		DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extension.m"; sourceTree = "<group>"; };
 		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
 		DCAC33B115AAC223006904DD /* NSNumber+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extension.m"; sourceTree = "<group>"; };
 		DCBBB21E158A2485007C2301 /* CommonToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +380,8 @@
 				DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */,
 				DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */,
 				DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */,
+				DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */,
+				DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */,
 				DC3C15CE158B936600B31A79 /* UITableView+Extension.h */,
 				DC3C15CF158B936600B31A79 /* UITableView+Extension.m */,
 			);
@@ -528,6 +534,7 @@
 				DC1FDF9315B1774100189331 /* UIAttributedLabel.h in Headers */,
 				DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */,
 				DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */,
+				DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +648,7 @@
 				DC1FDF9415B1774100189331 /* UIAttributedLabel.m in Sources */,
 				DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */,
 				DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */,
+				DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ typedef enum {
     leftBarButtonItemExt,
     rightBarButtonItemExt,
     backgroundImgExt,
+    tabBarItemExt,
     viewControllerRefExt,
     viewGestureRecognizerDelegateExt,
     extensionExt
@@ -36,6 +37,8 @@ typedef enum {
 @property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
 // UIView background image
 @property (nonatomic, retain) UIImage *backgroundImg;
+// UIView tab bar item
+@property (nonatomic, retain) UITabBarItem *tabBarItem;
 
 // view controller reference
 @property (nonatomic, retain) UIViewController *viewControllerRef;

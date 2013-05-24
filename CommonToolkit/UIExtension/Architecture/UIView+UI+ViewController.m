@@ -120,6 +120,18 @@
     return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].backgroundImg;
 }
 
+- (void)setTabBarItem:(UITabBarItem *)tabBarItem{
+    // set view tab bar item
+    self.viewControllerRef.tabBarItem = tabBarItem;
+    
+    // save tab bar item
+    [[UIViewExtensionManager shareUIViewExtensionManager] setUIViewExtension:tabBarItem withType:tabBarItemExt forKey:[NSNumber numberWithInteger:self.hash]];
+}
+
+- (UITabBarItem *)tabBarItem{
+    return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].tabBarItem;
+}
+
 @end
 
 
@@ -135,6 +147,7 @@
     self.viewControllerRef.navigationItem.titleView = self.titleView;
     self.viewControllerRef.navigationItem.leftBarButtonItem = self.leftBarButtonItem;
     self.viewControllerRef.navigationItem.rightBarButtonItem = self.rightBarButtonItem;
+    self.viewControllerRef.tabBarItem = self.tabBarItem;
 }
 
 - (UIViewController *)viewControllerRef{

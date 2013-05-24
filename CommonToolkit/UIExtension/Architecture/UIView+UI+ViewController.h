@@ -28,6 +28,9 @@
 // background image
 @property (nonatomic, retain) UIImage *backgroundImg;
 
+// tab bar item
+@property (nonatomic, retain) UITabBarItem *tabBarItem;
+
 @end
 
 

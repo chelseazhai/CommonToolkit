@@ -65,6 +65,10 @@ static UIViewExtensionManager *singletonUIViewExtensionManagerRef;
             _uiViewExtensionBean.backgroundImg = pExtension;
             break;
             
+        case tabBarItemExt:
+            _uiViewExtensionBean.tabBarItem = pExtension;
+            break;
+            
         case viewControllerRefExt:
             _uiViewExtensionBean.viewControllerRef = pExtension;
             break;
