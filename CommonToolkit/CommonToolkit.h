@@ -21,6 +21,8 @@
 
 #import "PinyinUtils.h"
 
+#import "DisplayScreenUtils.h"
+
 // FoundationExtension
 #import "NSArray+Extension.h"
 #import "NSString+Extension.h"
@@ -70,6 +72,7 @@
 #import "UIImage+Extension.h"
 #import "UITableView+Extension.h"
 #import "UIDevice+Extension.h"
+#import "UINavigationBar+Extension.h"
 #import "UINavigationController+Extension.h"
 
 #import "UISoftKeyboard.h"

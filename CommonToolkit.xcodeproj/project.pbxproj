@@ -75,7 +75,11 @@
 		DC3C161E158B95F500B31A79 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C161C158B95F500B31A79 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC3C1622158B972D00B31A79 /* HttpRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1620158B972D00B31A79 /* HttpRequestBean.m */; };
 		DC3C1626158B975200B31A79 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1624158B975200B31A79 /* HttpRequestManager.m */; };
+		DC5CE9C117547B6D0016835B /* UINavigationBar+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC5CE9C217547B6D0016835B /* UINavigationBar+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */; };
 		DC630155174CABA500C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630153174CABA400C132C2 /* InfoPlist.strings */; };
+		DC756BD5175306CD00F287FA /* DisplayScreenUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */; };
 		DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7D201315E476DF000E2407 /* PinyinUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7D201415E476DF000E2407 /* PinyinUtils.m */; };
 		DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,9 +182,13 @@
 		DC3C1620158B972D00B31A79 /* HttpRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestBean.m; sourceTree = "<group>"; };
 		DC3C1623158B975200B31A79 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
 		DC3C1624158B975200B31A79 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
+		DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Extension.h"; sourceTree = "<group>"; };
+		DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Extension.m"; sourceTree = "<group>"; };
 		DC630154174CABA500C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC630156174CABAF00C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC630157174CABBF00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayScreenUtils.h; sourceTree = "<group>"; };
+		DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayScreenUtils.m; sourceTree = "<group>"; };
 		DC7D201315E476DF000E2407 /* PinyinUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinUtils.h; sourceTree = "<group>"; };
 		DC7D201415E476DF000E2407 /* PinyinUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinUtils.m; sourceTree = "<group>"; };
 		DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extension.h"; sourceTree = "<group>"; };
@@ -380,6 +388,8 @@
 				DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */,
 				DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */,
 				DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */,
+				DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */,
+				DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */,
 				DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */,
 				DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */,
 				DC3C15CE158B936600B31A79 /* UITableView+Extension.h */,
@@ -395,6 +405,8 @@
 				DC3C15D2158B936600B31A79 /* AddressBookManager.m */,
 				DC3C15D3158B936600B31A79 /* CommonUtils.h */,
 				DC3C15D4158B936600B31A79 /* CommonUtils.m */,
+				DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */,
+				DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */,
 				DC3C15D5158B936600B31A79 /* HttpUtil+Signature.h */,
 				DC3C15D6158B936600B31A79 /* HttpUtil+Signature.m */,
 				DC3C15D7158B936600B31A79 /* HttpUtil.h */,
@@ -535,6 +547,8 @@
 				DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */,
 				DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */,
 				DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */,
+				DC756BD5175306CD00F287FA /* DisplayScreenUtils.h in Headers */,
+				DC5CE9C117547B6D0016835B /* UINavigationBar+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +663,8 @@
 				DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */,
 				DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */,
 				DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */,
+				DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */,
+				DC5CE9C217547B6D0016835B /* UINavigationBar+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

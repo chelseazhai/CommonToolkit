@@ -8,6 +8,8 @@
 
 #import "AppRootViewController.h"
 
+#import "UINavigationController+Extension.h"
+
 // normal view controller
 @interface NormalViewController : UIViewController
 
@@ -60,6 +62,33 @@
             _ret = [[NormalViewController alloc] initWithViewController:pViewController];
             break;
     }
+    
+    return _ret;
+}
+
+- (id)initWithNavigationViewController:(UIViewController *)pViewController andBarStyle:(UIBarStyle)barStyle{
+    id _ret;
+    
+    // return navigation view controller with root view controller and bar style
+    _ret = [[NavigationViewController alloc] initWithRootViewController:pViewController andBarStyle:barStyle];
+    
+    return _ret;
+}
+
+- (id)initWithNavigationViewController:(UIViewController *)pViewController andBarTintColor:(UIColor *)barTintColor{
+    id _ret;
+    
+    // return navigation view controller with root view controller and bar style
+    _ret = [[NavigationViewController alloc] initWithRootViewController:pViewController andBarTintColor:barTintColor];
+    
+    return _ret;
+}
+
+- (id)initWithNavigationViewController:(UIViewController *)pViewController andBarBackgroundImage:(UIImage *)barBackgroundImage{
+    id _ret;
+    
+    // return navigation view controller with root view controller and bar background image
+    _ret = [[NavigationViewController alloc] initWithRootViewController:pViewController andBarBackgroundImage:barBackgroundImage];
     
     return _ret;
 }

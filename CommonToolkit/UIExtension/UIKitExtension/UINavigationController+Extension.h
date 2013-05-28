@@ -16,4 +16,7 @@
 // init with root view controller and bar tint color
 - (id)initWithRootViewController:(UIViewController *)rootViewController andBarTintColor:(UIColor *)barTintColor;
 
+// init with root view controller and bar background image
+- (id)initWithRootViewController:(UIViewController *)rootViewController andBarBackgroundImage:(UIImage *)barBackgroundImage;
+
 @end
