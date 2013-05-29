@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (GrayImage)
+@interface UIImage (Extension)
 
 // get gray image
 @property (nonatomic, readonly) UIImage *grayImage;
+
+// get compatible image from main bundle with name
++ (UIImage *)compatibleImageNamed:(NSString *)name;
 
 @end

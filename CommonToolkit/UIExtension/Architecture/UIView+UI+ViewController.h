@@ -10,6 +10,9 @@
 
 #import "UIViewGestureRecognizerDelegate.h"
 
+// UIView width or height param
+#define FILL_PARENT NSIntegerMax
+
 // UIView UI category
 @interface UIView (UI)
 
@@ -32,6 +35,21 @@
 @property (nonatomic, retain) UITabBarItem *tabBarItem;
 
 @end
+
+
+
+
+// UIView draw category
+@interface UIView (Draw)
+
+// draw rectangle, only get result when view did appear
+@property (nonatomic, readonly) CGRect drawRect;
+
+// resize all subviews, call when layoutSubviews be called
+- (void)resizesSubviews;
+
+@end
+
 
 
 

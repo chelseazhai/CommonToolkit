@@ -14,9 +14,35 @@
     return [[UIApplication sharedApplication] statusBarFrame].size.height;
 }
 
++ (CGFloat)navigationBarHeightWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+    CGFloat _ret;
+    
+    // check interface orientation
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            // landscape is 32 px
+            _ret = 32.0;
+            break;
+        
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default:
+            // portrait is 44 px
+            _ret = 44.0;
+            break;
+    }
+    
+    return _ret;
+}
+
 + (CGFloat)navigationBarHeight{
-    // navigation bar default height
-    return 44.0;
+    return [self navigationBarHeightWithInterfaceOrientation:UIInterfaceOrientationPortrait];
+}
+
++ (CGFloat)tabBarHeight{
+    // tab bar default height
+    return 49.0;
 }
 
 + (CGFloat)screenWidth{

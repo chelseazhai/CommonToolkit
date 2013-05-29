@@ -8,7 +8,15 @@
 
 #import "UIImage+Extension.h"
 
-@implementation UIImage (GrayImage)
+#import "DisplayScreenUtils.h"
+
+// display screen long height
+#define DISPLAYSCREEN_LONGHEIGHT    1136.0
+
+// display screen long height compatible image suffix
+#define DISPLAYSCREEN_LONGHEIGHT_COMPATIBLEIMGSUFFIX    @"-568h@2x"
+
+@implementation UIImage (Extension)
 
 - (UIImage *)grayImage{
     UIImage *_ret = self;
@@ -33,6 +41,17 @@
     }
     
     return _ret;
+}
+
++ (UIImage *)compatibleImageNamed:(NSString *)name{
+    NSString *_compatibleImageName = [NSString stringWithString:name];
+    
+    // check display screen height and update image name
+    if (DISPLAYSCREEN_LONGHEIGHT == [DisplayScreenUtils screenHeight]) {
+        _compatibleImageName = [name stringByAppendingString:DISPLAYSCREEN_LONGHEIGHT_COMPATIBLEIMGSUFFIX];
+    }
+    
+    return [self imageNamed:_compatibleImageName];
 }
 
 @end

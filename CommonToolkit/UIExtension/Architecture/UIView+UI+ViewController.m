@@ -16,6 +16,8 @@
 
 #import "CommonUtils.h"
 
+#import "DisplayScreenUtils.h"
+
 // one hand five fingers
 #define MAXFINGERS_COUNT    5
 // at most triple taps
@@ -32,6 +34,9 @@
 
 // UIView origin frame rectangle extension key
 #define ORIGINFRAME_EXTENSIONKEY    @"origin_frame"
+
+// UIView width or height param granularity
+#define UIVIEW_WIDTH7HEIGHT_GRANULARITY 100.0
 
 // UIView extension
 @interface UIView (Private)
@@ -130,6 +135,81 @@
 
 - (UITabBarItem *)tabBarItem{
     return [[UIViewExtensionManager shareUIViewExtensionManager] uiViewExtensionForKey:[NSNumber numberWithInteger:self.hash]].tabBarItem;
+}
+
+@end
+
+
+
+
+@implementation UIView (Draw)
+
+- (CGRect)drawRect{
+    CGRect _ret = self.bounds;
+    
+    // check UIView if or not has parent view
+    if (nil == self.superview || ![self.superview isKindOfClass:[UIView class]]) {
+        // get application frame
+        CGRect _appFrame = [[UIScreen mainScreen] applicationFrame];
+        
+        // get and check view controller
+        UIViewController *_viewController = self.viewControllerRef;
+        if (nil != _viewController) {
+            // check view if or not has navigation controller and tab bar controller
+            if (nil != _viewController.navigationController) {
+                _appFrame.size.height -= [DisplayScreenUtils navigationBarHeight];
+            }
+            if (nil != _viewController.tabBarController) {
+                _appFrame.size.height -= [DisplayScreenUtils tabBarHeight];
+            }
+        }
+    }
+    
+    return _ret;
+}
+
+- (void)resizesSubviews{
+    // get UIView all subviews
+    NSArray *_allSubViews = [self subviews];
+    
+    // get UIView draw rectangle
+    CGRect _drawRect = self.drawRect;
+    
+    // check if there is or not subviews
+    if (nil != _allSubViews) {
+        for (int i = 0; i < _allSubViews.count; i++) {
+            // get each subview
+            UIView *_subView = [_allSubViews objectAtIndex:i];
+            
+            // get subview frame origin
+            CGFloat _subViewOriginX = _subView.frame.origin.x;
+            CGFloat _subViewOriginY = _subView.frame.origin.y;
+            
+            // get subview frame width and height
+            CGFloat _subViewWidth = _subView.frame.size.width;
+            CGFloat _subViewHeight = _subView.frame.size.height;
+            
+            // check subview origin, width, height and update them
+            if (FILL_PARENT / UIVIEW_WIDTH7HEIGHT_GRANULARITY <= _subViewOriginX && FILL_PARENT >= _subViewOriginX) {
+                _subViewOriginX = _drawRect.size.width * (_subViewOriginX / FILL_PARENT);
+            }
+            if (FILL_PARENT / UIVIEW_WIDTH7HEIGHT_GRANULARITY <= _subViewOriginY && FILL_PARENT >= _subViewOriginY) {
+                _subViewOriginY = _drawRect.size.height * (_subViewOriginY / FILL_PARENT);
+            }
+            if (FILL_PARENT / UIVIEW_WIDTH7HEIGHT_GRANULARITY <= _subViewWidth && FILL_PARENT >= _subViewWidth) {
+                _subViewWidth = _drawRect.size.width * (_subViewWidth / FILL_PARENT);
+            }
+            if (FILL_PARENT / UIVIEW_WIDTH7HEIGHT_GRANULARITY <= _subViewHeight && FILL_PARENT >= _subViewHeight) {
+                _subViewHeight = _drawRect.size.height * (_subViewHeight / FILL_PARENT);
+            }
+            
+            // update subview frame
+            _subView.frame = CGRectMake(_subViewOriginX, _subViewOriginY, _subViewWidth, _subViewHeight);
+            
+            // subview resize its subviews
+            [_subView resizesSubviews];
+        }
+    }
 }
 
 @end

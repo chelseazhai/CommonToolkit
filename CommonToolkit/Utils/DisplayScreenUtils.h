@@ -13,8 +13,14 @@
 // UIApplication status bar height
 + (CGFloat)statusBarHeight;
 
+// UIApplication navigation bar with interface orientation
++ (CGFloat)navigationBarHeightWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
 // UIApplication navigation bar default height
 + (CGFloat)navigationBarHeight;
+
+// UIApplication tab bar default height
++ (CGFloat)tabBarHeight;
 
 // UIScreen width
 + (CGFloat)screenWidth;
