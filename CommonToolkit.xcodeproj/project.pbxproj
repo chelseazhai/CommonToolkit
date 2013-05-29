@@ -75,8 +75,6 @@
 		DC3C161E158B95F500B31A79 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C161C158B95F500B31A79 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC3C1622158B972D00B31A79 /* HttpRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1620158B972D00B31A79 /* HttpRequestBean.m */; };
 		DC3C1626158B975200B31A79 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1624158B975200B31A79 /* HttpRequestManager.m */; };
-		DC5CE9C117547B6D0016835B /* UINavigationBar+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5CE9C217547B6D0016835B /* UINavigationBar+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */; };
 		DC5CE9CD175496900016835B /* UIBarButtonItem+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5CE9CB1754968E0016835B /* UIBarButtonItem+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5CE9CE175496900016835B /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE9CC1754968F0016835B /* UIBarButtonItem+Extension.m */; };
 		DC630155174CABA500C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630153174CABA400C132C2 /* InfoPlist.strings */; };
@@ -184,8 +182,6 @@
 		DC3C1620158B972D00B31A79 /* HttpRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestBean.m; sourceTree = "<group>"; };
 		DC3C1623158B975200B31A79 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
 		DC3C1624158B975200B31A79 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
-		DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Extension.h"; sourceTree = "<group>"; };
-		DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Extension.m"; sourceTree = "<group>"; };
 		DC5CE9CB1754968E0016835B /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		DC5CE9CC1754968F0016835B /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		DC630154174CABA500C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -394,8 +390,6 @@
 				DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */,
 				DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */,
 				DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */,
-				DC5CE9BF17547B6C0016835B /* UINavigationBar+Extension.h */,
-				DC5CE9C017547B6C0016835B /* UINavigationBar+Extension.m */,
 				DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */,
 				DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */,
 				DC3C15CE158B936600B31A79 /* UITableView+Extension.h */,
@@ -554,7 +548,6 @@
 				DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */,
 				DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */,
 				DC756BD5175306CD00F287FA /* DisplayScreenUtils.h in Headers */,
-				DC5CE9C117547B6D0016835B /* UINavigationBar+Extension.h in Headers */,
 				DC5CE9CD175496900016835B /* UIBarButtonItem+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,7 +664,6 @@
 				DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */,
 				DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */,
 				DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */,
-				DC5CE9C217547B6D0016835B /* UINavigationBar+Extension.m in Sources */,
 				DC5CE9CE175496900016835B /* UIBarButtonItem+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
