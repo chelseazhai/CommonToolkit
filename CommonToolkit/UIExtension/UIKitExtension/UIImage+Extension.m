@@ -14,7 +14,7 @@
 #define DISPLAYSCREEN_LONGHEIGHT    1136.0
 
 // display screen long height compatible image suffix
-#define DISPLAYSCREEN_LONGHEIGHT_COMPATIBLEIMGSUFFIX    @"-568h@2x"
+#define DISPLAYSCREEN_LONGHEIGHT_COMPATIBLEIMGSUFFIX    @"-568h"
 
 @implementation UIImage (Extension)
 

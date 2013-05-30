@@ -11,7 +11,7 @@
 #import "UIViewGestureRecognizerDelegate.h"
 
 // UIView width or height param
-#define FILL_PARENT NSIntegerMax
+#define FILL_PARENT USHRT_MAX
 
 // UIView UI category
 @interface UIView (UI)
@@ -41,9 +41,6 @@
 
 // UIView draw category
 @interface UIView (Draw)
-
-// draw rectangle, only get result when view did appear
-@property (nonatomic, readonly) CGRect drawRect;
 
 // resize all subviews, call when layoutSubviews be called
 - (void)resizesSubviews;
