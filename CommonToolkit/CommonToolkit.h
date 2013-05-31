@@ -72,6 +72,7 @@
 #import "UIImage+Extension.h"
 #import "UITableView+Extension.h"
 #import "UIDevice+Extension.h"
+#import "UIButton+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "UINavigationController+Extension.h"
 

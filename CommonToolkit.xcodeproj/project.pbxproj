@@ -95,6 +95,8 @@
 		DCBC7693159836EF00EBEC1D /* UISoftKeyboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBC7691159836EF00EBEC1D /* UISoftKeyboardCell.m */; };
 		DCC26CD415B02BA7003AF896 /* NSAttributedString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC26CD215B02BA7003AF896 /* NSAttributedString+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCC26CD515B02BA7003AF896 /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC26CD315B02BA7003AF896 /* NSAttributedString+Extension.m */; };
+		DCC5127B17579A17007672F0 /* UIButton+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC5127917579A17007672F0 /* UIButton+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCC5127C17579A17007672F0 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC5127A17579A17007672F0 /* UIButton+Extension.m */; };
 		DCD6AE9F158ED86C00CBBBDB /* NSBundle+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCD6AE9D158ED86C00CBBBDB /* NSBundle+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCD6AEA0158ED86C00CBBBDB /* NSBundle+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD6AE9E158ED86C00CBBBDB /* NSBundle+Extension.m */; };
 		DCD6AF10158EFB6A00CBBBDB /* NSDate+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCD6AF0E158EFB6A00CBBBDB /* NSDate+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -209,6 +211,8 @@
 		DCBC7691159836EF00EBEC1D /* UISoftKeyboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISoftKeyboardCell.m; sourceTree = "<group>"; };
 		DCC26CD215B02BA7003AF896 /* NSAttributedString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Extension.h"; sourceTree = "<group>"; };
 		DCC26CD315B02BA7003AF896 /* NSAttributedString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Extension.m"; sourceTree = "<group>"; };
+		DCC5127917579A17007672F0 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		DCC5127A17579A17007672F0 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		DCD6AE9D158ED86C00CBBBDB /* NSBundle+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Extension.h"; sourceTree = "<group>"; };
 		DCD6AE9E158ED86C00CBBBDB /* NSBundle+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Extension.m"; sourceTree = "<group>"; };
 		DCD6AF0E158EFB6A00CBBBDB /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 				DC3C15CD158B936600B31A79 /* UIActionSheet+Extension.m */,
 				DC5CE9CB1754968E0016835B /* UIBarButtonItem+Extension.h */,
 				DC5CE9CC1754968F0016835B /* UIBarButtonItem+Extension.m */,
+				DCC5127917579A17007672F0 /* UIButton+Extension.h */,
+				DCC5127A17579A17007672F0 /* UIButton+Extension.m */,
 				DC3C1616158B941000B31A79 /* UIColor+Extension.h */,
 				DC3C1617158B941000B31A79 /* UIColor+Extension.m */,
 				DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */,
@@ -549,6 +555,7 @@
 				DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */,
 				DC756BD5175306CD00F287FA /* DisplayScreenUtils.h in Headers */,
 				DC5CE9CD175496900016835B /* UIBarButtonItem+Extension.h in Headers */,
+				DCC5127B17579A17007672F0 /* UIButton+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +672,7 @@
 				DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */,
 				DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */,
 				DC5CE9CE175496900016835B /* UIBarButtonItem+Extension.m in Sources */,
+				DCC5127C17579A17007672F0 /* UIButton+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
