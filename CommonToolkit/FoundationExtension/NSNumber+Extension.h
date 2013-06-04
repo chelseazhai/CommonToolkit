@@ -10,6 +10,9 @@
 
 @interface NSNumber (Common)
 
+// number with c string with encoding UTF-8
++ (NSNumber *)numberWithCString:(char *)pCString;
+
 // number with string
 + (NSNumber *)numberWithString:(NSString *)pString;
 

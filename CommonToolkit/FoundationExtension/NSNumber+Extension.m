@@ -10,6 +10,17 @@
 
 @implementation NSNumber (Common)
 
++ (NSNumber *)numberWithCString:(char *)pCString{
+    NSNumber *_ret = nil;
+    
+    // check c string and update return result
+    if (NULL != pCString) {
+        _ret = [self numberWithString:[NSString stringWithUTF8String:pCString]];
+    }
+    
+    return _ret;
+}
+
 + (NSNumber *)numberWithString:(NSString *)pString{
     // create and init number formatter
     NSNumberFormatter *_formatter = [[NSNumberFormatter alloc] init];
