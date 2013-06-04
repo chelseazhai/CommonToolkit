@@ -12,6 +12,8 @@
 
 #import "NSNumber+Extension.h"
 
+#import "NSMutableString+Extension.h"
+
 // 0 ascii code
 #define ZERO_ASCII_CODE 48
 
@@ -188,7 +190,7 @@ float evaluateRPN(char rpnotation[]){
                 // push operand string to digit stack and clear operand buffer string
                 if (_operandBufferString.length > 0) {
                     [_digitStack push:[NSNumber numberWithString:_operandBufferString]];
-                    [_operandBufferString deleteCharactersInRange:NSMakeRange(0, _operandBufferString.length)];
+                    [_operandBufferString clear];
                 }
                 
                 // get two operands
@@ -239,7 +241,7 @@ float evaluateRPN(char rpnotation[]){
             else if (OPERANDS_SEPARATOR == _rpnotationChar) {
                 // push operand string to digit stack and clear operand buffer string
                 [_digitStack push:[NSNumber numberWithString:_operandBufferString]];
-                [_operandBufferString deleteCharactersInRange:NSMakeRange(0, _operandBufferString.length)];
+                [_operandBufferString clear];
             }
         }
         

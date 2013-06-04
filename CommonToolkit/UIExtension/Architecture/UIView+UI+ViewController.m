@@ -22,9 +22,6 @@
 
 #import "FoundationExtensionManager.h"
 
-// UIView width or height param string
-#define FILL_PARENT_STRING  @"FILL_PARENT"
-
 // one hand five fingers
 #define MAXFINGERS_COUNT    5
 // at most triple taps
@@ -177,25 +174,25 @@
                 _subViewOriginX = _drawRect.size.width * (_subViewOriginX / FILL_PARENT);
             }
             else if (FILL_PARENT < _subViewOriginX) {
-                _subViewOriginX = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewOriginX]] extensionDic] objectForKey:ORIGIN_X_FEKEY] stringByReplacingOccurrencesOfString:FILL_PARENT_STRING withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.width]] cStringUsingEncoding:NSUTF8StringEncoding]);
+                _subViewOriginX = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewOriginX]] extensionDic] objectForKey:ORIGIN_X_FEKEY] stringByReplacingOccurrencesOfString:[NSString stringWithCString:FILL_PARENT_STRING encoding:NSUTF8StringEncoding] withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.width]] cStringUsingEncoding:NSUTF8StringEncoding]);
             }
             if (_drawRect.size.height < _subViewOriginY && FILL_PARENT >= _subViewOriginY) {
                 _subViewOriginY = _drawRect.size.height * (_subViewOriginY / FILL_PARENT);
             }
             else if (FILL_PARENT < _subViewOriginY) {
-                _subViewOriginY = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewOriginY]] extensionDic] objectForKey:ORIGIN_Y_FEKEY] stringByReplacingOccurrencesOfString:FILL_PARENT_STRING withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.height]] cStringUsingEncoding:NSUTF8StringEncoding]);
+                _subViewOriginY = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewOriginY]] extensionDic] objectForKey:ORIGIN_Y_FEKEY] stringByReplacingOccurrencesOfString:[NSString stringWithCString:FILL_PARENT_STRING encoding:NSUTF8StringEncoding] withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.height]] cStringUsingEncoding:NSUTF8StringEncoding]);
             }
             if (_drawRect.size.width < _subViewWidth && FILL_PARENT >= _subViewWidth) {
                 _subViewWidth = _drawRect.size.width * (_subViewWidth / FILL_PARENT);
             }
             else if (FILL_PARENT < _subViewWidth) {
-                _subViewWidth = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewWidth]] extensionDic] objectForKey:SIZE_WIDTH_FEKEY] stringByReplacingOccurrencesOfString:FILL_PARENT_STRING withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.width]] cStringUsingEncoding:NSUTF8StringEncoding]);
+                _subViewWidth = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewWidth]] extensionDic] objectForKey:SIZE_WIDTH_FEKEY] stringByReplacingOccurrencesOfString:[NSString stringWithCString:FILL_PARENT_STRING encoding:NSUTF8StringEncoding] withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.width]] cStringUsingEncoding:NSUTF8StringEncoding]);
             }
             if (_drawRect.size.height < _subViewHeight && FILL_PARENT >= _subViewHeight) {
                 _subViewHeight = _drawRect.size.height * (_subViewHeight / FILL_PARENT);
             }
             else if (FILL_PARENT < _subViewHeight) {
-                _subViewHeight = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewHeight]] extensionDic] objectForKey:SIZE_HEIGHT_FEKEY] stringByReplacingOccurrencesOfString:FILL_PARENT_STRING withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.height]] cStringUsingEncoding:NSUTF8StringEncoding]);
+                _subViewHeight = evaluateFAOE([[[[[_foundationExtensionManager foundationExtensionForKey:[NSNumber numberWithFloat:_subViewHeight]] extensionDic] objectForKey:SIZE_HEIGHT_FEKEY] stringByReplacingOccurrencesOfString:[NSString stringWithCString:FILL_PARENT_STRING encoding:NSUTF8StringEncoding] withString:[NSString stringWithFormat:@"%d", (int)_drawRect.size.height]] cStringUsingEncoding:NSUTF8StringEncoding]);
             }
             
             // update subview frame

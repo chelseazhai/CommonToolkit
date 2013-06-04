@@ -13,6 +13,9 @@
 // UIView width or height param
 #define FILL_PARENT USHRT_MAX
 
+// UIView width or height param string
+#define FILL_PARENT_STRING  "FILL_PARENT"
+
 // UIView UI category
 @interface UIView (UI)
 

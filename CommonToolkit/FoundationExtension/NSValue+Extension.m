@@ -22,7 +22,7 @@
     return _ret;
 }
 
-+ (NSValue *)valueWithCString:(char *)pCString{
++ (NSValue *)valueWithCString:(const char *)pCString{
     return [self valueWithPointer:pCString];
 }
 

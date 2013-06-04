@@ -35,6 +35,7 @@
 #import "NSNumber+Extension.h"
 #import "NSValue+Extension.h"
 #import "NSAttributedString+Extension.h"
+#import "NSMutableString+Extension.h"
 
 #import "NSMutableArray+Extension.h"
 

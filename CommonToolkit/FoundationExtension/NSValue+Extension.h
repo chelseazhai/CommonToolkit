@@ -14,6 +14,6 @@
 @property (nonatomic, readonly) NSString *stringValue;
 
 // value with c string with encoding UTF-8
-+ (NSValue *)valueWithCString:(char *)pCString;
++ (NSValue *)valueWithCString:(const char *)pCString;
 
 @end

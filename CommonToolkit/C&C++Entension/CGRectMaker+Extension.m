@@ -14,7 +14,7 @@
 
 #import "NSValue+Extension.h"
 
-CG_EXTERN CGRect CGRectMakeWithValue(NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue){
+CG_EXTERN CGRect CGRectMakeWithFormat(NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue){
     CGRect rect;
     
     // define origin x, y, size width and height

@@ -10,15 +10,17 @@
 #define CommonToolkit_C_CPP_Extension_h
 
 // C extension
-// CGRect make with value
-CG_EXTERN CGRect CGRectMakeWithValue(NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue);
+// CGRect maker
+// CGRect make with format string
+CG_EXTERN CGRect CGRectMakeWithFormat(NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue);
 
-// C++ extension
 // reverse Poland notation
 // translate four arithmetic operation expression to reverse Poland notation
 extern bool translateFAOE2RPN(const char faoexpression[], char rpnotation[]);
 
 // evaluate four arithmetic operation expression
 extern float evaluateFAOE(const char faoexpression[]);
+
+// C++ extension
 
 #endif
