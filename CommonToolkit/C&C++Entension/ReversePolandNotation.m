@@ -8,7 +8,7 @@
 
 #import "ReversePolandNotation.h"
 
-#import "NSMutableArray+Extension.h"
+#import "NSStack.h"
 
 #import "NSNumber+Extension.h"
 
@@ -41,7 +41,7 @@ extern bool translateFAOE2RPN(const char faoexpression[], char rpnotation[]){
         _ret = false;
     } else {
         // define sign stack
-        NSMutableArray *_signStack = [[NSMutableArray alloc] init];
+        NSStack *_signStack = [[NSStack alloc] init];
         
         // define reverse Poland notation length
         int _rpnotationLength = 0;
@@ -171,7 +171,7 @@ float evaluateRPN(char rpnotation[]){
     // check reverse Poland notation
     if (NULL != rpnotation) {
         // define digit stack
-        NSMutableArray *_digitStack = [[NSMutableArray alloc] init];
+        NSStack *_digitStack = [[NSStack alloc] init];
         
         // define operand buffer string
         NSMutableString *_operandBufferString = [[NSMutableString alloc] init];

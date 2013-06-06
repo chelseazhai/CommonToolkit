@@ -45,6 +45,12 @@
 // UIView draw category
 @interface UIView (Draw)
 
+// set corner radius
+- (void)setCornerRadius:(CGFloat)cornerRadius;
+
+// set border with width and color
+- (void)setBorderWithWidth:(CGFloat)borderWidth andColor:(UIColor *)borderColor;
+
 // resize all subviews, call when layoutSubviews be called
 - (void)resizesSubviews;
 

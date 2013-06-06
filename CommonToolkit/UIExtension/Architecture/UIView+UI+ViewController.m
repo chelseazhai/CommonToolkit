@@ -8,6 +8,8 @@
 
 #import "UIView+UI+ViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "UIViewExtensionManager.h"
 
 #import "UIViewExtensionBean_Extension.h"
@@ -144,6 +146,22 @@
 
 
 @implementation UIView (Draw)
+
+- (void)setCornerRadius:(CGFloat)cornerRadius{
+    // set corner radius
+    if (cornerRadius > 0.0) {
+        self.layer.cornerRadius = cornerRadius;
+        self.layer.masksToBounds = YES;
+    }
+}
+
+- (void)setBorderWithWidth:(CGFloat)borderWidth andColor:(UIColor *)borderColor{
+    // set border width and color
+    if (borderWidth > 0.0 && nil != borderColor) {
+        self.layer.borderWidth = borderWidth;
+        self.layer.borderColor = [borderColor CGColor];
+    }
+}
 
 - (void)resizesSubviews{
     // get UIView all subviews

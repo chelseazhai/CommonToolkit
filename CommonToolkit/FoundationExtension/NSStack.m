@@ -1,18 +1,27 @@
 //
-//  NSMutableArray+Extension.m
+//  NSStack.m
 //  CommonToolkit
 //
-//  Created by Ares on 13-6-3.
+//  Created by Ares on 13-6-6.
 //  Copyright (c) 2013年 richitec. All rights reserved.
 //
 
-#import "NSMutableArray+Extension.h"
+#import "NSStack.h"
 
-@implementation NSMutableArray (Stack)
+@implementation NSStack
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        // init storage object
+        _mStorageObject = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 - (void)push:(id)pElement{
     // add an element to the stack
-    [self addObject:pElement];
+    [_mStorageObject addObject:pElement];
 }
 
 - (id)pop{
@@ -21,10 +30,10 @@
     // check the stack
     if (!self.empty) {
         // get top element
-        _topElement = [self lastObject];
+        _topElement = [_mStorageObject lastObject];
         
         // remove the last element from the stack
-        [self removeLastObject];
+        [_mStorageObject removeLastObject];
     }
     else {
         NSLog(@"the stack is empty, needn't pop");
@@ -35,7 +44,7 @@
 
 - (void)clear{
     // remove all elements from stack
-    [self removeAllObjects];
+    [_mStorageObject removeAllObjects];
 }
 
 - (id)top{
@@ -44,7 +53,7 @@
     // check the stack
     if (!self.empty) {
         // get top element
-        _topElement = [self lastObject];
+        _topElement = [_mStorageObject lastObject];
     }
     else {
         NSLog(@"the stack is empty, can't get the top element");
@@ -54,18 +63,22 @@
 }
 
 - (BOOL)empty{
-    return 0 == self.count ? TRUE : FALSE;
+    return 0 == _mStorageObject.count ? TRUE : FALSE;
+}
+
+- (NSUInteger)count{
+    return _mStorageObject.count;
 }
 
 - (NSString *)stackDescription{
     NSMutableString *_description = [[NSMutableString alloc] initWithString:@"NSStack all elements = "];
     
-    for (int i = 0; i < self.count; i++) {
-        id _element = [self objectAtIndex:i];
+    for (int i = 0; i < _mStorageObject.count; i++) {
+        id _element = [_mStorageObject objectAtIndex:i];
         
         [_description appendFormat:@"%@", _element];
         
-        if (self.count - 1 != i) {
+        if (_mStorageObject.count - 1 != i) {
             [_description appendString:@","];
         }
     }

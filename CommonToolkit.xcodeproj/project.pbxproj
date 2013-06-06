@@ -87,8 +87,6 @@
 		DC8F3DB7175C364D00EF6F78 /* C&CPP+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8F3DB6175C364D00EF6F78 /* C&CPP+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC8F3DBB175C365900EF6F78 /* CGRectMaker+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3DB9175C365900EF6F78 /* CGRectMaker+Extension.m */; };
 		DC8F3DE6175C70B400EF6F78 /* ReversePolandNotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3DE4175C70B400EF6F78 /* ReversePolandNotation.m */; };
-		DC8F3DE9175C835600EF6F78 /* NSMutableArray+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8F3DE7175C835400EF6F78 /* NSMutableArray+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC8F3DEA175C835600EF6F78 /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3DE8175C835500EF6F78 /* NSMutableArray+Extension.m */; };
 		DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */; };
 		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,6 +115,8 @@
 		DCE9BEDA15A2FCD20077AAD7 /* UIImage+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCE9BEDB15A2FCD20077AAD7 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */; };
 		DCE9BEDE15A30F000077AAD7 /* UIViewGestureRecognizerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEB1C831760150A00A603F7 /* NSStack.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEB1C811760150A00A603F7 /* NSStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEB1C841760150A00A603F7 /* NSStack.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB1C821760150A00A603F7 /* NSStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,8 +209,6 @@
 		DC8F3DB9175C365900EF6F78 /* CGRectMaker+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CGRectMaker+Extension.m"; path = "CommonToolkit/C&C++Entension/CGRectMaker+Extension.m"; sourceTree = SOURCE_ROOT; };
 		DC8F3DE3175C70B400EF6F78 /* ReversePolandNotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReversePolandNotation.h; path = "CommonToolkit/C&C++Entension/ReversePolandNotation.h"; sourceTree = SOURCE_ROOT; };
 		DC8F3DE4175C70B400EF6F78 /* ReversePolandNotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReversePolandNotation.m; path = "CommonToolkit/C&C++Entension/ReversePolandNotation.m"; sourceTree = SOURCE_ROOT; };
-		DC8F3DE7175C835400EF6F78 /* NSMutableArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extension.h"; sourceTree = "<group>"; };
-		DC8F3DE8175C835500EF6F78 /* NSMutableArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extension.m"; sourceTree = "<group>"; };
 		DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extension.h"; sourceTree = "<group>"; };
 		DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extension.m"; sourceTree = "<group>"; };
 		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
@@ -244,6 +242,8 @@
 		DCE9BED815A2FCD10077AAD7 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		DCE9BED915A2FCD10077AAD7 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewGestureRecognizerDelegate.h; sourceTree = "<group>"; };
+		DCEB1C811760150A00A603F7 /* NSStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStack.h; sourceTree = "<group>"; };
+		DCEB1C821760150A00A603F7 /* NSStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,12 +351,12 @@
 				DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */,
 				DC3C15B6158B936600B31A79 /* NSIndexPath+Extension.h */,
 				DC3C15B7158B936600B31A79 /* NSIndexPath+Extension.m */,
-				DC8F3DE7175C835400EF6F78 /* NSMutableArray+Extension.h */,
-				DC8F3DE8175C835500EF6F78 /* NSMutableArray+Extension.m */,
 				DCDD5D05175DB88B008DDCB7 /* NSMutableString+Extension.h */,
 				DCDD5D06175DB88B008DDCB7 /* NSMutableString+Extension.m */,
 				DCAC33B015AAC223006904DD /* NSNumber+Extension.h */,
 				DCAC33B115AAC223006904DD /* NSNumber+Extension.m */,
+				DCEB1C811760150A00A603F7 /* NSStack.h */,
+				DCEB1C821760150A00A603F7 /* NSStack.m */,
 				DC3C15B8158B936600B31A79 /* NSString+Extension.h */,
 				DC3C15B9158B936600B31A79 /* NSString+Extension.m */,
 				DC8F3D651759D5F700EF6F78 /* NSValue+Extension.h */,
@@ -615,7 +615,7 @@
 				DC8F3D671759D5F700EF6F78 /* NSValue+Extension.h in Headers */,
 				DC8F3DB7175C364D00EF6F78 /* C&CPP+Extension.h in Headers */,
 				DCDD5D07175DB88C008DDCB7 /* NSMutableString+Extension.h in Headers */,
-				DC8F3DE9175C835600EF6F78 /* NSMutableArray+Extension.h in Headers */,
+				DCEB1C831760150A00A603F7 /* NSStack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,8 +736,8 @@
 				DC8F3D681759D5F700EF6F78 /* NSValue+Extension.m in Sources */,
 				DC8F3DBB175C365900EF6F78 /* CGRectMaker+Extension.m in Sources */,
 				DC8F3DE6175C70B400EF6F78 /* ReversePolandNotation.m in Sources */,
-				DC8F3DEA175C835600EF6F78 /* NSMutableArray+Extension.m in Sources */,
 				DCDD5D08175DB88C008DDCB7 /* NSMutableString+Extension.m in Sources */,
+				DCEB1C841760150A00A603F7 /* NSStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

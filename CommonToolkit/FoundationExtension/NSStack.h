@@ -1,14 +1,17 @@
 //
-//  NSMutableArray+Extension.h
+//  NSStack.h
 //  CommonToolkit
 //
-//  Created by Ares on 13-6-3.
+//  Created by Ares on 13-6-6.
 //  Copyright (c) 2013年 richitec. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableArray (Stack)
+@interface NSStack : NSObject {
+    // storage with mutable array
+    NSMutableArray *_mStorageObject;
+}
 
 // push an element to stack
 - (void)push:(id)pElement;
@@ -24,6 +27,9 @@
 
 // check the stact is or not empty
 - (BOOL)empty;
+
+// element count
+- (NSUInteger)count;
 
 // stack description
 - (NSString *)stackDescription;
