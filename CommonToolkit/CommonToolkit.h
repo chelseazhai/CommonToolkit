@@ -23,6 +23,8 @@
 
 #import "DisplayScreenUtils.h"
 
+#import "DeviceUtils.h"
+
 // C&C++Extension
 #import "C&CPP+Extension.h"
 
