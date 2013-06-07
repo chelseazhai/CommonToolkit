@@ -10,7 +10,7 @@
 
 @interface DeviceUtils : NSObject
 
-// get system current setting language
+// get system current setting language, en, zh-Hans and zh-Hant etc.
 + (NSString *)systemSettingLanguage;
 
 @end
