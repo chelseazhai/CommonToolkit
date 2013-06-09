@@ -65,10 +65,10 @@
 		DC3C160F158B936600B31A79 /* AddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D2158B936600B31A79 /* AddressBookManager.m */; };
 		DC3C1610158B936600B31A79 /* CommonUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D3158B936600B31A79 /* CommonUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3C1611158B936600B31A79 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D4158B936600B31A79 /* CommonUtils.m */; };
-		DC3C1612158B936600B31A79 /* HttpUtil+Signature.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D5158B936600B31A79 /* HttpUtil+Signature.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC3C1613158B936600B31A79 /* HttpUtil+Signature.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D6158B936600B31A79 /* HttpUtil+Signature.m */; };
-		DC3C1614158B936600B31A79 /* HttpUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D7158B936600B31A79 /* HttpUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC3C1615158B936600B31A79 /* HttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D8158B936600B31A79 /* HttpUtil.m */; };
+		DC3C1612158B936600B31A79 /* HttpUtils+Signature.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC3C1613158B936600B31A79 /* HttpUtils+Signature.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D6158B936600B31A79 /* HttpUtils+Signature.m */; };
+		DC3C1614158B936600B31A79 /* HttpUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D7158B936600B31A79 /* HttpUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC3C1615158B936600B31A79 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D8158B936600B31A79 /* HttpUtils.m */; };
 		DC3C1618158B941000B31A79 /* UIColor+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C1616158B941000B31A79 /* UIColor+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3C1619158B941000B31A79 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1617158B941000B31A79 /* UIColor+Extension.m */; };
 		DC3C161D158B95F500B31A79 /* iToast.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C161B158B95F500B31A79 /* iToast.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -119,6 +119,8 @@
 		DCEB1C841760150A00A603F7 /* NSStack.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB1C821760150A00A603F7 /* NSStack.m */; };
 		DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEB1CAD1760882900A603F7 /* DeviceUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */; };
+		DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,10 +185,10 @@
 		DC3C15D2158B936600B31A79 /* AddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookManager.m; sourceTree = "<group>"; };
 		DC3C15D3158B936600B31A79 /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		DC3C15D4158B936600B31A79 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
-		DC3C15D5158B936600B31A79 /* HttpUtil+Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HttpUtil+Signature.h"; sourceTree = "<group>"; };
-		DC3C15D6158B936600B31A79 /* HttpUtil+Signature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HttpUtil+Signature.m"; sourceTree = "<group>"; };
-		DC3C15D7158B936600B31A79 /* HttpUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpUtil.h; sourceTree = "<group>"; };
-		DC3C15D8158B936600B31A79 /* HttpUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtil.m; sourceTree = "<group>"; };
+		DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HttpUtils+Signature.h"; sourceTree = "<group>"; };
+		DC3C15D6158B936600B31A79 /* HttpUtils+Signature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HttpUtils+Signature.m"; sourceTree = "<group>"; };
+		DC3C15D7158B936600B31A79 /* HttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpUtils.h; sourceTree = "<group>"; };
+		DC3C15D8158B936600B31A79 /* HttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtils.m; sourceTree = "<group>"; };
 		DC3C1616158B941000B31A79 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		DC3C1617158B941000B31A79 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		DC3C161B158B95F500B31A79 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
@@ -248,6 +250,8 @@
 		DCEB1C821760150A00A603F7 /* NSStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStack.m; sourceTree = "<group>"; };
 		DCEB1CAD1760882900A603F7 /* DeviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtils.h; sourceTree = "<group>"; };
 		DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtils.m; sourceTree = "<group>"; };
+		DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookUIUtils.h; sourceTree = "<group>"; };
+		DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookUIUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,16 +443,18 @@
 			children = (
 				DC3C15D1158B936600B31A79 /* AddressBookManager.h */,
 				DC3C15D2158B936600B31A79 /* AddressBookManager.m */,
+				DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */,
+				DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */,
 				DC3C15D3158B936600B31A79 /* CommonUtils.h */,
 				DC3C15D4158B936600B31A79 /* CommonUtils.m */,
 				DCEB1CAD1760882900A603F7 /* DeviceUtils.h */,
 				DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */,
 				DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */,
 				DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */,
-				DC3C15D5158B936600B31A79 /* HttpUtil+Signature.h */,
-				DC3C15D6158B936600B31A79 /* HttpUtil+Signature.m */,
-				DC3C15D7158B936600B31A79 /* HttpUtil.h */,
-				DC3C15D8158B936600B31A79 /* HttpUtil.m */,
+				DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */,
+				DC3C15D6158B936600B31A79 /* HttpUtils+Signature.m */,
+				DC3C15D7158B936600B31A79 /* HttpUtils.h */,
+				DC3C15D8158B936600B31A79 /* HttpUtils.m */,
 				DC7D201315E476DF000E2407 /* PinyinUtils.h */,
 				DC7D201415E476DF000E2407 /* PinyinUtils.m */,
 			);
@@ -596,8 +602,8 @@
 				DC3C160C158B936600B31A79 /* UITableView+Extension.h in Headers */,
 				DC3C160E158B936600B31A79 /* AddressBookManager.h in Headers */,
 				DC3C1610158B936600B31A79 /* CommonUtils.h in Headers */,
-				DC3C1612158B936600B31A79 /* HttpUtil+Signature.h in Headers */,
-				DC3C1614158B936600B31A79 /* HttpUtil.h in Headers */,
+				DC3C1612158B936600B31A79 /* HttpUtils+Signature.h in Headers */,
+				DC3C1614158B936600B31A79 /* HttpUtils.h in Headers */,
 				DC3C1618158B941000B31A79 /* UIColor+Extension.h in Headers */,
 				DC3C161D158B95F500B31A79 /* iToast.h in Headers */,
 				DCD6AE9F158ED86C00CBBBDB /* NSBundle+Extension.h in Headers */,
@@ -623,6 +629,7 @@
 				DCDD5D07175DB88C008DDCB7 /* NSMutableString+Extension.h in Headers */,
 				DCEB1C831760150A00A603F7 /* NSStack.h in Headers */,
 				DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */,
+				DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,8 +722,8 @@
 				DC3C160D158B936600B31A79 /* UITableView+Extension.m in Sources */,
 				DC3C160F158B936600B31A79 /* AddressBookManager.m in Sources */,
 				DC3C1611158B936600B31A79 /* CommonUtils.m in Sources */,
-				DC3C1613158B936600B31A79 /* HttpUtil+Signature.m in Sources */,
-				DC3C1615158B936600B31A79 /* HttpUtil.m in Sources */,
+				DC3C1613158B936600B31A79 /* HttpUtils+Signature.m in Sources */,
+				DC3C1615158B936600B31A79 /* HttpUtils.m in Sources */,
 				DC3C1619158B941000B31A79 /* UIColor+Extension.m in Sources */,
 				DC3C161E158B95F500B31A79 /* iToast.m in Sources */,
 				DC3C1622158B972D00B31A79 /* HttpRequestBean.m in Sources */,
@@ -746,6 +753,7 @@
 				DCDD5D08175DB88C008DDCB7 /* NSMutableString+Extension.m in Sources */,
 				DCEB1C841760150A00A603F7 /* NSStack.m in Sources */,
 				DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */,
+				DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,11 +13,12 @@
 #import "ContactBean.h"
 #import "ContactBean_Extension.h"
 #import "AddressBookManager.h"
+#import "AddressBookUIUtils.h"
 
 #import "CommonUtils.h"
 
-#import "HttpUtil.h"
-#import "HttpUtil+Signature.h"
+#import "HttpUtils.h"
+#import "HttpUtils+Signature.h"
 
 #import "PinyinUtils.h"
 

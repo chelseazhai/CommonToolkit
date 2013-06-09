@@ -1,5 +1,5 @@
 //
-//  HttpUtil.h
+//  HttpUtils.h
 //  CommonToolkit
 //
 //  Created by Ares on 12-6-11.
@@ -23,7 +23,7 @@ typedef enum {
 } HttpPostFormat;
 
 
-@interface HttpUtil : NSObject
+@interface HttpUtils : NSObject
 
 // get http request
 + (void)getRequestWithUrl:(NSString *)pUrl andParameter:(NSDictionary *)pParameter andUserInfo:(NSDictionary *)pUserInfo andRequestType:(HTTPRequestType)pType andProcessor:(id)pProcessor andFinishedRespSelector:(SEL)pFinRespSel andFailedRespSelector:(SEL)pFailRespSel;
