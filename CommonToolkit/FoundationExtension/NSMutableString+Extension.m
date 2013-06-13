@@ -18,38 +18,15 @@
 }
 
 - (NSMutableString *)appendFormatAndReturn:(NSString *)format, ...{
-    // get format augument list
-    // define format argument list
-    //NSMutableArray *_formatArgList = [[NSMutableArray alloc] init];
-    
-    // define argument and argument list
-    //id _arg;
+    // define argument list
     va_list _argList;
+    
     va_start(_argList, format);
     
-    NSString *_string = [NSString stringWithFormat:format, _argList];
-    NSLog(@"string = %@, %@", format, _string);
+    // append format string
+    [self appendString:[[NSString alloc] initWithFormat:format arguments:_argList]];
     
-//    // check argument
-//    if (format) {
-//        [_formatArgList addObject:format];
-//        
-//        // get param address
-//        va_start(_argList, format);
-//        
-//        //
-//        while ((_arg = va_arg(_argList, id))) {
-//            //
-//            //[_formatArgList addObject:_arg];
-//        }
-//        
-//        //
-//        va_end(_argList);
-//    }
-//    
-//    for (id _formatArg in _formatArgList) {
-//        NSLog(@"format argument = %@", _formatArg);
-//    }
+    va_end(_argList);
     
     return self;
 }

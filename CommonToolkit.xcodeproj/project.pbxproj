@@ -89,6 +89,8 @@
 		DC8F3DE6175C70B400EF6F78 /* ReversePolandNotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3DE4175C70B400EF6F78 /* ReversePolandNotation.m */; };
 		DC953B68174F0C7E006F5AB0 /* UINavigationController+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC953B69174F0C7E006F5AB0 /* UINavigationController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */; };
+		DCAAC1511769A01D00F20592 /* AudioServicesUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAAC14F1769A01D00F20592 /* AudioServicesUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCAAC1521769A01D00F20592 /* AudioServicesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */; };
 		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAC33B115AAC223006904DD /* NSNumber+Extension.m */; };
 		DCBBB288158A277C007C2301 /* CommonToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBBB287158A26B1007C2301 /* CommonToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -215,6 +217,8 @@
 		DC8F3DE4175C70B400EF6F78 /* ReversePolandNotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReversePolandNotation.m; path = "CommonToolkit/C&C++Entension/ReversePolandNotation.m"; sourceTree = SOURCE_ROOT; };
 		DC953B66174F0C7E006F5AB0 /* UINavigationController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extension.h"; sourceTree = "<group>"; };
 		DC953B67174F0C7E006F5AB0 /* UINavigationController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extension.m"; sourceTree = "<group>"; };
+		DCAAC14F1769A01D00F20592 /* AudioServicesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioServicesUtils.h; sourceTree = "<group>"; };
+		DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioServicesUtils.m; sourceTree = "<group>"; };
 		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
 		DCAC33B115AAC223006904DD /* NSNumber+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extension.m"; sourceTree = "<group>"; };
 		DCBBB21E158A2485007C2301 /* CommonToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,6 +449,8 @@
 				DC3C15D2158B936600B31A79 /* AddressBookManager.m */,
 				DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */,
 				DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */,
+				DCAAC14F1769A01D00F20592 /* AudioServicesUtils.h */,
+				DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */,
 				DC3C15D3158B936600B31A79 /* CommonUtils.h */,
 				DC3C15D4158B936600B31A79 /* CommonUtils.m */,
 				DCEB1CAD1760882900A603F7 /* DeviceUtils.h */,
@@ -630,6 +636,7 @@
 				DCEB1C831760150A00A603F7 /* NSStack.h in Headers */,
 				DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */,
 				DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */,
+				DCAAC1511769A01D00F20592 /* AudioServicesUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +761,7 @@
 				DCEB1C841760150A00A603F7 /* NSStack.m in Sources */,
 				DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */,
 				DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */,
+				DCAAC1521769A01D00F20592 /* AudioServicesUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

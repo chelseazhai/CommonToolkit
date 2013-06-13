@@ -26,6 +26,8 @@
 
 #import "DeviceUtils.h"
 
+#import "AudioServicesUtils.h"
+
 // C&C++Extension
 #import "C&CPP+Extension.h"
 
