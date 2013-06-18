@@ -11,6 +11,8 @@
 		DC0F2E151592F26200F9D4FA /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0F2E131592F26200F9D4FA /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC1FDF9315B1774100189331 /* UIAttributedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1FDF9115B1774100189331 /* UIAttributedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC1FDF9415B1774100189331 /* UIAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1FDF9215B1774100189331 /* UIAttributedLabel.m */; };
+		DC239EF1176AB3FC00A97729 /* DataStorageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC239EEF176AB3FC00A97729 /* DataStorageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC239EF2176AB3FC00A97729 /* DataStorageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC239EF0176AB3FC00A97729 /* DataStorageUtils.m */; };
 		DC2F581E15D3B54700C30083 /* UIDevice+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC2F581F15D3B54700C30083 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */; };
 		DC3C15D9158B936600B31A79 /* ContactBean.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C1592158B936600B31A79 /* ContactBean.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,6 +95,18 @@
 		DCAAC1521769A01D00F20592 /* AudioServicesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */; };
 		DCAC33B215AAC223006904DD /* NSNumber+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCAC33B015AAC223006904DD /* NSNumber+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAC33B315AAC223006904DD /* NSNumber+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAC33B115AAC223006904DD /* NSNumber+Extension.m */; };
+		DCB25EF1176EE52300A65D53 /* FMDatabase+InMemoryOnDiskIO.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EE5176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EF2176EE52300A65D53 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EE6176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.m */; };
+		DCB25EF3176EE52400A65D53 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EE7176EE52200A65D53 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EF4176EE52400A65D53 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EE8176EE52200A65D53 /* FMDatabase.m */; };
+		DCB25EF5176EE52400A65D53 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EE9176EE52300A65D53 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EF6176EE52400A65D53 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EEA176EE52300A65D53 /* FMDatabaseAdditions.m */; };
+		DCB25EF7176EE52400A65D53 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EEB176EE52300A65D53 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EF8176EE52400A65D53 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EEC176EE52300A65D53 /* FMDatabasePool.m */; };
+		DCB25EF9176EE52400A65D53 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EED176EE52300A65D53 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EFA176EE52400A65D53 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EEE176EE52300A65D53 /* FMDatabaseQueue.m */; };
+		DCB25EFB176EE52400A65D53 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB25EEF176EE52300A65D53 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB25EFC176EE52400A65D53 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB25EF0176EE52300A65D53 /* FMResultSet.m */; };
 		DCBBB288158A277C007C2301 /* CommonToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBBB287158A26B1007C2301 /* CommonToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBC76811597FF6000EBEC1D /* UISoftKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBC767F1597FF6000EBEC1D /* UISoftKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBC76821597FF6000EBEC1D /* UISoftKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBC76801597FF6000EBEC1D /* UISoftKeyboard.m */; };
@@ -130,6 +144,8 @@
 		DC0F2E131592F26200F9D4FA /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		DC1FDF9115B1774100189331 /* UIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAttributedLabel.h; sourceTree = "<group>"; };
 		DC1FDF9215B1774100189331 /* UIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAttributedLabel.m; sourceTree = "<group>"; };
+		DC239EEF176AB3FC00A97729 /* DataStorageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorageUtils.h; sourceTree = "<group>"; };
+		DC239EF0176AB3FC00A97729 /* DataStorageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorageUtils.m; sourceTree = "<group>"; };
 		DC2F581C15D3B54700C30083 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
 		DC2F581D15D3B54700C30083 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
 		DC3C1592158B936600B31A79 /* ContactBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactBean.h; sourceTree = "<group>"; };
@@ -221,6 +237,18 @@
 		DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioServicesUtils.m; sourceTree = "<group>"; };
 		DCAC33B015AAC223006904DD /* NSNumber+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extension.h"; sourceTree = "<group>"; };
 		DCAC33B115AAC223006904DD /* NSNumber+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extension.m"; sourceTree = "<group>"; };
+		DCB25EE5176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		DCB25EE6176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		DCB25EE7176EE52200A65D53 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		DCB25EE8176EE52200A65D53 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		DCB25EE9176EE52300A65D53 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		DCB25EEA176EE52300A65D53 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		DCB25EEB176EE52300A65D53 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		DCB25EEC176EE52300A65D53 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		DCB25EED176EE52300A65D53 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		DCB25EEE176EE52300A65D53 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		DCB25EEF176EE52300A65D53 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		DCB25EF0176EE52300A65D53 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		DCBBB21E158A2485007C2301 /* CommonToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCBBB223158A2485007C2301 /* CommonToolkit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommonToolkit-Info.plist"; sourceTree = "<group>"; };
 		DCBBB227158A2485007C2301 /* CommonToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CommonToolkit-Prefix.pch"; sourceTree = "<group>"; };
@@ -301,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				DC3C159B158B936600B31A79 /* ASIHTTPRequest */,
+				DCB25EE4176EE51D00A65D53 /* FMDB */,
 				DC3C161A158B95F500B31A79 /* iToast */,
 				DCE9BEB315A2D7710077AAD7 /* JSONKit */,
 				DCE9BEB615A2D7710077AAD7 /* MBProgressHUD */,
@@ -453,6 +482,8 @@
 				DCAAC1501769A01D00F20592 /* AudioServicesUtils.m */,
 				DC3C15D3158B936600B31A79 /* CommonUtils.h */,
 				DC3C15D4158B936600B31A79 /* CommonUtils.m */,
+				DC239EEF176AB3FC00A97729 /* DataStorageUtils.h */,
+				DC239EF0176AB3FC00A97729 /* DataStorageUtils.m */,
 				DCEB1CAD1760882900A603F7 /* DeviceUtils.h */,
 				DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */,
 				DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */,
@@ -503,6 +534,25 @@
 			children = (
 			);
 			name = "C++Extension";
+			sourceTree = "<group>";
+		};
+		DCB25EE4176EE51D00A65D53 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				DCB25EE5176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.h */,
+				DCB25EE6176EE52200A65D53 /* FMDatabase+InMemoryOnDiskIO.m */,
+				DCB25EE7176EE52200A65D53 /* FMDatabase.h */,
+				DCB25EE8176EE52200A65D53 /* FMDatabase.m */,
+				DCB25EE9176EE52300A65D53 /* FMDatabaseAdditions.h */,
+				DCB25EEA176EE52300A65D53 /* FMDatabaseAdditions.m */,
+				DCB25EEB176EE52300A65D53 /* FMDatabasePool.h */,
+				DCB25EEC176EE52300A65D53 /* FMDatabasePool.m */,
+				DCB25EED176EE52300A65D53 /* FMDatabaseQueue.h */,
+				DCB25EEE176EE52300A65D53 /* FMDatabaseQueue.m */,
+				DCB25EEF176EE52300A65D53 /* FMResultSet.h */,
+				DCB25EF0176EE52300A65D53 /* FMResultSet.m */,
+			);
+			path = FMDB;
 			sourceTree = "<group>";
 		};
 		DCBBB1FB158A23FA007C2301 = {
@@ -637,6 +687,13 @@
 				DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */,
 				DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */,
 				DCAAC1511769A01D00F20592 /* AudioServicesUtils.h in Headers */,
+				DC239EF1176AB3FC00A97729 /* DataStorageUtils.h in Headers */,
+				DCB25EF1176EE52300A65D53 /* FMDatabase+InMemoryOnDiskIO.h in Headers */,
+				DCB25EF3176EE52400A65D53 /* FMDatabase.h in Headers */,
+				DCB25EF5176EE52400A65D53 /* FMDatabaseAdditions.h in Headers */,
+				DCB25EF7176EE52400A65D53 /* FMDatabasePool.h in Headers */,
+				DCB25EF9176EE52400A65D53 /* FMDatabaseQueue.h in Headers */,
+				DCB25EFB176EE52400A65D53 /* FMResultSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +819,13 @@
 				DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */,
 				DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */,
 				DCAAC1521769A01D00F20592 /* AudioServicesUtils.m in Sources */,
+				DC239EF2176AB3FC00A97729 /* DataStorageUtils.m in Sources */,
+				DCB25EF2176EE52300A65D53 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
+				DCB25EF4176EE52400A65D53 /* FMDatabase.m in Sources */,
+				DCB25EF6176EE52400A65D53 /* FMDatabaseAdditions.m in Sources */,
+				DCB25EF8176EE52400A65D53 /* FMDatabasePool.m in Sources */,
+				DCB25EFA176EE52400A65D53 /* FMDatabaseQueue.m in Sources */,
+				DCB25EFC176EE52400A65D53 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

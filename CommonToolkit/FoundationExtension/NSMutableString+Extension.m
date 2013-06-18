@@ -10,11 +10,13 @@
 
 @implementation NSMutableString (Extension)
 
-- (void)clear{
+- (NSMutableString *)clear{
     // check self and delete all characters
     if (nil != self && self.length > 0) {
         [self deleteCharactersInRange:NSMakeRange(0, self.length)];
     }
+    
+    return self;
 }
 
 - (NSMutableString *)appendFormatAndReturn:(NSString *)format, ...{

@@ -28,6 +28,8 @@
 
 #import "AudioServicesUtils.h"
 
+#import "DataStorageUtils.h"
+
 // C&C++Extension
 #import "C&CPP+Extension.h"
 
@@ -72,6 +74,13 @@
 #import "MBProgressHUD.h"
 
 #import "RegexKitLite.h"
+
+#import "FMDatabase.h"
+#import "FMResultSet.h"
+#import "FMDatabase+InMemoryOnDiskIO.h"
+#import "FMDatabaseAdditions.h"
+#import "FMDatabasePool.h"
+#import "FMDatabaseQueue.h"
 
 // UIExtension
 #import "AppRootViewController.h"

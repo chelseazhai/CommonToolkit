@@ -11,7 +11,7 @@
 @interface NSMutableString (Extension)
 
 // clear all characters
-- (void)clear;
+- (NSMutableString *)clear;
 
 // append format
 - (NSMutableString *)appendFormatAndReturn:(NSString *)format, ...;
