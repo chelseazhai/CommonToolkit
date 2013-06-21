@@ -52,6 +52,11 @@
         }
     }
     
+    // add not Chinese character string builder to result
+    if (0 != _notCCSB.length) {
+        [_ret addObject:[NSArray arrayWithObject:[NSString stringWithString:_notCCSB]]];
+    }
+    
     return _ret;
 }
 
