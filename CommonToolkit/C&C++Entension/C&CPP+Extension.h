@@ -12,7 +12,7 @@
 // C extension
 // CGRect maker
 // CGRect make with format string
-CG_EXTERN CGRect CGRectMakeWithFormat(NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue);
+CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yValue, NSValue *widthValue, NSValue *heightValue);
 
 // reverse Poland notation
 // translate four arithmetic operation expression to reverse Poland notation
