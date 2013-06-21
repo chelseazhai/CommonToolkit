@@ -58,7 +58,7 @@ CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yV
         _sizeHeight = heightValue.hash + USHRT_MAX;
         
         // save size height value string value to foundation extension with size height view's hashcode
-        [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:heightValue.stringValue withExtInfoDicKey:SIZE_HEIGHT_FEKEY forKey:[NSNumber numberWithFloat:view.hash]];
+        [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:heightValue.stringValue withExtInfoDicKey:SIZE_HEIGHT_FEKEY forKey:[NSNumber numberWithUnsignedInteger:view.hash]];
     }
     
     rect.origin.x = _originX; rect.origin.y = _originY;
