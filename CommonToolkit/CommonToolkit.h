@@ -10,11 +10,6 @@
 #define CommonToolkit_CommonToolkit_h
 
 // CommonUtils
-#import "ContactBean.h"
-#import "ContactBean_Extension.h"
-#import "AddressBookManager.h"
-#import "AddressBookUIUtils.h"
-
 #import "CommonUtils.h"
 
 #import "HttpUtils.h"
@@ -29,6 +24,9 @@
 #import "AudioServicesUtils.h"
 
 #import "DataStorageUtils.h"
+
+#import "AddressBookManager.h"
+#import "AddressBookUIUtils.h"
 
 // C&C++Extension
 #import "C&CPP+Extension.h"
@@ -50,6 +48,9 @@
 #import "UserBean.h"
 #import "UserBean_Extension.h"
 #import "UserManager.h"
+
+#import "ContactBean.h"
+#import "ContactBean_Extension.h"
 
 // Dependent ThirdParty Libraries
 #import "ASIHTTPRequest.h"
