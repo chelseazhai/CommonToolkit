@@ -27,8 +27,8 @@ CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yV
     if ([xValue isKindOfClass:[NSNumber class]]) {
         _originX = ((NSNumber *)xValue).floatValue;
     } else {
-        // save origin x float value with max unsigned int value
-        _originX = xValue.hash + USHRT_MAX;
+        // save origin x float value with origin x value unsigned int value
+        _originX = xValue.unsignedIntValue;
         
         // save origin x value string value to foundation extension with view's hashcode
         [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:xValue.stringValue withExtInfoDicKey:ORIGIN_X_FEKEY forKey:[NSNumber numberWithUnsignedInteger:view.hash]];
@@ -36,8 +36,8 @@ CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yV
     if ([yValue isKindOfClass:[NSNumber class]]) {
         _originY = ((NSNumber *)yValue).floatValue;
     } else {
-        // save origin y float value with max unsigned int value
-        _originY = yValue.hash + USHRT_MAX;
+        // save origin y float value with origin y value unsigned int value
+        _originY = yValue.unsignedIntValue;
         
         // save origin y value string value to foundation extension with origin view's hashcode
         [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:yValue.stringValue withExtInfoDicKey:ORIGIN_Y_FEKEY forKey:[NSNumber numberWithUnsignedInteger:view.hash]];
@@ -45,8 +45,8 @@ CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yV
     if ([widthValue isKindOfClass:[NSNumber class]]) {
         _sizeWidth = ((NSNumber *)widthValue).floatValue;
     } else {
-        // save size width float value with max unsigned int value
-        _sizeWidth = widthValue.hash + USHRT_MAX;
+        // save size width float value with size width value unsigned int value
+        _sizeWidth = widthValue.unsignedIntValue;
         
         // save size width value string value to foundation extension with size width view's hashcode
         [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:widthValue.stringValue withExtInfoDicKey:SIZE_WIDTH_FEKEY forKey:[NSNumber numberWithUnsignedInteger:view.hash]];
@@ -54,8 +54,8 @@ CG_EXTERN CGRect CGRectMakeWithFormat(UIView *view, NSValue *xValue, NSValue *yV
     if ([heightValue isKindOfClass:[NSNumber class]]) {
         _sizeHeight = ((NSNumber *)heightValue).floatValue;
     } else {
-        // save size height float value with max unsigned int value
-        _sizeHeight = heightValue.hash + USHRT_MAX;
+        // save size height float value with size height value unsigned int value
+        _sizeHeight = heightValue.unsignedIntValue;
         
         // save size height value string value to foundation extension with size height view's hashcode
         [_foundationExtensionManager setFoundationExtensionBeanExtInfoDicValue:heightValue.stringValue withExtInfoDicKey:SIZE_HEIGHT_FEKEY forKey:[NSNumber numberWithUnsignedInteger:view.hash]];

@@ -13,6 +13,9 @@
 // string value
 @property (nonatomic, readonly) NSString *stringValue;
 
+// string random unsigned int value
+@property (nonatomic, readonly) unsigned int unsignedIntValue;
+
 // value with c string with encoding UTF-8
 + (NSValue *)valueWithCString:(const char *)pCString;
 

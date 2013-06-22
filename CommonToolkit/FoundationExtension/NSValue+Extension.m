@@ -22,6 +22,10 @@
     return _ret;
 }
 
+- (unsigned int)unsignedIntValue{
+    return (arc4random() % USHRT_MAX) + 1 + USHRT_MAX;
+}
+
 + (NSValue *)valueWithCString:(const char *)pCString{
     return [self valueWithPointer:pCString];
 }
