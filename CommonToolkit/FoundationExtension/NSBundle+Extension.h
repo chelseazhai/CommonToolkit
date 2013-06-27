@@ -8,21 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-// toasts, urls and remote background server fields string file name
-#define TOASTSSTRING_FILENAME   @"Toasts"
-#define URLSSTRING_FILENAME @"Urls"
-#define RBGSERVERFIELDSSTRING_FILENAME  @"RBGServerFields"
+// toast, url and remote background server field strings file name
+#define TOASTSSTRING_FILENAME   @"Toast"
+#define URLSSTRING_FILENAME @"Url"
+#define RBGSERVERFIELDSSTRING_FILENAME  @"RBGServerField"
 
-// toasts localized string from self bundle with name
-#define NSToastsLocalizedString(key, comment)  \
+// toast localized string from self bundle with name
+#define NSToastLocalizedString(key, comment)  \
     NSLocalizedStringFromTable(key, TOASTSSTRING_FILENAME, comment)
 
-// urls string from self bundle with name
-#define NSUrlsString(key, comment)  \
+// url string from self bundle with name
+#define NSUrlString(key, comment)  \
     NSLocalizedStringFromTable(key, URLSSTRING_FILENAME, comment)
 
-// remote background server fields string from self bundle with name
-#define NSRBGServerFieldsString(key, comment)  \
+// remote background server field string from self bundle with name
+#define NSRBGServerFieldString(key, comment)  \
     NSLocalizedStringFromTable(key, RBGSERVERFIELDSSTRING_FILENAME, comment)
 
 // localized string from other bundle with name
