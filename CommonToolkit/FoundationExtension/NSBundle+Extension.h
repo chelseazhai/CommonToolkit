@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+// application display name key string
+#define APPLICATION_DISPLAYNAME_KEY @"CFBundleDisplayName"
+
 // toast, url and remote background server field strings file name
 #define TOASTSSTRING_FILENAME   @"Toast"
 #define URLSSTRING_FILENAME @"Url"
 #define RBGSERVERFIELDSSTRING_FILENAME  @"RBGServerField"
+
+// application display name string from self bundle
+#define NSAPPDISPLAYNAMESTRING  \
+    [[NSBundle mainBundle] objectForInfoDictionaryKey:APPLICATION_DISPLAYNAME_KEY]
 
 // toast localized string from self bundle with name
 #define NSToastLocalizedString(key, comment)  \

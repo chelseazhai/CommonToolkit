@@ -126,6 +126,8 @@
 		DCE51900177BD148000CA65D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE518FE177BD148000CA65D /* InfoPlist.strings */; };
 		DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE51925177BDC3F000CA65D /* AddressBookManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE51926177BDC3F000CA65D /* AddressBookManager.m */; };
+		DCE5192B177BE330000CA65D /* VersionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE51929177BE330000CA65D /* VersionUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCE5192C177BE330000CA65D /* VersionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE5192A177BE330000CA65D /* VersionUtils.m */; };
 		DCE9BEB915A2D7710077AAD7 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB415A2D7710077AAD7 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BEB515A2D7710077AAD7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -275,6 +277,8 @@
 		DCE51902177BD160000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Strings/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DCE51925177BDC3F000CA65D /* AddressBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookManager.h; sourceTree = "<group>"; };
 		DCE51926177BDC3F000CA65D /* AddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookManager.m; sourceTree = "<group>"; };
+		DCE51929177BE330000CA65D /* VersionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUtils.h; sourceTree = "<group>"; };
+		DCE5192A177BE330000CA65D /* VersionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUtils.m; sourceTree = "<group>"; };
 		DCE9BEB415A2D7710077AAD7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		DCE9BEB515A2D7710077AAD7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -500,6 +504,8 @@
 				DC3C15D8158B936600B31A79 /* HttpUtils.m */,
 				DC7D201315E476DF000E2407 /* PinyinUtils.h */,
 				DC7D201415E476DF000E2407 /* PinyinUtils.m */,
+				DCE51929177BE330000CA65D /* VersionUtils.h */,
+				DCE5192A177BE330000CA65D /* VersionUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 				DCB25EFB176EE52400A65D53 /* FMResultSet.h in Headers */,
 				DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */,
 				DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */,
+				DCE5192B177BE330000CA65D /* VersionUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +841,7 @@
 				DCB25EFC176EE52400A65D53 /* FMResultSet.m in Sources */,
 				DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */,
 				DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */,
+				DCE5192C177BE330000CA65D /* VersionUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

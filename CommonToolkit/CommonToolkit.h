@@ -25,8 +25,9 @@
 
 #import "DataStorageUtils.h"
 
-#import "AddressBookManager.h"
 #import "AddressBookUIUtils.h"
+
+#import "VersionUtils.h"
 
 // C&C++Extension
 #import "C&CPP+Extension.h"
@@ -51,6 +52,7 @@
 
 #import "ContactBean.h"
 #import "ContactBean_Extension.h"
+#import "AddressBookManager.h"
 
 // Dependent ThirdParty Libraries
 #import "ASIHTTPRequest.h"
