@@ -79,11 +79,12 @@
 		DC3C1626158B975200B31A79 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1624158B975200B31A79 /* HttpRequestManager.m */; };
 		DC5CE9CD175496900016835B /* UIBarButtonItem+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5CE9CB1754968E0016835B /* UIBarButtonItem+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5CE9CE175496900016835B /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE9CC1754968F0016835B /* UIBarButtonItem+Extension.m */; };
-		DC630155174CABA500C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630153174CABA400C132C2 /* InfoPlist.strings */; };
 		DC756BD5175306CD00F287FA /* DisplayScreenUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */; };
 		DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7D201315E476DF000E2407 /* PinyinUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7D201415E476DF000E2407 /* PinyinUtils.m */; };
+		DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */; };
 		DC8F3D671759D5F700EF6F78 /* NSValue+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8F3D651759D5F700EF6F78 /* NSValue+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC8F3D681759D5F700EF6F78 /* NSValue+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3D661759D5F700EF6F78 /* NSValue+Extension.m */; };
 		DC8F3DB7175C364D00EF6F78 /* C&CPP+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8F3DB6175C364D00EF6F78 /* C&CPP+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -124,6 +125,7 @@
 		DCD6AF11158EFB6A00CBBBDB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */; };
 		DCDD5D07175DB88C008DDCB7 /* NSMutableString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCDD5D05175DB88B008DDCB7 /* NSMutableString+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDD5D08175DB88C008DDCB7 /* NSMutableString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDD5D06175DB88B008DDCB7 /* NSMutableString+Extension.m */; };
+		DCE51900177BD148000CA65D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE518FE177BD148000CA65D /* InfoPlist.strings */; };
 		DCE9BEB915A2D7710077AAD7 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB415A2D7710077AAD7 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BEB515A2D7710077AAD7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,13 +219,12 @@
 		DC3C1624158B975200B31A79 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
 		DC5CE9CB1754968E0016835B /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		DC5CE9CC1754968F0016835B /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
-		DC630154174CABA500C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DC630156174CABAF00C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		DC630157174CABBF00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayScreenUtils.h; sourceTree = "<group>"; };
 		DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayScreenUtils.m; sourceTree = "<group>"; };
 		DC7D201315E476DF000E2407 /* PinyinUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinUtils.h; sourceTree = "<group>"; };
 		DC7D201415E476DF000E2407 /* PinyinUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinUtils.m; sourceTree = "<group>"; };
+		DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDataLoadingIndicatorView.h; sourceTree = "<group>"; };
+		DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDataLoadingIndicatorView.m; sourceTree = "<group>"; };
 		DC8F3D651759D5F700EF6F78 /* NSValue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Extension.h"; sourceTree = "<group>"; };
 		DC8F3D661759D5F700EF6F78 /* NSValue+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Extension.m"; sourceTree = "<group>"; };
 		DC8F3DB6175C364D00EF6F78 /* C&CPP+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "C&CPP+Extension.h"; path = "CommonToolkit/C&C++Entension/C&CPP+Extension.h"; sourceTree = SOURCE_ROOT; };
@@ -271,6 +272,9 @@
 		DCD6AF0F158EFB6A00CBBBDB /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		DCDD5D05175DB88B008DDCB7 /* NSMutableString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Extension.h"; sourceTree = "<group>"; };
 		DCDD5D06175DB88B008DDCB7 /* NSMutableString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Extension.m"; sourceTree = "<group>"; };
+		DCE518FF177BD148000CA65D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Strings/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCE51901177BD158000CA65D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Strings/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DCE51902177BD160000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Strings/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DCE9BEB415A2D7710077AAD7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		DCE9BEB515A2D7710077AAD7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 			children = (
 				DC1FDF9115B1774100189331 /* UIAttributedLabel.h */,
 				DC1FDF9215B1774100189331 /* UIAttributedLabel.m */,
+				DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */,
+				DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */,
 				DCBC767F1597FF6000EBEC1D /* UISoftKeyboard.h */,
 				DCBC76801597FF6000EBEC1D /* UISoftKeyboard.m */,
 				DCBC7690159836EF00EBEC1D /* UISoftKeyboardCell.h */,
@@ -599,7 +605,7 @@
 			children = (
 				DCBBB223158A2485007C2301 /* CommonToolkit-Info.plist */,
 				DCBBB227158A2485007C2301 /* CommonToolkit-Prefix.pch */,
-				DC630153174CABA400C132C2 /* InfoPlist.strings */,
+				DCE518FE177BD148000CA65D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				DCB25EF7176EE52400A65D53 /* FMDatabasePool.h in Headers */,
 				DCB25EF9176EE52400A65D53 /* FMDatabaseQueue.h in Headers */,
 				DCB25EFB176EE52400A65D53 /* FMResultSet.h in Headers */,
+				DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,7 +758,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC630155174CABA500C132C2 /* InfoPlist.strings in Resources */,
+				DCE51900177BD148000CA65D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,18 +833,19 @@
 				DCB25EF8176EE52400A65D53 /* FMDatabasePool.m in Sources */,
 				DCB25EFA176EE52400A65D53 /* FMDatabaseQueue.m in Sources */,
 				DCB25EFC176EE52400A65D53 /* FMResultSet.m in Sources */,
+				DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC630153174CABA400C132C2 /* InfoPlist.strings */ = {
+		DCE518FE177BD148000CA65D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC630154174CABA500C132C2 /* en */,
-				DC630156174CABAF00C132C2 /* zh-Hans */,
-				DC630157174CABBF00C132C2 /* zh-Hant */,
+				DCE518FF177BD148000CA65D /* en */,
+				DCE51901177BD158000CA65D /* zh-Hans */,
+				DCE51902177BD160000CA65D /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

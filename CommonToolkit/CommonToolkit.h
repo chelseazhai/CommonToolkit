@@ -103,4 +103,6 @@
 
 #import "UIAttributedLabel.h"
 
+#import "UIDataLoadingIndicatorView.h"
+
 #endif
