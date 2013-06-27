@@ -63,8 +63,6 @@
 		DC3C160B158B936600B31A79 /* UIActionSheet+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15CD158B936600B31A79 /* UIActionSheet+Extension.m */; };
 		DC3C160C158B936600B31A79 /* UITableView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15CE158B936600B31A79 /* UITableView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3C160D158B936600B31A79 /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15CF158B936600B31A79 /* UITableView+Extension.m */; };
-		DC3C160E158B936600B31A79 /* AddressBookManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D1158B936600B31A79 /* AddressBookManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC3C160F158B936600B31A79 /* AddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D2158B936600B31A79 /* AddressBookManager.m */; };
 		DC3C1610158B936600B31A79 /* CommonUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D3158B936600B31A79 /* CommonUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3C1611158B936600B31A79 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C15D4158B936600B31A79 /* CommonUtils.m */; };
 		DC3C1612158B936600B31A79 /* HttpUtils+Signature.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -126,6 +124,8 @@
 		DCDD5D07175DB88C008DDCB7 /* NSMutableString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DCDD5D05175DB88B008DDCB7 /* NSMutableString+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDD5D08175DB88C008DDCB7 /* NSMutableString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDD5D06175DB88B008DDCB7 /* NSMutableString+Extension.m */; };
 		DCE51900177BD148000CA65D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE518FE177BD148000CA65D /* InfoPlist.strings */; };
+		DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE51925177BDC3F000CA65D /* AddressBookManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE51926177BDC3F000CA65D /* AddressBookManager.m */; };
 		DCE9BEB915A2D7710077AAD7 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB415A2D7710077AAD7 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCE9BEBA15A2D7710077AAD7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE9BEB515A2D7710077AAD7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DCE9BEBB15A2D7710077AAD7 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -201,8 +201,6 @@
 		DC3C15CD158B936600B31A79 /* UIActionSheet+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Extension.m"; sourceTree = "<group>"; };
 		DC3C15CE158B936600B31A79 /* UITableView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extension.h"; sourceTree = "<group>"; };
 		DC3C15CF158B936600B31A79 /* UITableView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
-		DC3C15D1158B936600B31A79 /* AddressBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookManager.h; sourceTree = "<group>"; };
-		DC3C15D2158B936600B31A79 /* AddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookManager.m; sourceTree = "<group>"; };
 		DC3C15D3158B936600B31A79 /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		DC3C15D4158B936600B31A79 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HttpUtils+Signature.h"; sourceTree = "<group>"; };
@@ -275,6 +273,8 @@
 		DCE518FF177BD148000CA65D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Strings/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DCE51901177BD158000CA65D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Strings/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DCE51902177BD160000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Strings/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DCE51925177BDC3F000CA65D /* AddressBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookManager.h; sourceTree = "<group>"; };
+		DCE51926177BDC3F000CA65D /* AddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookManager.m; sourceTree = "<group>"; };
 		DCE9BEB415A2D7710077AAD7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		DCE9BEB515A2D7710077AAD7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		DCE9BEB715A2D7710077AAD7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -313,6 +313,8 @@
 		DC3C1591158B936600B31A79 /* DataStruct */ = {
 			isa = PBXGroup;
 			children = (
+				DCE51925177BDC3F000CA65D /* AddressBookManager.h */,
+				DCE51926177BDC3F000CA65D /* AddressBookManager.m */,
 				DC3C1592158B936600B31A79 /* ContactBean.h */,
 				DC3C1593158B936600B31A79 /* ContactBean.m */,
 				DC3C1594158B936600B31A79 /* ContactBean_Extension.h */,
@@ -480,8 +482,6 @@
 		DC3C15D0158B936600B31A79 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				DC3C15D1158B936600B31A79 /* AddressBookManager.h */,
-				DC3C15D2158B936600B31A79 /* AddressBookManager.m */,
 				DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */,
 				DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */,
 				DCAAC14F1769A01D00F20592 /* AudioServicesUtils.h */,
@@ -662,7 +662,6 @@
 				DC3C1603158B936600B31A79 /* UIViewController+CompatibleView.h in Headers */,
 				DC3C160A158B936600B31A79 /* UIActionSheet+Extension.h in Headers */,
 				DC3C160C158B936600B31A79 /* UITableView+Extension.h in Headers */,
-				DC3C160E158B936600B31A79 /* AddressBookManager.h in Headers */,
 				DC3C1610158B936600B31A79 /* CommonUtils.h in Headers */,
 				DC3C1612158B936600B31A79 /* HttpUtils+Signature.h in Headers */,
 				DC3C1614158B936600B31A79 /* HttpUtils.h in Headers */,
@@ -701,6 +700,7 @@
 				DCB25EF9176EE52400A65D53 /* FMDatabaseQueue.h in Headers */,
 				DCB25EFB176EE52400A65D53 /* FMResultSet.h in Headers */,
 				DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */,
+				DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +791,6 @@
 				DC3C1609158B936600B31A79 /* UIViewExtensionManager.m in Sources */,
 				DC3C160B158B936600B31A79 /* UIActionSheet+Extension.m in Sources */,
 				DC3C160D158B936600B31A79 /* UITableView+Extension.m in Sources */,
-				DC3C160F158B936600B31A79 /* AddressBookManager.m in Sources */,
 				DC3C1611158B936600B31A79 /* CommonUtils.m in Sources */,
 				DC3C1613158B936600B31A79 /* HttpUtils+Signature.m in Sources */,
 				DC3C1615158B936600B31A79 /* HttpUtils.m in Sources */,
@@ -834,6 +833,7 @@
 				DCB25EFA176EE52400A65D53 /* FMDatabaseQueue.m in Sources */,
 				DCB25EFC176EE52400A65D53 /* FMResultSet.m in Sources */,
 				DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */,
+				DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
