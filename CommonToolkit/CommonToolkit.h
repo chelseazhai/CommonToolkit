@@ -19,8 +19,6 @@
 
 #import "DisplayScreenUtils.h"
 
-#import "DeviceUtils.h"
-
 #import "AudioServicesUtils.h"
 
 #import "DataStorageUtils.h"
@@ -106,5 +104,7 @@
 #import "UIAttributedLabel.h"
 
 #import "UIDataLoadingIndicatorView.h"
+
+#import "UIGroupView.h"
 
 #endif

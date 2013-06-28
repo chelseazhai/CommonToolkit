@@ -137,10 +137,10 @@
 		DCE9BEDE15A30F000077AAD7 /* UIViewGestureRecognizerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCEB1C831760150A00A603F7 /* NSStack.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEB1C811760150A00A603F7 /* NSStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCEB1C841760150A00A603F7 /* NSStack.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB1C821760150A00A603F7 /* NSStack.m */; };
-		DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEB1CAD1760882900A603F7 /* DeviceUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */; };
 		DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */; };
+		DCEC7E15177D547900E34BDF /* UIGroupView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEC7E13177D547900E34BDF /* UIGroupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEC7E16177D547900E34BDF /* UIGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEC7E14177D547900E34BDF /* UIGroupView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -288,10 +288,10 @@
 		DCE9BEDD15A305930077AAD7 /* UIViewGestureRecognizerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewGestureRecognizerDelegate.h; sourceTree = "<group>"; };
 		DCEB1C811760150A00A603F7 /* NSStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStack.h; sourceTree = "<group>"; };
 		DCEB1C821760150A00A603F7 /* NSStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStack.m; sourceTree = "<group>"; };
-		DCEB1CAD1760882900A603F7 /* DeviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtils.h; sourceTree = "<group>"; };
-		DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtils.m; sourceTree = "<group>"; };
 		DCEBDFDA1763281A00F5D518 /* AddressBookUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookUIUtils.h; sourceTree = "<group>"; };
 		DCEBDFDB1763281A00F5D518 /* AddressBookUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookUIUtils.m; sourceTree = "<group>"; };
+		DCEC7E13177D547900E34BDF /* UIGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGroupView.h; sourceTree = "<group>"; };
+		DCEC7E14177D547900E34BDF /* UIGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIGroupView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +452,8 @@
 				DC1FDF9215B1774100189331 /* UIAttributedLabel.m */,
 				DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */,
 				DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */,
+				DCEC7E13177D547900E34BDF /* UIGroupView.h */,
+				DCEC7E14177D547900E34BDF /* UIGroupView.m */,
 				DCBC767F1597FF6000EBEC1D /* UISoftKeyboard.h */,
 				DCBC76801597FF6000EBEC1D /* UISoftKeyboard.m */,
 				DCBC7690159836EF00EBEC1D /* UISoftKeyboardCell.h */,
@@ -494,8 +496,6 @@
 				DC3C15D4158B936600B31A79 /* CommonUtils.m */,
 				DC239EEF176AB3FC00A97729 /* DataStorageUtils.h */,
 				DC239EF0176AB3FC00A97729 /* DataStorageUtils.m */,
-				DCEB1CAD1760882900A603F7 /* DeviceUtils.h */,
-				DCEB1CAE1760882A00A603F7 /* DeviceUtils.m */,
 				DC756BD3175306CD00F287FA /* DisplayScreenUtils.h */,
 				DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */,
 				DC3C15D5158B936600B31A79 /* HttpUtils+Signature.h */,
@@ -695,7 +695,6 @@
 				DC8F3DB7175C364D00EF6F78 /* C&CPP+Extension.h in Headers */,
 				DCDD5D07175DB88C008DDCB7 /* NSMutableString+Extension.h in Headers */,
 				DCEB1C831760150A00A603F7 /* NSStack.h in Headers */,
-				DCEB1CAF1760882A00A603F7 /* DeviceUtils.h in Headers */,
 				DCEBDFDC1763281A00F5D518 /* AddressBookUIUtils.h in Headers */,
 				DCAAC1511769A01D00F20592 /* AudioServicesUtils.h in Headers */,
 				DC239EF1176AB3FC00A97729 /* DataStorageUtils.h in Headers */,
@@ -708,6 +707,7 @@
 				DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */,
 				DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */,
 				DCE5192B177BE330000CA65D /* VersionUtils.h in Headers */,
+				DCEC7E15177D547900E34BDF /* UIGroupView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,7 +829,6 @@
 				DC8F3DE6175C70B400EF6F78 /* ReversePolandNotation.m in Sources */,
 				DCDD5D08175DB88C008DDCB7 /* NSMutableString+Extension.m in Sources */,
 				DCEB1C841760150A00A603F7 /* NSStack.m in Sources */,
-				DCEB1CB01760882A00A603F7 /* DeviceUtils.m in Sources */,
 				DCEBDFDD1763281A00F5D518 /* AddressBookUIUtils.m in Sources */,
 				DCAAC1521769A01D00F20592 /* AudioServicesUtils.m in Sources */,
 				DC239EF2176AB3FC00A97729 /* DataStorageUtils.m in Sources */,
@@ -842,6 +841,7 @@
 				DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */,
 				DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */,
 				DCE5192C177BE330000CA65D /* VersionUtils.m in Sources */,
+				DCEC7E16177D547900E34BDF /* UIGroupView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,18 +10,13 @@
 
 #import "DisplayScreenUtils.h"
 
-#import "DeviceUtils.h"
+#import "UIDevice+Extension.h"
 
 // display screen long height
 #define DISPLAYSCREEN_LONGHEIGHT    1136.0
 
 // display screen long height compatible image suffix
 #define DISPLAYSCREEN_LONGHEIGHT_COMPATIBLEIMGSUFFIX    @"-568h"
-
-// system setting languages: en, zh-Hans and zh-Hant
-#define EN_LANGUAGE @"en"
-#define ZH_HANS_LANGUAGE    @"zh-Hans"
-#define ZH_HANT_LANGUAGE    @"zh-Hant"
 
 @interface UIImage (Private)
 
@@ -97,15 +92,22 @@
 @implementation UIImage (Private)
 
 + (NSString *)systemSettingLanguageCompatibleImageSuffix{
-    NSString *_compatibleImageSuffix = @"-en";
+    NSString *_compatibleImageSuffix;
     
     // get and check system current setting language
-    NSString *_systemCurrentSettingLanguage = [DeviceUtils systemSettingLanguage];
-    if ([ZH_HANS_LANGUAGE isEqualToString:_systemCurrentSettingLanguage]) {
-        _compatibleImageSuffix = @"-hs";
-    }
-    else if ([ZH_HANT_LANGUAGE isEqualToString:_systemCurrentSettingLanguage]) {
-        _compatibleImageSuffix = @"-ht";
+    switch ([UIDevice currentDevice].systemCurrentSettingLanguage) {
+        case zh_Hans:
+            _compatibleImageSuffix = @"-hs";
+            break;
+            
+        case zh_Hant:
+            _compatibleImageSuffix = @"-ht";
+            break;
+            
+        case en:
+        default:
+            _compatibleImageSuffix = @"-en";
+            break;
     }
     
     return _compatibleImageSuffix;
