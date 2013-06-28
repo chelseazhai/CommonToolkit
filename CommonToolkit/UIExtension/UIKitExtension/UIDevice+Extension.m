@@ -10,6 +10,8 @@
 
 #import <sys/utsname.h>
 
+#import "NSString+Extension.h"
+
 // UIDevice extension
 @interface UIDevice (Private)
 
@@ -39,6 +41,15 @@
     }
     
     return _ret;
+}
+
+- (NSString *)combinedUniqueId{
+    // get unique id
+    NSString *_uniqueId = self.uniqueId;
+    
+    NSLog(@"Info: device unique id = %@", _uniqueId);
+    
+    return [_uniqueId md5];
 }
 
 - (NSString *)hardwareModel{

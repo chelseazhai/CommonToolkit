@@ -27,6 +27,9 @@ typedef enum {
 // unique identifier
 @property (nonatomic, readonly) NSString *uniqueId;
 
+// combined unique id(had been md5)
+@property (nonatomic, readonly) NSString *combinedUniqueId;
+
 // hardware model
 @property (nonatomic, readonly) NSString *hardwareModel;
 
