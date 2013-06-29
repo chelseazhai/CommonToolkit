@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// ios device brand string
+#define IOSDEVICEBRAND  @"Apple"
+
 // system current setting language
 typedef enum {
     // English
