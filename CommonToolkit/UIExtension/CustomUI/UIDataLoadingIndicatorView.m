@@ -104,7 +104,7 @@
 
 - (void)startAnimating{
     // start data loading indicator view animating
-    [_mDataLoadingIndicatorView stopAnimating];
+    [_mDataLoadingIndicatorView startAnimating];
     
     // show ui data loading indicator view
     self.hidden = NO;

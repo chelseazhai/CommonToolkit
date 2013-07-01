@@ -107,4 +107,6 @@
 
 #import "UIGroupView.h"
 
+#import "UIPopupWindow.h"
+
 #endif

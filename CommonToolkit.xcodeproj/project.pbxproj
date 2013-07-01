@@ -81,6 +81,8 @@
 		DC756BD6175306CD00F287FA /* DisplayScreenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */; };
 		DC7D201515E476DF000E2407 /* PinyinUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7D201315E476DF000E2407 /* PinyinUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7D201615E476DF000E2407 /* PinyinUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7D201415E476DF000E2407 /* PinyinUtils.m */; };
+		DC80529617815C8300048D0B /* UIPopupWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = DC80529417815C8300048D0B /* UIPopupWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC80529717815C8300048D0B /* UIPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DC80529517815C8300048D0B /* UIPopupWindow.m */; };
 		DC82FB19177A905400480E61 /* UIDataLoadingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC82FB1A177A905400480E61 /* UIDataLoadingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */; };
 		DC8F3D671759D5F700EF6F78 /* NSValue+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8F3D651759D5F700EF6F78 /* NSValue+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -223,6 +225,8 @@
 		DC756BD4175306CD00F287FA /* DisplayScreenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayScreenUtils.m; sourceTree = "<group>"; };
 		DC7D201315E476DF000E2407 /* PinyinUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinUtils.h; sourceTree = "<group>"; };
 		DC7D201415E476DF000E2407 /* PinyinUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinUtils.m; sourceTree = "<group>"; };
+		DC80529417815C8300048D0B /* UIPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPopupWindow.h; sourceTree = "<group>"; };
+		DC80529517815C8300048D0B /* UIPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopupWindow.m; sourceTree = "<group>"; };
 		DC82FB17177A905400480E61 /* UIDataLoadingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDataLoadingIndicatorView.h; sourceTree = "<group>"; };
 		DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDataLoadingIndicatorView.m; sourceTree = "<group>"; };
 		DC8F3D651759D5F700EF6F78 /* NSValue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Extension.h"; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 				DC82FB18177A905400480E61 /* UIDataLoadingIndicatorView.m */,
 				DCEC7E13177D547900E34BDF /* UIGroupView.h */,
 				DCEC7E14177D547900E34BDF /* UIGroupView.m */,
+				DC80529417815C8300048D0B /* UIPopupWindow.h */,
+				DC80529517815C8300048D0B /* UIPopupWindow.m */,
 				DCBC767F1597FF6000EBEC1D /* UISoftKeyboard.h */,
 				DCBC76801597FF6000EBEC1D /* UISoftKeyboard.m */,
 				DCBC7690159836EF00EBEC1D /* UISoftKeyboardCell.h */,
@@ -708,6 +714,7 @@
 				DCE51927177BDC3F000CA65D /* AddressBookManager.h in Headers */,
 				DCE5192B177BE330000CA65D /* VersionUtils.h in Headers */,
 				DCEC7E15177D547900E34BDF /* UIGroupView.h in Headers */,
+				DC80529617815C8300048D0B /* UIPopupWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +849,7 @@
 				DCE51928177BDC3F000CA65D /* AddressBookManager.m in Sources */,
 				DCE5192C177BE330000CA65D /* VersionUtils.m in Sources */,
 				DCEC7E16177D547900E34BDF /* UIGroupView.m in Sources */,
+				DC80529717815C8300048D0B /* UIPopupWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
