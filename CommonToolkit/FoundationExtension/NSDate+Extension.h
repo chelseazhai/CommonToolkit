@@ -10,7 +10,13 @@
 
 @interface NSDate (Extension)
 
+// data string with format and time zone
+- (NSString *)stringWithFormat:(NSString *)pFormat timeZone:(NSTimeZone *)pTimeZone;
+
 // data string with format
 - (NSString *)stringWithFormat:(NSString *)pFormat;
+
+// compare with date component unit flags
+- (NSComparisonResult)compare:(NSDate *)pAnotherDate componentUnitFlags:(NSUInteger)pUnitFlags;
 
 @end
