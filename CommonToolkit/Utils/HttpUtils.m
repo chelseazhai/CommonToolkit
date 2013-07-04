@@ -14,6 +14,9 @@
 
 #import "HttpRequestManager.h"
 
+// http request user info extension support type set
+#define HTTPREQUESTUSERINFOEXTSUPPORTTYPESET    [NSSet setWithObjects:HTTPREQUESTRESPONSEENCODING, nil]
+
 // http request method mode type
 typedef enum {
     get,
@@ -117,7 +120,38 @@ typedef enum {
     // set delegate
     _request.delegate = [[HttpRequestManager shareHttpRequestManager] httpRequestBeanForKey:[NSNumber numberWithInteger:[_request hash]]];
     
-    // set user infomation
+    // check and set user infomation
+    if (nil != pUserInfo) {
+        @autoreleasepool {
+            // define ASIHTTPRequest user info dictionary
+            NSMutableDictionary *_asiHTTPRequestUserInfo = [[NSMutableDictionary alloc] initWithDictionary:pUserInfo];
+            
+            // process each user info key-value
+            for (int index = 0; index < [pUserInfo.allKeys count]; index++) {
+                // get user info dictionary key
+                NSString *_userInfoKey = [pUserInfo.allKeys objectAtIndex:index];
+                
+                // check user info key-value if or not needed to process
+                if ([HTTPREQUESTUSERINFOEXTSUPPORTTYPESET containsObject:_userInfoKey]) {
+                    // process http request response encoding
+                    if ([HTTPREQUESTRESPONSEENCODING isEqualToString:_userInfoKey]) {
+                        // set http request response encoding
+                        _request.defaultResponseEncoding = _request.responseEncoding = ((NSNumber *)[pUserInfo objectForKey:_userInfoKey]).unsignedIntegerValue;
+                    }
+                    
+                    // remove the custom user info key-value
+                    [_asiHTTPRequestUserInfo removeObjectForKey:_userInfoKey];
+                }
+                else {
+                    // get next user info dictionary key
+                    continue;
+                }
+            }
+            
+            // reset user info dictionary param
+            pUserInfo = _asiHTTPRequestUserInfo;
+        }
+    }
     _request.userInfo = pUserInfo;
     
     // set response selectors

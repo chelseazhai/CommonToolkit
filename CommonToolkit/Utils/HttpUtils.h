@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+// http request user info extension support type
+#define HTTPREQUESTRESPONSEENCODING @"http request response encoding"
+
 // http request type
 typedef enum {
     synchronous,
