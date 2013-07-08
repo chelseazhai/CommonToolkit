@@ -447,6 +447,20 @@ void addressBookChanged(ABAddressBookRef addressBook, CFDictionaryRef info, void
     return _ret;
 }
 
+- (NSNumber *)isContactWithPhoneInAddressBook:(NSString *)pPhoneNumber{
+    NSNumber *_ret = nil;
+    
+    // get contact information array by particular phone number
+    NSArray *_contactInfoArray = [self getContactInfoByPhoneNumber:pPhoneNumber];
+    
+    // check contact info array
+    if (0 < [_contactInfoArray count]) {
+        _ret = [NSNumber numberWithInteger:((ContactBean *)[_contactInfoArray objectAtIndex:0]).id];
+    }
+    
+    return _ret;
+}
+
 - (void)addABChangedObserver:(id)pObserver{
     // fetch the addressBook
     ABAddressBookRef addressBook = [self fetchAddressBook];

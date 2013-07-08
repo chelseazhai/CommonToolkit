@@ -137,6 +137,9 @@ typedef enum {
 // contacts display name array with user input phone number
 - (NSArray *)contactsDisplayNameArrayWithPhoneNumber:(NSString *)pPhoneNumber;
 
+// is contact with the given phone number in address book, return the contact id if ture else return nil
+- (NSNumber *)isContactWithPhoneInAddressBook:(NSString *)pPhoneNumber;
+
 // add addressBook changed callback observer
 - (void)addABChangedObserver:(id)pObserver;
 
