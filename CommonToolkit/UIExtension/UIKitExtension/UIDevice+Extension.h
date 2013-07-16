@@ -27,9 +27,6 @@ typedef enum {
 // system version number
 @property (nonatomic, readonly) CGFloat systemVersionNum;
 
-// unique identifier
-@property (nonatomic, readonly) NSString *uniqueId;
-
 // combined unique id(had been md5)
 @property (nonatomic, readonly) NSString *combinedUniqueId;
 
